@@ -1,0 +1,316 @@
+digraph BeecarbonizeEvents {
+  //graph [rankdir="LR",ranksep="5"];
+  bgcolor="gray30";
+  layout=fdp;
+  edge [color="white",penwidth=5];
+  subgraph Cards {
+    graph [rankdir="LR"];
+    label="Cards"
+    cluster=false
+    subgraph Industry { 
+      cluster=false
+      color="fuchsia";
+      node [color="fuchsia", shape=box, style=filled, fillcolor="plum"];
+      "Industry 20th century"
+      "Renewables"
+      "Fossil power"
+      "Wind energy"
+      "Massive mining"
+      "Gas power plants"
+      "Pollution regulation"
+      "Solar energy"
+      "Giant hydro plants"
+      "Sahara solar field"
+      "Controlled weather"
+      "Solar subsidies"
+      "Nuclear energy"
+      "Safer nuclear energy"
+      "Nuclear energy 2.0"
+      "Modular nuclear reactor"
+      "Deep sea mining"
+      "Fracking"
+      "Solar energy 2.0"
+      "Geothermal wells"
+      "Water desalination"
+    }
+    subgraph Ecosystems { 
+      cluster=false
+      color="green";
+      node [color="green", shape=box, style=filled, fillcolor="palegreen"];
+      edge [color="palegreen"];
+      "Robobees"
+      "Hedges & Ponds"
+      "Nature restoration"
+      "Protected landscapes"
+      "Ecosystems approach"
+      "Ecocentrism"
+      "Agroforestry"
+      "30 by 30"
+      "Carbon storing pasture"
+      "Precision agriculture"
+      "Kelp plantations"
+      "Biophilic approach"
+      "Hydropony"
+      "Mass forestation"
+      "Greening deserts"
+      "Coral restoration"
+      "GMO"
+      "Laboratory food"
+      "Nature engineers"
+      "Mangroves planting"
+      "Rainwater harvest"
+      "Aquaponics"
+      "Amazon reforestation"
+    }
+    subgraph People {
+      cluster=false
+      color="gold";
+      node [color="gold", shape=box, style=filled, fillcolor="goldenrod1"];
+      edge [color="goldenrod1"];
+      "Loss & Damage Aid"
+      "Carbon tax"
+      "VR utopia"
+      "Polluters pay"
+      "Decentralized power grid"
+      "Refugee integration"
+      "Mass airconditioning"
+      "Tribal culture"
+      "Genetical utopia"
+    }
+    subgraph Science {
+      cluster=false
+      color="dodgerblue";
+      node [color="dodgerblue", shape=box, style=filled, fillcolor="lightskyblue"];
+      edge [color="lightskyblue"];
+      "Science funding"
+      "Emission cleaning"
+      "Research centers"
+      "Geoengineering"
+      "Artificial ecosystems"
+      "Carbon Storage"
+      "Meteorological models"
+      "Artificial corals"
+      "Coastal barriers"
+      "Moon commuting"
+      "High-capacity batteries"
+      "Departure of some"
+      "Reflective sheets"
+      "Designer babies"
+    }
+  }
+  subgraph Events {
+    cluster=false
+    label="Events";
+    node [color="gold3",shape=ellipse,style=filled,color="gray10",fontcolor="white"];
+    edge [color="gold3"];
+    "Environmental refusal"
+    "Oil rig explosion"
+    "Non-regulated pollutants"
+    "Desinformation campaign"
+    "Windless dark winter"
+    "Lack of fossil fuels"
+    "Amazon forest collapse"
+    "Local conflicts"
+    "Biodiversity breakdown"
+    "Mass ecoterrorism"
+    "Ecoterrorism"
+    "Deep see fishing"
+    "Lack of uranium"
+    "Gas shortage"
+    "Lack of rare minerals"
+    "Unpredictable weather"
+    "Local hunger revolutions"
+    "Deadly heatwaves"
+    "Widespread cancer"
+    "Crop failure"
+    "Nuclear catasrophe"
+    "Radioactive leak"
+    "Pollinators extinction"
+    "Draws and pools"
+    "Intense drought"
+    "Monoculture prohibition"
+    "Forest fires"
+    "Anti enviro movement"
+    "Wild deforestation"
+    "Mega drought"
+    "Peatland drying up"
+    "Crop failure"
+    "Tragical harvest"
+    "Kelp forest breakdown"
+    "Lack of coffee"
+    "Food chain disruption"
+    "Lack of drinking water"
+    "Coral die-off"
+    "Climate refugees"
+    "World hunger"
+    "Massive flood"
+    "Rising ocean levels"
+    "Coastal countries sinked"
+    "Fossil backed dezinfo"
+    "Youth revolt"
+    "Clima apathy"
+    "Energy shortage"
+    "War on science"
+    "Fringe research"
+    "Last elephants"
+    "Coral die-off"
+    "Coastal refugees"
+    "Melting arctic ice"
+    "No arctic reflections"
+    "Famine at equator"
+    "Stop wasting food"
+    "Aging Demographic"
+  }
+  "Industry 20th century" -> "Environmental refusal" [color="red"]
+  "Industry 20th century" -> "Oil rig explosion" [color="red"]
+  "Industry 20th century" -> "Non-regulated pollutants" [color="red"]
+  "Renewables" -> "Desinformation campaign" [color="red"]
+  "Renewables" -> "Windless dark winter" [color="red"]
+  "Fossil power" -> "Oil rig explosion" [color="red"]
+  "Fossil power" -> "Non-regulated pollutants" [color="red"]
+  "Wind energy" -> "Windless dark winter" [color="red"]
+  "Massive mining" -> "Lack of fossil fuels" [color="green"]
+  "Massive mining" -> "Amazon forest collapse" [color="red"]
+  "Massive mining" -> "Local conflicts" [color="red"]
+  "Massive mining" -> "Biodiversity breakdown" [color="red"]
+  "Massive mining" -> "Food chain disruption" [color="red"]
+  "Massive mining" -> "Mass ecoterrorism" [color="red"]
+  "Massive mining" -> "Ecoterrorism" [color="red"]
+  "Massive mining" -> "Lack of uranium" [color="green"]
+  "Gas power plants" -> "Gas shortage" [color="red"]
+  "Pollution regulation" -> "Oil rig explosion" [color="green"]
+  "Pollution regulation" -> "Non-regulated pollutants" [color="green"]
+  "Solar energy" -> "Windless dark winter" [color="red"]
+  "Giant hydro plants" -> "Biodiversity breakdown" [color="red"]
+  "Sahara solar field" -> "Lack of rare minerals" [color="red",arrowhead=normalnormal]
+  "Controlled weather" -> "Non-regulated pollutants" [color="green"]
+  "Controlled weather" -> "Unpredictable weather" [color="green"]
+  "Controlled weather" -> "Local hunger revolutions" [color="green"]
+  "Controlled weather" -> "Deadly heatwaves" [color="green"]
+  "Controlled weather" -> "Widespread cancer" [color="red"]
+  "Controlled weather" -> "Crop failure" [color="green"]
+  "Controlled weather" -> "Windless dark winter" [color="green"]
+  "Solar subsidies" -> "Desinformation campaign" [color="red"]
+  "Solar subsidies" -> "Windless dark winter" [color="red"]
+  "Nuclear energy" -> "Nuclear catasrophe" [color="red"]
+  "Nuclear energy" -> "Lack of uranium" [color="red"]
+  "Nuclear energy" -> "Radioactive leak" [color="red"]
+  "Safer nuclear energy" -> "Nuclear catasrophe" [color="green",arrowhead=normalnormal]
+  "Safer nuclear energy" -> "Radioactive leak" [color="green"]
+  "Nuclear energy 2.0" -> "Nuclear catasrophe" [color="red"]
+  "Nuclear energy 2.0" -> "Lack of uranium" [color="red"]
+  "Nuclear energy 2.0" -> "Radioactive leak" [color="red"]
+  "Modular nuclear reactor" -> "Radioactive leak" [color="red"]
+  "Deep sea mining" -> "Biodiversity breakdown" [color="red",arrowhead=normalnormal]
+  "Deep sea mining" -> "Deep see fishing" [color="red",arrowhead=normalnormal]
+  "Deep sea mining" -> "Ecoterrorism" [color="red"]
+  "Deep sea mining" -> "Mass ecoterrorism" [color="red"]
+  "Fracking" -> "Gas shortage" [color="green"]
+  "Fracking" -> "Mass ecoterrorism" [color="red"]
+  "Fracking" -> "Ecoterrorism" [color="red"]
+  "Fracking" -> "Non-regulated pollutants" [color="red"]
+  "Solar energy 2.0" -> "Lack of rare minerals" [color="red",arrowhead=normalnormal]
+  "Geothermal wells" -> "Windless dark winter" [color="green"]
+  "Water desalination" -> "Lack of drinking water" [color="green",arrowhead=normalnormal]
+  "Robobees" -> "Pollinators extinction" [color="green"]
+  "Hedges & Ponds" -> "Draws and pools" [color="green",arrowhead=normalnormal]
+  "Hedges & Ponds" -> "Intense drought" [color="green"]
+  "Nature restoration" -> "Monoculture prohibition" [color="green"]
+  "Protected landscapes" -> "Intense drought" [color="green"]
+  "Protected landscapes" -> "Forest fires" [color="green"]
+  "Ecosystems approach" -> "Environmental refusal" [color="green"]
+  "Ecocentrism" -> "Environmental refusal" [color="green"]
+  "Ecocentrism" -> "Anti enviro movement" [color="green"]
+  "Ecocentrism" -> "Desinformation campaign" [color="green",arrowhead=normalnormal]
+  "Agroforestry" -> "Wild deforestation" [color="green"]
+  "Agroforestry" -> "Amazon forest collapse" [color="green"]
+  "30 by 30" -> "Intense drought" [color="green"]
+  "30 by 30" -> "Mega drought" [color="green"]
+  "Carbon storing pasture" -> "Peatland drying up" [color="green"]
+  "Precision agriculture" -> "Crop failure" [color="green"]
+  "Precision agriculture" -> "Tragical harvest" [color="green"]
+  "Kelp plantations" -> "Kelp forest breakdown" [color="green"]
+  "Kelp plantations" -> "Mega drought" [color="green"]
+  "Biophilic approach" -> "Environmental refusal" [color="green"]
+  "Biophilic approach" -> "Anti enviro movement" [color="green"]
+  "Biophilic approach" -> "Desinformation campaign" [color="green",arrohead=normalnormal]
+  "Hydropony" -> "Lack of coffee" [color="green"]
+  "Hydropony" -> "Local hunger revolutions" [color="green"]
+  "Hydropony" -> "Food chain disruption" [color="green"]
+  "Mass forestation" -> "Wild deforestation" [color="green"]
+  "Mass forestation" -> "Non-regulated pollutants" [color="green"]
+  "Greening deserts" -> "Wild deforestation" [color="green"]
+  "Greening deserts" -> "Lack of drinking water" [color="green"]
+  "Coral restoration" -> "Food chain disruption" [color="green"]
+  "Coral restoration" -> "Coral die-off" [color="green"]
+  "GMO" -> "Lack of coffee" [color="green"]
+  "GMO" -> "Local hunger revolutions" [color="green"]
+  "GMO" -> "Tragical harvest" [color="green"]
+  "GMO" -> "Food chain disruption" [color="green"]
+  "Laboratory food" -> "Tragical harvest" [color="green"]
+  "Laboratory food" -> "Climate refugees" [color="green"]
+  "Laboratory food" -> "World hunger" [color="green"]
+  "Laboratory food" -> "Widespread cancer" [color="red"]
+  "Nature engineers" -> "Intense drought" [color="green"]
+  "Mangroves planting" -> "Massive flood" [color="green",arrowhead=normalnormal]
+  "Mangroves planting" -> "Rising ocean levels" [color="green"]
+  "Mangroves planting" -> "Coastal countries sinked" [color="green"]
+  "Rainwater harvest" -> "Lack of drinking water" [color="green"]
+  "Rainwater harvest" -> "Intense drought" [color="green"]
+  "Aquaponics" -> "Famine at equator" [color="green"]
+  "Amazon reforestation" -> "Wild deforestation" [color="green"]
+  "Loss & Damage Aid" -> "Local conflicts" [color="green"]
+  "Loss & Damage Aid" -> "Local hunger revolutions" [color="green"]
+  "Loss & Damage Aid" -> "Climate refugees" [color="green"]
+  "Carbon tax" -> "Desinformation campaign" [color="red"]
+  "VR utopia" -> "Non-regulated pollutants" [color="green"]
+  "VR utopia" -> "Desinformation campaign" [color="green",arrowhead=normalnormal]
+  "VR utopia" -> "Fossil backed dezinfo" [color="green"]
+  "VR utopia" -> "Local conflicts" [color="green"]
+  "VR utopia" -> "Youth revolt" [color="green"]
+  "VR utopia" -> "Clima apathy" [color="red"]
+  "VR utopia" -> "Mass ecoterrorism" [color="green"]
+  "VR utopia" -> "Ecoterrorism" [color="green"]
+  "Polluters pay" -> "Desinformation campaign" [color="red"]
+  "Decentralized power grid" -> "Windless dark winter" [color="green"]
+  "Decentralized power grid" -> "Energy shortage" [color="green"]
+  "Refugee integration" -> "Climate refugees" [color="green"]
+  "Mass airconditioning" -> "Deadly heatwaves" [color="green",arrowhead=normalnormal]
+  "Tribal culture" -> "War on science" [color="red",arrowhead=normalnormal]
+  "Genetical utopia" -> "Deadly heatwaves" [color="green"]
+  "Genetical utopia" -> "Widespread cancer" [color="green"]
+  "Genetical utopia" -> "Stop wasting food" [color="green"]
+  "Genetical utopia" -> "Lack of coffee" [color="green"]
+  "Genetical utopia" -> "Youth revolt" [color="green"]
+  "Science funding" -> "Fringe research" [color="red"]
+  "Emission cleaning" -> "Widespread cancer" [color="red"]
+  "Research centers" -> "Clima apathy" [color="red"]
+  "Geoengineering" -> "Widespread cancer" [color="red"]
+  "Artificial ecosystems" -> "Peatland drying up" [color="green"]
+  "Artificial ecosystems" -> "Clima apathy" [color="green"]
+  "Artificial ecosystems" -> "Biodiversity breakdown" [color="green"]
+  "Artificial ecosystems" -> "Last elephants" [color="green"]
+  "Carbon Storage" -> "Clima apathy" [color="red"]
+  "Meteorological models" -> "Non-regulated pollutants" [color="green"]
+  "Meteorological models" -> "Unpredictable weather" [color="green"]
+  "Meteorological models" -> "Crop failure" [color="green"]
+  "Meteorological models" -> "Windless dark winter" [color="green"]
+  "Artificial corals" -> "Unpredictable weather" [color="green"]
+  "Artificial corals" -> "Coral die-off" [color="green"]
+  "Coastal barriers" -> "Rising ocean levels" [color="green"]
+  "Coastal barriers" -> "Coastal countries sinked" [color="green"]
+  "Coastal barriers" -> "Coastal refugees" [color="green"]
+  "Moon commuting" -> "Clima apathy" [color="red"]
+  "Moon commuting" -> "Youth revolt" [color="red"]
+  "High-capacity batteries" -> "Windless dark winter" [color="green"]
+  "Departure of some" -> "Clima apathy" [color="red"]
+  "Departure of some" -> "Youth revolt" [color="red"]
+  "Reflective sheets" -> "Melting arctic ice" [color="green",arrowhead=normalnormal]
+  "Reflective sheets" -> "No arctic reflections" [color="green",arrowhead=normalnormal]
+  "Designer babies" -> "Deadly heatwaves" [color="green"]
+  "Designer babies" -> "Widespread cancer" [color="green"]
+  "Designer babies" -> "Stop wasting food" [color="green"]
+  "Designer babies" -> "Lack of coffee" [color="green"]
+  "Designer babies" -> "Youth revolt" [color="green"]
+  "Designer babies" -> "Aging Demographic" [color="green"]
+}
