@@ -12,7 +12,8 @@ digraph BeecarbonizeTechTree {
     "Industry 20th century" -> "Fossil power"
     "Industry 20th century" -> "Renewables"
     "Industry 20th century" -> "Nuclear energy"
-    "Industry 20th century" -> "Water desalination" [style=invis,weight=0.1]
+    //"Industry 20th century" -> "Crumbling infrastructure"
+    //"Industry 20th century" -> "Proverty protests"
     "Renewables" -> "Wind energy"
     "Renewables" -> "Solar energy"
     "Renewables" -> "Hydro energy"
@@ -23,6 +24,7 @@ digraph BeecarbonizeTechTree {
     "Wind energy" -> "Offshore wind farms"
     "Massive mining" -> "Fracking"
     "Massive mining" -> "Deep sea mining"
+    "Massive mining" -> "Water desalination"
     "Gas power plants"
     "Pollution regulation"
     "Hydro energy" -> "Wave hydro plants"
@@ -40,21 +42,23 @@ digraph BeecarbonizeTechTree {
     "Nuclear energy" -> "Nuclear energy 2.0"
     "Nuclear energy" -> "Safer nuclear energy"
     "Nuclear energy" -> "Basic fusion"
+    //"Nuclear energy" -> "Nuclear clean-up"
     "Coal power plants" -> "Cleaner fossil energy"
     "Safer nuclear energy"
-    "Cleaner fossil energy" -> "Pollution regulation"
+    "Cleaner fossil energy"
     "Massive automation"
     "Basic fusion" -> "Fusion energy" [dir=both,arrowtail=odiamond]
     "Nuclear energy 2.0" -> "Modular nuclear reactor"
     "Fusion energy" -> "Modular fusion reactors" [dir=both,arrowtail=odiamond]
     "Modular nuclear reactor"
-    "Modular fusion reactors" -> "Industry 22th century" [dir=both,arrowtail=odiamond]
-    "Industry 22th century" [style=filled,fillcolor="khaki1",shape=octagon]
+    "Modular fusion reactors" -> "Industry 22nd century" [dir=both,arrowtail=odiamond]
+    "Industry 22nd century" [style=filled,fillcolor="khaki1",shape=octagon]
     "Deep sea mining"
     "Fracking"
     "Solar energy 2.0"
     "Geothermal wells"
     "Water desalination"
+    "Miracle enzyme"
   }
   subgraph Ecosystems { 
     // cluster=true;
@@ -67,11 +71,11 @@ digraph BeecarbonizeTechTree {
     "Nature conservation" -> "Nature restoration"
     "Robobees"
     "Local solutions" -> "Rainwater harvest"
-    "Local solutions" -> "Hedges & Ponds"
+    "Local solutions" -> "Groves and pools"
     "Local solutions" -> "Mangroves planting"
     "Local solutions" -> "Nature engineers"
     "Local solutions" -> "Permaculture"
-    "Hedges & Ponds"
+    "Groves and pools"
     "Nature restoration" -> "Protected landscapes"
     "Nature restoration" -> "Ecosystems approach"
     "Nature restoration" -> "World climate fund"
@@ -136,6 +140,7 @@ digraph BeecarbonizeTechTree {
     "Decentralized economy" -> "Doughnut economy" [dir=both,arrowtail=odiamond]
     "Transition from fossils" -> "Sustainable transport"
     "Transition from fossils" -> "Solar subsidies"
+    "Transition from fossils" -> "Pollution regulation"
     "Doughnut economy" -> "Eco-symbiosis" [dir=both,arrowtail=odiamond]
     "Loss & Damage Aid"
     "Eco-symbiosis" [style=filled,fillcolor="khaki1",shape=octagon]
@@ -156,7 +161,7 @@ digraph BeecarbonizeTechTree {
     "Tribal culture" -> "No tech civilization" [dir=both,arrowtail=odiamond]
     "No tech civilization" [style=filled,fillcolor="khaki1",shape=octagon]
     "Energy-efficient cities"
-    "Genetical utopia"
+    "Genetic utopia"
   }
   subgraph Science {
     // cluster=true;
@@ -170,8 +175,8 @@ digraph BeecarbonizeTechTree {
     "Science incubator" -> "High-capacity batteries"
     "Science incubator" -> "Robobees"
     "Science incubator" -> "Geothermal wells"
-    "Science incubator" -> "Reflective sheets"
     "Science incubator" -> "Space research"
+    "Science incubator" -> "Miracle enzyme"
     "Emission cleaning" -> "Carbon Storage"
     "Emission cleaning" -> "Carbon capture"
     "Carbon capture"
@@ -179,6 +184,7 @@ digraph BeecarbonizeTechTree {
     "Research centers" -> "Geoengineering"
     "Geoengineering" -> "Artificial ecosystems"
     "Geoengineering" -> "Meteorological models"
+    "Geoengineering" -> "Atmospheric aerosols"
     "Artificial ecosystems" -> "Coastal barriers"
     "Artificial ecosystems" -> "Artificial corals"
     "Carbon Storage" -> "Carbon Storage 2.0" [dir=both,arrowtail=odiamond]
@@ -200,7 +206,12 @@ digraph BeecarbonizeTechTree {
     "Departure of some" -> "Planet B colonised" [dir=both,arrowtail=odiamond]
     "Reflective sheets"
     "Planet B colonised" [style=filled,fillcolor="khaki1",shape=octagon]
-    "Designer babies" -> "Genetical utopia" [dir=both,arrowtail=odiamond]
+    "Designer babies" -> "Genetic utopia" [dir=both,arrowtail=odiamond]
+    "Atmospheric aerosols" -> "Radiative cooling"
+    "Atmospheric aerosols" -> "Space mirrors"
+    "Atmospheric aerosols" -> "Reflective sheets"
+    "Planetary thermostat" [style=filled,fillcolor="khaki1",shape=octagon]
+    "Space mirrors" -> "Planetary thermostat" [dir=both,arrowtail=odiamond]
   }
   subgraph {
     label="Forward Events";
@@ -208,19 +219,36 @@ digraph BeecarbonizeTechTree {
     node [color="gold3",shape=ellipse,style=filled,color="gray10",fontcolor="white"];
     edge [color="gold3", dir=both, arrowtail=odiamond];
     "Acidic oceans" -> "Nature restoration"
+    "Boreal forest collapse" -> "Nature restoration"
+    "Nuclear clean-up" -> "Nature restoration"
     "Deep see fishing" -> "Protected landscapes"
+    //"Deep see fishing" -> "Biodiversity breakdown"
     "Biodiversity breakdown" -> "Protected landscapes"
     "Biosphere collapse" -> "Protected landscapes"
     "Unpredictable weather" -> "Meteorological models"
+    "Chaotic monsoons" -> "Meteorological models"
+    //"Chaotic monsoons" -> "Massive migration"
     "No to consumerism" -> "Lifestyle changes"
     "Sea current disruption" -> "Carbon tax"
-    "Lack of drinking water" -> "Water desalination"
     "Youth revolt" -> "Decentralized economy"
+    //"Youth revolt" -> "Climate apathy"
     "Loss & Damage Aid" -> "Youth revolt" [style=invis, weight=0.5]
     {rank=same; "Youth revolt" "Decentralized economy"}
     "Lack of uranium" -> "Massive mining"
     "Forest fires" -> "Nature restoration"
-    "Monoculture prohibition" -> "Nature restoration"
+    "Anti-monoculture laws" -> "Nature restoration"
+    "Rouge AI" -> "Humankind engineering"
+    "Garbage landslides" -> "Nature engineers"
+    //"Garbage landslides" -> "Mass ecoterrorism"
+    "100 year floods" -> "Nature engineers"
+    "Nitrogen run-off" -> "Regenerative agriculture"
+    "Crumbling infrastructure" -> "Agroforestry"
+    "Invasive weeds" -> "Ecocentrism"
+    "Private space travels" -> "Voluntary frugality"
+    "Poverty protests" -> "Energy-efficient cities"
+    "Kessler syndrom" -> "Space research"
+    //"Melting arctic ice" -> "No arctic reflections"
+    //"No arctic reflections" -> "Biosphere collapse"
   }
   subgraph {
     label="Reverse Events";
@@ -228,6 +256,7 @@ digraph BeecarbonizeTechTree {
     node [color="gold3",shape=ellipse,style=filled,color="gray10",fontcolor="white"];
     edge [dir=both, color="gold3",arrowhead=odiamond];
     "Robobees" -> "Pollinators extinction"
+    "Miracle enzyme" -> "Asteroid swarm"
     "Geothermal wells" -> "Windless dark winter"
     "Deep sea mining" -> "Lack of rare minerals"
     "Pollution regulation" -> "Oil rig explosion"
@@ -235,8 +264,11 @@ digraph BeecarbonizeTechTree {
     "Coastal barriers" -> "Rising ocean levels"
     "Permaculture" -> "Stop wasting food"
     "Mass forestation" -> "Wild deforestation"
-    "Fracking" -> "Fossil backed desinfo"
-    "Hedges & Ponds" -> "Draws and pools"
+    "Fracking" -> "Fossil backed dezinfo"
+    "Fracking" -> "Gas shortage"
+    //"Massive migration" -> "Gas shortage"
+    "Groves and pools" -> "Groves and pools(?)"
+    "Groves and pools" -> "Regional clima collapse"
     "Artificial corals" -> "Coral die off"
     "Reflective sheets" -> "Melting permafrost"
     "30 by 30" -> "Mass flight to poles"
@@ -244,12 +276,14 @@ digraph BeecarbonizeTechTree {
     "Mass airconditioning" -> "Climate refugees"
     "Kelp plantations" -> "Kelp forest breakdown"
     "Amazon reforestation" -> "Amazon forest collapse"
+    "Amazon reforestation" -> "Permafrost decay"
+    "Water desalination" -> "No drinking water"
   }
   subgraph {
     label="Speculative Reverse Events";
     color="gold3";
     node [color="gold3",shape=ellipse,style=filled,color="gray20",fontcolor="white"];
     edge [style="dashed",dir=both,color="gold3",arrowhead=odiamond];
-    "Coastal barriers" -> "Coastal countries sinked"
+    "Coastal barriers" -> "Coastal countries sunk"
   }
 }
