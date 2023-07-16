@@ -188,7 +188,7 @@ digraph BeecarbonizeEvents {
     "Poverty protests"
   }
   "Industry 20th century" -> "Climate change denial" [color="red"]
-  "Industry 20th century" -> "No to consumerism" [color="red"]
+  "Industry 20th century" -> "Oil rig explosion" [color="red"]
   "Industry 20th century" -> "Non-regulated pollutants" [color="red"]
   "Industry 20th century" -> "Crumbling infrastructure" [color="red",arrowhead=obox]
   "Industry 20th century" -> "Poverty protests" [color="red",arrowhead=obox]
@@ -320,7 +320,7 @@ digraph BeecarbonizeEvents {
   "Coal power plants" -> "Energy shortage" [color="green"]
   "Refugee integration" -> "Climate refugees" [color="green"]
   "Mass airconditioning" -> "Deadly heatwaves" [color="green",arrowhead=normalnormal]
-  "Tribal culture" -> "Chaotic monsoons" [color="red",arrowhead=normalnormal]
+  "Tribal culture" -> "War On science" [color="red",arrowhead=normalnormal]
   "Genetic utopia" -> "Deadly heatwaves" [color="green"]
   "Genetic utopia" -> "Widespread cancer" [color="green"]
   "Genetic utopia" -> "Stop wasting food" [color="green"]
