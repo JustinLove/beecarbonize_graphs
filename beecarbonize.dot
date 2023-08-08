@@ -249,6 +249,7 @@ digraph BeecarbonizeTechTree {
     "Kessler syndrom" -> "Space research"
     //"Melting arctic ice" -> "No arctic reflections"
     //"No arctic reflections" -> "Biosphere collapse"
+    //"Regional clima collapse" -> "Local protests"
   }
   subgraph {
     label="Reverse Events";
