@@ -75,7 +75,7 @@ digraph BeecarbonizeEvents {
       "Carbon tax"
       "VR utopia"
       "Polluters pay"
-      "Decentralized power grid"
+      "Decentralised power grid"
       "Refugee integration"
       "Mass airconditioning"
       "Tribal culture"
@@ -181,7 +181,7 @@ digraph BeecarbonizeEvents {
     "Ecological disbalance"
     "Rouge AI"
     "SuperBacteria"
-    "Kessler syndrom"
+    "Kessler syndrome"
     "Asteroid swarm"
     "War on science"
     "Crumbling infrastructure"
@@ -315,8 +315,8 @@ digraph BeecarbonizeEvents {
   "VR utopia" -> "Local protests" [color="green"]
   "VR utopia" -> "War on science" [color="green"]
   "Polluters pay" -> "Lack of rare minerals" [color="red"]
-  "Decentralized power grid" -> "Windless dark winter" [color="green"]
-  "Decentralized power grid" -> "Energy shortage" [color="green"]
+  "Decentralised power grid" -> "Windless dark winter" [color="green"]
+  "Decentralised power grid" -> "Energy shortage" [color="green"]
   "Coal power plants" -> "Energy shortage" [color="green"]
   "Refugee integration" -> "Climate refugees" [color="green"]
   "Mass airconditioning" -> "Deadly heatwaves" [color="green",arrowhead=normalnormal]
@@ -373,7 +373,7 @@ digraph BeecarbonizeEvents {
   "Humankind engineering" -> "SuperBacteria" [color="green"]
   "Humankind engineering" -> "Rouge AI" [color="green"]
   "Radiative cooling" -> "Ecological disbalance" [color="red"]
-  "Space mirrors" -> "Kessler syndrom" [color="red"]
+  "Space mirrors" -> "Kessler syndrome" [color="red"]
   "Space mirrors" -> "Regional clima collapse" [color="red"]
   "Space mirrors" -> "Asteroid swarm" [color="red"]
   "Space mirrors" -> "Local protests" [color="red"]

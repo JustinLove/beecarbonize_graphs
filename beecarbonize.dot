@@ -134,10 +134,10 @@ digraph BeecarbonizeTechTree {
     "Lifestyle changes" -> "Loss & Damage Aid"
     "Decarbonization laws" -> "Carbon tax"
     "Decarbonization laws" -> "Transition from fossils"
-    "Decarbonization laws" -> "Decentralized power grid"
-    "Circular economy" -> "Decentralized economy"
-    "Decentralized economy" -> "Degrowth" [dir=both,arrowtail=odiamond]
-    "Decentralized economy" -> "Doughnut economy" [dir=both,arrowtail=odiamond]
+    "Decarbonization laws" -> "Decentralised power grid"
+    "Circular economy" -> "Decentralised economy"
+    "Decentralised economy" -> "Degrowth" [dir=both,arrowtail=odiamond]
+    "Decentralised economy" -> "Doughnut economy" [dir=both,arrowtail=odiamond]
     "Transition from fossils" -> "Sustainable transport"
     "Transition from fossils" -> "Solar subsidies"
     "Transition from fossils" -> "Pollution regulation"
@@ -150,7 +150,7 @@ digraph BeecarbonizeTechTree {
     "Sustainable transport" -> "Sustainable transport 2.0" [dir=both,arrowtail=odiamond]
     "Guerrilla gardening"
     "Sustainable transport 2.0"
-    "Decentralized power grid"
+    "Decentralised power grid"
     "Net zero" -> "Carbon negative" [dir=both,arrowtail=odiamond]
     "Refugee integration"
     "Carbon negative"
@@ -219,21 +219,26 @@ digraph BeecarbonizeTechTree {
     node [color="gold3",shape=ellipse,style=filled,color="gray10",fontcolor="white"];
     edge [color="gold3", dir=both, arrowtail=odiamond];
     "Acidic oceans" -> "Nature restoration"
+    //"Acidic oceans" -> "Food chain disruption"
+    //"Food chain disruption" -> "World hunger"
+    //"Tragic harvest" -> "World hunger"
     "Boreal forest collapse" -> "Nature restoration"
     "Nuclear clean-up" -> "Nature restoration"
     "Deep see fishing" -> "Protected landscapes"
     //"Deep see fishing" -> "Biodiversity breakdown"
     "Biodiversity breakdown" -> "Protected landscapes"
+    //"Biodiversity breakdown" -> "Biosphere collapse"
     "Biosphere collapse" -> "Protected landscapes"
     "Unpredictable weather" -> "Meteorological models"
     "Chaotic monsoons" -> "Meteorological models"
     //"Chaotic monsoons" -> "Massive migration"
     "No to consumerism" -> "Lifestyle changes"
     "Sea current disruption" -> "Carbon tax"
-    "Youth revolt" -> "Decentralized economy"
+    "Youth revolt" -> "Decentralised economy"
     //"Youth revolt" -> "Climate apathy"
+    //"Wave of protectionism" -> "Youth revolt"
     "Loss & Damage Aid" -> "Youth revolt" [style=invis, weight=0.5]
-    {rank=same; "Youth revolt" "Decentralized economy"}
+    {rank=same; "Youth revolt" "Decentralised economy"}
     "Lack of uranium" -> "Massive mining"
     "Forest fires" -> "Nature restoration"
     "Anti-monoculture laws" -> "Nature restoration"
@@ -241,15 +246,40 @@ digraph BeecarbonizeTechTree {
     "Garbage landslides" -> "Nature engineers"
     //"Garbage landslides" -> "Mass ecoterrorism"
     "100 year floods" -> "Nature engineers"
+    //"100 year floods" -> "Local protests"
     "Nitrogen run-off" -> "Regenerative agriculture"
-    "Crumbling infrastructure" -> "Agroforestry"
+    //"Nitrogen run-off" -> "Food chain disruption"
+    "Crumbling infrastructure" -> "Energy-efficient cities"
+    //"Crumbling infrastructure" -> "Poverty protests"
     "Invasive weeds" -> "Ecocentrism"
     "Private space travels" -> "Voluntary frugality"
-    "Poverty protests" -> "Energy-efficient cities"
-    "Kessler syndrom" -> "Space research"
+    "Poverty protests" -> "Agroforestry"
+    //"Poverty protests" -> "World hunger"
+    "Kessler syndrome" -> "Space research"
     //"Melting arctic ice" -> "No arctic reflections"
     //"No arctic reflections" -> "Biosphere collapse"
+    //"Antarctic collapse" -> "Biosphere collapse"
     //"Regional clima collapse" -> "Local protests"
+    //"Local protests" -> "Mass protests"
+    //"Marine life decine" -> "Coastal refugees"
+    //"Coastal refugees" -> "Local hunger revolutions"
+    //"Food conflicts" -> "Hunger strikes"
+    //"Hunger strikes" -> "Poverty protests"
+    //"Hunger strikes" -> "Agroecology"
+    //"50% land is dead" -> "World hunger"
+    //"Widespread cancer" -> "50% land is dead"
+    //"Chaos" -> "Decentralised economy"
+    //"Agricultural calamity" -> "Local hunger revolutions"
+    //"Dead corals" -> "Dead oceans"
+    "Dead corals" -> "Artificial corals"
+    "General strike" -> "Transition from fossils"
+    "Lack of fossil fuels" -> "Massive mining"
+    //"Anti enviro movement" -> "Non-regulated pollutants"
+    //"Equatorial famine" -> "World hunger"
+    //"Greenland on fire" -> "Massive migration"
+    //"Gulf stream slowdown" -> "Biosphere collapse"
+    //"Last elephants" -> "Climate apathy"
+    //"Massive migration" -> "The End"
   }
   subgraph {
     label="Reverse Events";
@@ -263,6 +293,7 @@ digraph BeecarbonizeTechTree {
     "Pollution regulation" -> "Oil rig explosion"
     "Pollution regulation" -> "Non-regulated pollutants"
     "Coastal barriers" -> "Rising ocean levels"
+    //"Coastal countries sunk" -> "Rising ocean levels"
     "Permaculture" -> "Stop wasting food"
     "Mass forestation" -> "Wild deforestation"
     "Fracking" -> "Fossil backed dezinfo"
@@ -271,20 +302,19 @@ digraph BeecarbonizeTechTree {
     "Groves and pools" -> "Groves and pools(?)"
     "Groves and pools" -> "Regional clima collapse"
     "Artificial corals" -> "Coral die off"
+    //"Dead corals" -> "Coral die off"
     "Reflective sheets" -> "Melting permafrost"
     "30 by 30" -> "Mass flight to poles"
     "Mass airconditioning" -> "Deadly heatwaves"
+    //"Climate refugees" -> "Deadly heatwaves"
     "Mass airconditioning" -> "Climate refugees"
+    //"Resource wars" -> "Climate refugees"
     "Kelp plantations" -> "Kelp forest breakdown"
+    //"Biosphere collapse" -> "Kelp forest breakdown"
     "Amazon reforestation" -> "Amazon forest collapse"
     "Amazon reforestation" -> "Permafrost decay"
     "Water desalination" -> "No drinking water"
-  }
-  subgraph {
-    label="Speculative Reverse Events";
-    color="gold3";
-    node [color="gold3",shape=ellipse,style=filled,color="gray20",fontcolor="white"];
-    edge [style="dashed",dir=both,color="gold3",arrowhead=odiamond];
     "Coastal barriers" -> "Coastal countries sunk"
+    //"Coastal refugees" -> "Coastal countries sunk"
   }
 }
