@@ -1,0 +1,2191 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Beecarbonize Event Chances - Beecarbonize 2.0.2</title>
+  <script type="text/javascript">
+// svg-pan-zoom v3.6.0
+// https://github.com/ariutta/svg-pan-zoom
+!function t(e,o,n){function i(r,a){if(!o[r]){if(!e[r]){var l="function"==typeof require&&require;if(!a&&l)return l(r,!0);if(s)return s(r,!0);var u=new Error("Cannot find module '"+r+"'");throw u.code="MODULE_NOT_FOUND",u}var h=o[r]={exports:{}};e[r][0].call(h.exports,function(t){var o=e[r][1][t];return i(o?o:t)},h,h.exports,t,e,o,n)}return o[r].exports}for(var s="function"==typeof require&&require,r=0;r<n.length;r++)i(n[r]);return i}({1:[function(t,e,o){var n=t("./svg-pan-zoom.js");!function(t,o){"function"==typeof define&&define.amd?define("svg-pan-zoom",function(){return n}):"undefined"!=typeof e&&e.exports&&(e.exports=n,t.svgPanZoom=n)}(window,document)},{"./svg-pan-zoom.js":4}],2:[function(t,e,o){var n=t("./svg-utilities");e.exports={enable:function(t){var e=t.svg.querySelector("defs");e||(e=document.createElementNS(n.svgNS,"defs"),t.svg.appendChild(e));var o=e.querySelector("style#svg-pan-zoom-controls-styles");if(!o){var i=document.createElementNS(n.svgNS,"style");i.setAttribute("id","svg-pan-zoom-controls-styles"),i.setAttribute("type","text/css"),i.textContent=".svg-pan-zoom-control { cursor: pointer; fill: black; fill-opacity: 0.333; } .svg-pan-zoom-control:hover { fill-opacity: 0.8; } .svg-pan-zoom-control-background { fill: white; fill-opacity: 0.5; } .svg-pan-zoom-control-background { fill-opacity: 0.8; }",e.appendChild(i)}var s=document.createElementNS(n.svgNS,"g");s.setAttribute("id","svg-pan-zoom-controls"),s.setAttribute("transform","translate("+(t.width-70)+" "+(t.height-76)+") scale(0.75)"),s.setAttribute("class","svg-pan-zoom-control"),s.appendChild(this._createZoomIn(t)),s.appendChild(this._createZoomReset(t)),s.appendChild(this._createZoomOut(t)),t.svg.appendChild(s),t.controlIcons=s},_createZoomIn:function(t){var e=document.createElementNS(n.svgNS,"g");e.setAttribute("id","svg-pan-zoom-zoom-in"),e.setAttribute("transform","translate(30.5 5) scale(0.015)"),e.setAttribute("class","svg-pan-zoom-control"),e.addEventListener("click",function(){t.getPublicInstance().zoomIn()},!1),e.addEventListener("touchstart",function(){t.getPublicInstance().zoomIn()},!1);var o=document.createElementNS(n.svgNS,"rect");o.setAttribute("x","0"),o.setAttribute("y","0"),o.setAttribute("width","1500"),o.setAttribute("height","1400"),o.setAttribute("class","svg-pan-zoom-control-background"),e.appendChild(o);var i=document.createElementNS(n.svgNS,"path");return i.setAttribute("d","M1280 576v128q0 26 -19 45t-45 19h-320v320q0 26 -19 45t-45 19h-128q-26 0 -45 -19t-19 -45v-320h-320q-26 0 -45 -19t-19 -45v-128q0 -26 19 -45t45 -19h320v-320q0 -26 19 -45t45 -19h128q26 0 45 19t19 45v320h320q26 0 45 19t19 45zM1536 1120v-960 q0 -119 -84.5 -203.5t-203.5 -84.5h-960q-119 0 -203.5 84.5t-84.5 203.5v960q0 119 84.5 203.5t203.5 84.5h960q119 0 203.5 -84.5t84.5 -203.5z"),i.setAttribute("class","svg-pan-zoom-control-element"),e.appendChild(i),e},_createZoomReset:function(t){var e=document.createElementNS(n.svgNS,"g");e.setAttribute("id","svg-pan-zoom-reset-pan-zoom"),e.setAttribute("transform","translate(5 35) scale(0.4)"),e.setAttribute("class","svg-pan-zoom-control"),e.addEventListener("click",function(){t.getPublicInstance().reset()},!1),e.addEventListener("touchstart",function(){t.getPublicInstance().reset()},!1);var o=document.createElementNS(n.svgNS,"rect");o.setAttribute("x","2"),o.setAttribute("y","2"),o.setAttribute("width","182"),o.setAttribute("height","58"),o.setAttribute("class","svg-pan-zoom-control-background"),e.appendChild(o);var i=document.createElementNS(n.svgNS,"path");i.setAttribute("d","M33.051,20.632c-0.742-0.406-1.854-0.609-3.338-0.609h-7.969v9.281h7.769c1.543,0,2.701-0.188,3.473-0.562c1.365-0.656,2.048-1.953,2.048-3.891C35.032,22.757,34.372,21.351,33.051,20.632z"),i.setAttribute("class","svg-pan-zoom-control-element"),e.appendChild(i);var s=document.createElementNS(n.svgNS,"path");return s.setAttribute("d","M170.231,0.5H15.847C7.102,0.5,0.5,5.708,0.5,11.84v38.861C0.5,56.833,7.102,61.5,15.847,61.5h154.384c8.745,0,15.269-4.667,15.269-10.798V11.84C185.5,5.708,178.976,0.5,170.231,0.5z M42.837,48.569h-7.969c-0.219-0.766-0.375-1.383-0.469-1.852c-0.188-0.969-0.289-1.961-0.305-2.977l-0.047-3.211c-0.03-2.203-0.41-3.672-1.142-4.406c-0.732-0.734-2.103-1.102-4.113-1.102h-7.05v13.547h-7.055V14.022h16.524c2.361,0.047,4.178,0.344,5.45,0.891c1.272,0.547,2.351,1.352,3.234,2.414c0.731,0.875,1.31,1.844,1.737,2.906s0.64,2.273,0.64,3.633c0,1.641-0.414,3.254-1.242,4.84s-2.195,2.707-4.102,3.363c1.594,0.641,2.723,1.551,3.387,2.73s0.996,2.98,0.996,5.402v2.32c0,1.578,0.063,2.648,0.19,3.211c0.19,0.891,0.635,1.547,1.333,1.969V48.569z M75.579,48.569h-26.18V14.022h25.336v6.117H56.454v7.336h16.781v6H56.454v8.883h19.125V48.569z M104.497,46.331c-2.44,2.086-5.887,3.129-10.34,3.129c-4.548,0-8.125-1.027-10.731-3.082s-3.909-4.879-3.909-8.473h6.891c0.224,1.578,0.662,2.758,1.316,3.539c1.196,1.422,3.246,2.133,6.15,2.133c1.739,0,3.151-0.188,4.236-0.562c2.058-0.719,3.087-2.055,3.087-4.008c0-1.141-0.504-2.023-1.512-2.648c-1.008-0.609-2.607-1.148-4.796-1.617l-3.74-0.82c-3.676-0.812-6.201-1.695-7.576-2.648c-2.328-1.594-3.492-4.086-3.492-7.477c0-3.094,1.139-5.664,3.417-7.711s5.623-3.07,10.036-3.07c3.685,0,6.829,0.965,9.431,2.895c2.602,1.93,3.966,4.73,4.093,8.402h-6.938c-0.128-2.078-1.057-3.555-2.787-4.43c-1.154-0.578-2.587-0.867-4.301-0.867c-1.907,0-3.428,0.375-4.565,1.125c-1.138,0.75-1.706,1.797-1.706,3.141c0,1.234,0.561,2.156,1.682,2.766c0.721,0.406,2.25,0.883,4.589,1.43l6.063,1.43c2.657,0.625,4.648,1.461,5.975,2.508c2.059,1.625,3.089,3.977,3.089,7.055C108.157,41.624,106.937,44.245,104.497,46.331z M139.61,48.569h-26.18V14.022h25.336v6.117h-18.281v7.336h16.781v6h-16.781v8.883h19.125V48.569z M170.337,20.14h-10.336v28.43h-7.266V20.14h-10.383v-6.117h27.984V20.14z"),s.setAttribute("class","svg-pan-zoom-control-element"),e.appendChild(s),e},_createZoomOut:function(t){var e=document.createElementNS(n.svgNS,"g");e.setAttribute("id","svg-pan-zoom-zoom-out"),e.setAttribute("transform","translate(30.5 70) scale(0.015)"),e.setAttribute("class","svg-pan-zoom-control"),e.addEventListener("click",function(){t.getPublicInstance().zoomOut()},!1),e.addEventListener("touchstart",function(){t.getPublicInstance().zoomOut()},!1);var o=document.createElementNS(n.svgNS,"rect");o.setAttribute("x","0"),o.setAttribute("y","0"),o.setAttribute("width","1500"),o.setAttribute("height","1400"),o.setAttribute("class","svg-pan-zoom-control-background"),e.appendChild(o);var i=document.createElementNS(n.svgNS,"path");return i.setAttribute("d","M1280 576v128q0 26 -19 45t-45 19h-896q-26 0 -45 -19t-19 -45v-128q0 -26 19 -45t45 -19h896q26 0 45 19t19 45zM1536 1120v-960q0 -119 -84.5 -203.5t-203.5 -84.5h-960q-119 0 -203.5 84.5t-84.5 203.5v960q0 119 84.5 203.5t203.5 84.5h960q119 0 203.5 -84.5 t84.5 -203.5z"),i.setAttribute("class","svg-pan-zoom-control-element"),e.appendChild(i),e},disable:function(t){t.controlIcons&&(t.controlIcons.parentNode.removeChild(t.controlIcons),t.controlIcons=null)}}},{"./svg-utilities":5}],3:[function(t,e,o){var n=t("./svg-utilities"),i=t("./utilities"),s=function(t,e){this.init(t,e)};s.prototype.init=function(t,e){this.viewport=t,this.options=e,this.originalState={zoom:1,x:0,y:0},this.activeState={zoom:1,x:0,y:0},this.updateCTMCached=i.proxy(this.updateCTM,this),this.requestAnimationFrame=i.createRequestAnimationFrame(this.options.refreshRate),this.viewBox={x:0,y:0,width:0,height:0},this.cacheViewBox();var o=this.processCTM();this.setCTM(o),this.updateCTM()},s.prototype.cacheViewBox=function(){var t=this.options.svg.getAttribute("viewBox");if(t){var e=t.split(/[\s\,]/).filter(function(t){return t}).map(parseFloat);this.viewBox.x=e[0],this.viewBox.y=e[1],this.viewBox.width=e[2],this.viewBox.height=e[3];var o=Math.min(this.options.width/this.viewBox.width,this.options.height/this.viewBox.height);this.activeState.zoom=o,this.activeState.x=(this.options.width-this.viewBox.width*o)/2,this.activeState.y=(this.options.height-this.viewBox.height*o)/2,this.updateCTMOnNextFrame(),this.options.svg.removeAttribute("viewBox")}else this.simpleViewBoxCache()},s.prototype.simpleViewBoxCache=function(){var t=this.viewport.getBBox();this.viewBox.x=t.x,this.viewBox.y=t.y,this.viewBox.width=t.width,this.viewBox.height=t.height},s.prototype.getViewBox=function(){return i.extend({},this.viewBox)},s.prototype.processCTM=function(){var t=this.getCTM();if(this.options.fit||this.options.contain){var e;e=this.options.fit?Math.min(this.options.width/this.viewBox.width,this.options.height/this.viewBox.height):Math.max(this.options.width/this.viewBox.width,this.options.height/this.viewBox.height),t.a=e,t.d=e,t.e=-this.viewBox.x*e,t.f=-this.viewBox.y*e}if(this.options.center){var o=.5*(this.options.width-(this.viewBox.width+2*this.viewBox.x)*t.a),n=.5*(this.options.height-(this.viewBox.height+2*this.viewBox.y)*t.a);t.e=o,t.f=n}return this.originalState.zoom=t.a,this.originalState.x=t.e,this.originalState.y=t.f,t},s.prototype.getOriginalState=function(){return i.extend({},this.originalState)},s.prototype.getState=function(){return i.extend({},this.activeState)},s.prototype.getZoom=function(){return this.activeState.zoom},s.prototype.getRelativeZoom=function(){return this.activeState.zoom/this.originalState.zoom},s.prototype.computeRelativeZoom=function(t){return t/this.originalState.zoom},s.prototype.getPan=function(){return{x:this.activeState.x,y:this.activeState.y}},s.prototype.getCTM=function(){var t=this.options.svg.createSVGMatrix();return t.a=this.activeState.zoom,t.b=0,t.c=0,t.d=this.activeState.zoom,t.e=this.activeState.x,t.f=this.activeState.y,t},s.prototype.setCTM=function(t){var e=this.isZoomDifferent(t),o=this.isPanDifferent(t);if(e||o){if(e&&(this.options.beforeZoom(this.getRelativeZoom(),this.computeRelativeZoom(t.a))===!1?(t.a=t.d=this.activeState.zoom,e=!1):(this.updateCache(t),this.options.onZoom(this.getRelativeZoom()))),o){var n=this.options.beforePan(this.getPan(),{x:t.e,y:t.f}),s=!1,r=!1;n===!1?(t.e=this.getPan().x,t.f=this.getPan().y,s=r=!0):i.isObject(n)&&(n.x===!1?(t.e=this.getPan().x,s=!0):i.isNumber(n.x)&&(t.e=n.x),n.y===!1?(t.f=this.getPan().y,r=!0):i.isNumber(n.y)&&(t.f=n.y)),s&&r||!this.isPanDifferent(t)?o=!1:(this.updateCache(t),this.options.onPan(this.getPan()))}(e||o)&&this.updateCTMOnNextFrame()}},s.prototype.isZoomDifferent=function(t){return this.activeState.zoom!==t.a},s.prototype.isPanDifferent=function(t){return this.activeState.x!==t.e||this.activeState.y!==t.f},s.prototype.updateCache=function(t){this.activeState.zoom=t.a,this.activeState.x=t.e,this.activeState.y=t.f},s.prototype.pendingUpdate=!1,s.prototype.updateCTMOnNextFrame=function(){this.pendingUpdate||(this.pendingUpdate=!0,this.requestAnimationFrame.call(window,this.updateCTMCached))},s.prototype.updateCTM=function(){var t=this.getCTM();n.setCTM(this.viewport,t,this.defs),this.pendingUpdate=!1,this.options.onUpdatedCTM&&this.options.onUpdatedCTM(t)},e.exports=function(t,e){return new s(t,e)}},{"./svg-utilities":5,"./utilities":7}],4:[function(t,e,o){var n=t("./uniwheel"),i=t("./control-icons"),s=t("./utilities"),r=t("./svg-utilities"),a=t("./shadow-viewport"),l=function(t,e){this.init(t,e)},u={viewportSelector:".svg-pan-zoom_viewport",panEnabled:!0,controlIconsEnabled:!1,zoomEnabled:!0,dblClickZoomEnabled:!0,mouseWheelZoomEnabled:!0,preventMouseEventsDefault:!0,zoomScaleSensitivity:.1,minZoom:.5,maxZoom:10,fit:!0,contain:!1,center:!0,refreshRate:"auto",beforeZoom:null,onZoom:null,beforePan:null,onPan:null,customEventsHandler:null,eventsListenerElement:null,onUpdatedCTM:null},h={passive:!0};l.prototype.init=function(t,e){var o=this;this.svg=t,this.defs=t.querySelector("defs"),r.setupSvgAttributes(this.svg),this.options=s.extend(s.extend({},u),e),this.state="none";var n=r.getBoundingClientRectNormalized(t);this.width=n.width,this.height=n.height,this.viewport=a(r.getOrCreateViewport(this.svg,this.options.viewportSelector),{svg:this.svg,width:this.width,height:this.height,fit:this.options.fit,contain:this.options.contain,center:this.options.center,refreshRate:this.options.refreshRate,beforeZoom:function(t,e){if(o.viewport&&o.options.beforeZoom)return o.options.beforeZoom(t,e)},onZoom:function(t){if(o.viewport&&o.options.onZoom)return o.options.onZoom(t)},beforePan:function(t,e){if(o.viewport&&o.options.beforePan)return o.options.beforePan(t,e)},onPan:function(t){if(o.viewport&&o.options.onPan)return o.options.onPan(t)},onUpdatedCTM:function(t){if(o.viewport&&o.options.onUpdatedCTM)return o.options.onUpdatedCTM(t)}});var l=this.getPublicInstance();l.setBeforeZoom(this.options.beforeZoom),l.setOnZoom(this.options.onZoom),l.setBeforePan(this.options.beforePan),l.setOnPan(this.options.onPan),l.setOnUpdatedCTM(this.options.onUpdatedCTM),this.options.controlIconsEnabled&&i.enable(this),this.lastMouseWheelEventTime=Date.now(),this.setupHandlers()},l.prototype.setupHandlers=function(){var t=this,e=null;if(this.eventListeners={mousedown:function(o){var n=t.handleMouseDown(o,e);return e=o,n},touchstart:function(o){var n=t.handleMouseDown(o,e);return e=o,n},mouseup:function(e){return t.handleMouseUp(e)},touchend:function(e){return t.handleMouseUp(e)},mousemove:function(e){return t.handleMouseMove(e)},touchmove:function(e){return t.handleMouseMove(e)},mouseleave:function(e){return t.handleMouseUp(e)},touchleave:function(e){return t.handleMouseUp(e)},touchcancel:function(e){return t.handleMouseUp(e)}},null!=this.options.customEventsHandler){this.options.customEventsHandler.init({svgElement:this.svg,eventsListenerElement:this.options.eventsListenerElement,instance:this.getPublicInstance()});var o=this.options.customEventsHandler.haltEventListeners;if(o&&o.length)for(var n=o.length-1;n>=0;n--)this.eventListeners.hasOwnProperty(o[n])&&delete this.eventListeners[o[n]]}for(var i in this.eventListeners)(this.options.eventsListenerElement||this.svg).addEventListener(i,this.eventListeners[i],!this.options.preventMouseEventsDefault&&h);this.options.mouseWheelZoomEnabled&&(this.options.mouseWheelZoomEnabled=!1,this.enableMouseWheelZoom())},l.prototype.enableMouseWheelZoom=function(){if(!this.options.mouseWheelZoomEnabled){var t=this;this.wheelListener=function(e){return t.handleMouseWheel(e)};var e=!this.options.preventMouseEventsDefault;n.on(this.options.eventsListenerElement||this.svg,this.wheelListener,e),this.options.mouseWheelZoomEnabled=!0}},l.prototype.disableMouseWheelZoom=function(){if(this.options.mouseWheelZoomEnabled){var t=!this.options.preventMouseEventsDefault;n.off(this.options.eventsListenerElement||this.svg,this.wheelListener,t),this.options.mouseWheelZoomEnabled=!1}},l.prototype.handleMouseWheel=function(t){if(this.options.zoomEnabled&&"none"===this.state){this.options.preventMouseEventsDefault&&(t.preventDefault?t.preventDefault():t.returnValue=!1);var e=t.deltaY||1,o=Date.now()-this.lastMouseWheelEventTime,n=3+Math.max(0,30-o);this.lastMouseWheelEventTime=Date.now(),"deltaMode"in t&&0===t.deltaMode&&t.wheelDelta&&(e=0===t.deltaY?0:Math.abs(t.wheelDelta)/t.deltaY),e=-.3<e&&e<.3?e:(e>0?1:-1)*Math.log(Math.abs(e)+10)/n;var i=this.svg.getScreenCTM().inverse(),s=r.getEventPoint(t,this.svg).matrixTransform(i),a=Math.pow(1+this.options.zoomScaleSensitivity,-1*e);this.zoomAtPoint(a,s)}},l.prototype.zoomAtPoint=function(t,e,o){var n=this.viewport.getOriginalState();o?(t=Math.max(this.options.minZoom*n.zoom,Math.min(this.options.maxZoom*n.zoom,t)),t/=this.getZoom()):this.getZoom()*t<this.options.minZoom*n.zoom?t=this.options.minZoom*n.zoom/this.getZoom():this.getZoom()*t>this.options.maxZoom*n.zoom&&(t=this.options.maxZoom*n.zoom/this.getZoom());var i=this.viewport.getCTM(),s=e.matrixTransform(i.inverse()),r=this.svg.createSVGMatrix().translate(s.x,s.y).scale(t).translate(-s.x,-s.y),a=i.multiply(r);a.a!==i.a&&this.viewport.setCTM(a)},l.prototype.zoom=function(t,e){this.zoomAtPoint(t,r.getSvgCenterPoint(this.svg,this.width,this.height),e)},l.prototype.publicZoom=function(t,e){e&&(t=this.computeFromRelativeZoom(t)),this.zoom(t,e)},l.prototype.publicZoomAtPoint=function(t,e,o){if(o&&(t=this.computeFromRelativeZoom(t)),"SVGPoint"!==s.getType(e)){if(!("x"in e&&"y"in e))throw new Error("Given point is invalid");e=r.createSVGPoint(this.svg,e.x,e.y)}this.zoomAtPoint(t,e,o)},l.prototype.getZoom=function(){return this.viewport.getZoom()},l.prototype.getRelativeZoom=function(){return this.viewport.getRelativeZoom()},l.prototype.computeFromRelativeZoom=function(t){return t*this.viewport.getOriginalState().zoom},l.prototype.resetZoom=function(){var t=this.viewport.getOriginalState();this.zoom(t.zoom,!0)},l.prototype.resetPan=function(){this.pan(this.viewport.getOriginalState())},l.prototype.reset=function(){this.resetZoom(),this.resetPan()},l.prototype.handleDblClick=function(t){if(this.options.preventMouseEventsDefault&&(t.preventDefault?t.preventDefault():t.returnValue=!1),this.options.controlIconsEnabled){var e=t.target.getAttribute("class")||"";if(e.indexOf("svg-pan-zoom-control")>-1)return!1}var o;o=t.shiftKey?1/(2*(1+this.options.zoomScaleSensitivity)):2*(1+this.options.zoomScaleSensitivity);var n=r.getEventPoint(t,this.svg).matrixTransform(this.svg.getScreenCTM().inverse());this.zoomAtPoint(o,n)},l.prototype.handleMouseDown=function(t,e){this.options.preventMouseEventsDefault&&(t.preventDefault?t.preventDefault():t.returnValue=!1),s.mouseAndTouchNormalize(t,this.svg),this.options.dblClickZoomEnabled&&s.isDblClick(t,e)?this.handleDblClick(t):(this.state="pan",this.firstEventCTM=this.viewport.getCTM(),this.stateOrigin=r.getEventPoint(t,this.svg).matrixTransform(this.firstEventCTM.inverse()))},l.prototype.handleMouseMove=function(t){if(this.options.preventMouseEventsDefault&&(t.preventDefault?t.preventDefault():t.returnValue=!1),"pan"===this.state&&this.options.panEnabled){var e=r.getEventPoint(t,this.svg).matrixTransform(this.firstEventCTM.inverse()),o=this.firstEventCTM.translate(e.x-this.stateOrigin.x,e.y-this.stateOrigin.y);this.viewport.setCTM(o)}},l.prototype.handleMouseUp=function(t){this.options.preventMouseEventsDefault&&(t.preventDefault?t.preventDefault():t.returnValue=!1),"pan"===this.state&&(this.state="none")},l.prototype.fit=function(){var t=this.viewport.getViewBox(),e=Math.min(this.width/t.width,this.height/t.height);this.zoom(e,!0)},l.prototype.contain=function(){var t=this.viewport.getViewBox(),e=Math.max(this.width/t.width,this.height/t.height);this.zoom(e,!0)},l.prototype.center=function(){var t=this.viewport.getViewBox(),e=.5*(this.width-(t.width+2*t.x)*this.getZoom()),o=.5*(this.height-(t.height+2*t.y)*this.getZoom());this.getPublicInstance().pan({x:e,y:o})},l.prototype.updateBBox=function(){this.viewport.simpleViewBoxCache()},l.prototype.pan=function(t){var e=this.viewport.getCTM();e.e=t.x,e.f=t.y,this.viewport.setCTM(e)},l.prototype.panBy=function(t){var e=this.viewport.getCTM();e.e+=t.x,e.f+=t.y,this.viewport.setCTM(e)},l.prototype.getPan=function(){var t=this.viewport.getState();return{x:t.x,y:t.y}},l.prototype.resize=function(){var t=r.getBoundingClientRectNormalized(this.svg);this.width=t.width,this.height=t.height;var e=this.viewport;e.options.width=this.width,e.options.height=this.height,e.processCTM(),this.options.controlIconsEnabled&&(this.getPublicInstance().disableControlIcons(),this.getPublicInstance().enableControlIcons())},l.prototype.destroy=function(){var t=this;this.beforeZoom=null,this.onZoom=null,this.beforePan=null,this.onPan=null,this.onUpdatedCTM=null,null!=this.options.customEventsHandler&&this.options.customEventsHandler.destroy({svgElement:this.svg,eventsListenerElement:this.options.eventsListenerElement,instance:this.getPublicInstance()});for(var e in this.eventListeners)(this.options.eventsListenerElement||this.svg).removeEventListener(e,this.eventListeners[e],!this.options.preventMouseEventsDefault&&h);this.disableMouseWheelZoom(),this.getPublicInstance().disableControlIcons(),this.reset(),c=c.filter(function(e){return e.svg!==t.svg}),delete this.options,delete this.viewport,delete this.publicInstance,delete this.pi,this.getPublicInstance=function(){return null}},l.prototype.getPublicInstance=function(){var t=this;return this.publicInstance||(this.publicInstance=this.pi={enablePan:function(){return t.options.panEnabled=!0,t.pi},disablePan:function(){return t.options.panEnabled=!1,t.pi},isPanEnabled:function(){return!!t.options.panEnabled},pan:function(e){return t.pan(e),t.pi},panBy:function(e){return t.panBy(e),t.pi},getPan:function(){return t.getPan()},setBeforePan:function(e){return t.options.beforePan=null===e?null:s.proxy(e,t.publicInstance),t.pi},setOnPan:function(e){return t.options.onPan=null===e?null:s.proxy(e,t.publicInstance),t.pi},enableZoom:function(){return t.options.zoomEnabled=!0,t.pi},disableZoom:function(){return t.options.zoomEnabled=!1,t.pi},isZoomEnabled:function(){return!!t.options.zoomEnabled},enableControlIcons:function(){return t.options.controlIconsEnabled||(t.options.controlIconsEnabled=!0,i.enable(t)),t.pi},disableControlIcons:function(){return t.options.controlIconsEnabled&&(t.options.controlIconsEnabled=!1,i.disable(t)),t.pi},isControlIconsEnabled:function(){return!!t.options.controlIconsEnabled},enableDblClickZoom:function(){return t.options.dblClickZoomEnabled=!0,t.pi},disableDblClickZoom:function(){return t.options.dblClickZoomEnabled=!1,t.pi},isDblClickZoomEnabled:function(){return!!t.options.dblClickZoomEnabled},enableMouseWheelZoom:function(){return t.enableMouseWheelZoom(),t.pi},disableMouseWheelZoom:function(){return t.disableMouseWheelZoom(),t.pi},isMouseWheelZoomEnabled:function(){return!!t.options.mouseWheelZoomEnabled},setZoomScaleSensitivity:function(e){return t.options.zoomScaleSensitivity=e,t.pi},setMinZoom:function(e){return t.options.minZoom=e,t.pi},setMaxZoom:function(e){return t.options.maxZoom=e,t.pi},setBeforeZoom:function(e){return t.options.beforeZoom=null===e?null:s.proxy(e,t.publicInstance),t.pi},setOnZoom:function(e){return t.options.onZoom=null===e?null:s.proxy(e,t.publicInstance),t.pi},zoom:function(e){return t.publicZoom(e,!0),t.pi},zoomBy:function(e){return t.publicZoom(e,!1),t.pi},zoomAtPoint:function(e,o){return t.publicZoomAtPoint(e,o,!0),t.pi},zoomAtPointBy:function(e,o){return t.publicZoomAtPoint(e,o,!1),t.pi},zoomIn:function(){return this.zoomBy(1+t.options.zoomScaleSensitivity),t.pi},zoomOut:function(){return this.zoomBy(1/(1+t.options.zoomScaleSensitivity)),t.pi},getZoom:function(){return t.getRelativeZoom()},setOnUpdatedCTM:function(e){return t.options.onUpdatedCTM=null===e?null:s.proxy(e,t.publicInstance),t.pi},resetZoom:function(){return t.resetZoom(),t.pi},resetPan:function(){return t.resetPan(),t.pi},reset:function(){return t.reset(),t.pi},fit:function(){return t.fit(),t.pi},contain:function(){return t.contain(),t.pi},center:function(){return t.center(),t.pi},updateBBox:function(){return t.updateBBox(),t.pi},resize:function(){return t.resize(),t.pi},getSizes:function(){return{width:t.width,height:t.height,realZoom:t.getZoom(),viewBox:t.viewport.getViewBox()}},destroy:function(){return t.destroy(),t.pi}}),this.publicInstance};var c=[],p=function(t,e){var o=s.getSvg(t);if(null===o)return null;for(var n=c.length-1;n>=0;n--)if(c[n].svg===o)return c[n].instance.getPublicInstance();return c.push({svg:o,instance:new l(o,e)}),c[c.length-1].instance.getPublicInstance()};e.exports=p},{"./control-icons":2,"./shadow-viewport":3,"./svg-utilities":5,"./uniwheel":6,"./utilities":7}],5:[function(t,e,o){var n=t("./utilities"),i="unknown";document.documentMode&&(i="ie"),e.exports={svgNS:"http://www.w3.org/2000/svg",xmlNS:"http://www.w3.org/XML/1998/namespace",xmlnsNS:"http://www.w3.org/2000/xmlns/",xlinkNS:"http://www.w3.org/1999/xlink",evNS:"http://www.w3.org/2001/xml-events",getBoundingClientRectNormalized:function(t){if(t.clientWidth&&t.clientHeight)return{width:t.clientWidth,height:t.clientHeight};if(t.getBoundingClientRect())return t.getBoundingClientRect();throw new Error("Cannot get BoundingClientRect for SVG.")},getOrCreateViewport:function(t,e){var o=null;if(o=n.isElement(e)?e:t.querySelector(e),!o){var i=Array.prototype.slice.call(t.childNodes||t.children).filter(function(t){return"defs"!==t.nodeName&&"#text"!==t.nodeName});1===i.length&&"g"===i[0].nodeName&&null===i[0].getAttribute("transform")&&(o=i[0])}if(!o){var s="viewport-"+(new Date).toISOString().replace(/\D/g,"");o=document.createElementNS(this.svgNS,"g"),o.setAttribute("id",s);var r=t.childNodes||t.children;if(r&&r.length>0)for(var a=r.length;a>0;a--)"defs"!==r[r.length-a].nodeName&&o.appendChild(r[r.length-a]);t.appendChild(o)}var l=[];return o.getAttribute("class")&&(l=o.getAttribute("class").split(" ")),~l.indexOf("svg-pan-zoom_viewport")||(l.push("svg-pan-zoom_viewport"),o.setAttribute("class",l.join(" "))),o},setupSvgAttributes:function(t){if(t.setAttribute("xmlns",this.svgNS),t.setAttributeNS(this.xmlnsNS,"xmlns:xlink",this.xlinkNS),t.setAttributeNS(this.xmlnsNS,"xmlns:ev",this.evNS),null!==t.parentNode){var e=t.getAttribute("style")||"";e.toLowerCase().indexOf("overflow")===-1&&t.setAttribute("style","overflow: hidden; "+e)}},internetExplorerRedisplayInterval:300,refreshDefsGlobal:n.throttle(function(){for(var t=document.querySelectorAll("defs"),e=t.length,o=0;o<e;o++){var n=t[o];n.parentNode.insertBefore(n,n)}},this?this.internetExplorerRedisplayInterval:null),setCTM:function(t,e,o){var n=this,s="matrix("+e.a+","+e.b+","+e.c+","+e.d+","+e.e+","+e.f+")";t.setAttributeNS(null,"transform",s),"transform"in t.style?t.style.transform=s:"-ms-transform"in t.style?t.style["-ms-transform"]=s:"-webkit-transform"in t.style&&(t.style["-webkit-transform"]=s),"ie"===i&&o&&(o.parentNode.insertBefore(o,o),window.setTimeout(function(){n.refreshDefsGlobal()},n.internetExplorerRedisplayInterval))},getEventPoint:function(t,e){var o=e.createSVGPoint();return n.mouseAndTouchNormalize(t,e),o.x=t.clientX,o.y=t.clientY,o},getSvgCenterPoint:function(t,e,o){return this.createSVGPoint(t,e/2,o/2)},createSVGPoint:function(t,e,o){var n=t.createSVGPoint();return n.x=e,n.y=o,n}}},{"./utilities":7}],6:[function(t,e,o){e.exports=function(){function t(t,e){var o=function(t){!t&&(t=window.event);var o={originalEvent:t,target:t.target||t.srcElement,type:"wheel",deltaMode:"MozMousePixelScroll"==t.type?0:1,deltaX:0,delatZ:0,preventDefault:function(){t.preventDefault?t.preventDefault():t.returnValue=!1}};return"mousewheel"==u?(o.deltaY=-.025*t.wheelDelta,t.wheelDeltaX&&(o.deltaX=-.025*t.wheelDeltaX)):o.deltaY=t.detail,e(o)};return c.push({element:t,fn:o}),o}function e(t){for(var e=0;e<c.length;e++)if(c[e].element===t)return c[e].fn;return function(){}}function o(t){for(var e=0;e<c.length;e++)if(c[e].element===t)return c.splice(e,1)}function n(e,o,n,i){var s;s="wheel"===u?n:t(e,n),e[a](h+o,s,!!i&&p)}function i(t,n,i,s){var r;r="wheel"===u?i:e(t),t[l](h+n,r,!!s&&p),o(t)}function s(t,e,o){n(t,u,e,o),"DOMMouseScroll"==u&&n(t,"MozMousePixelScroll",e,o)}function r(t,e,o){i(t,u,e,o),"DOMMouseScroll"==u&&i(t,"MozMousePixelScroll",e,o)}var a,l,u,h="",c=[],p={passive:!0};return window.addEventListener?(a="addEventListener",l="removeEventListener"):(a="attachEvent",l="detachEvent",h="on"),u="onwheel"in document.createElement("div")?"wheel":void 0!==document.onmousewheel?"mousewheel":"DOMMouseScroll",{on:s,off:r}}()},{}],7:[function(t,e,o){function n(t){return function(e){window.setTimeout(e,t)}}e.exports={extend:function(t,e){t=t||{};for(var o in e)this.isObject(e[o])?t[o]=this.extend(t[o],e[o]):t[o]=e[o];return t},isElement:function(t){return t instanceof HTMLElement||t instanceof SVGElement||t instanceof SVGSVGElement||t&&"object"==typeof t&&null!==t&&1===t.nodeType&&"string"==typeof t.nodeName},isObject:function(t){return"[object Object]"===Object.prototype.toString.call(t)},isNumber:function(t){return!isNaN(parseFloat(t))&&isFinite(t)},getSvg:function(t){var e,o;if(this.isElement(t))e=t;else{if(!("string"==typeof t||t instanceof String))throw new Error("Provided selector is not an HTML object nor String");if(e=document.querySelector(t),!e)throw new Error("Provided selector did not find any elements. Selector: "+t)}if("svg"===e.tagName.toLowerCase())o=e;else if("object"===e.tagName.toLowerCase())o=e.contentDocument.documentElement;else{if("embed"!==e.tagName.toLowerCase())throw"img"===e.tagName.toLowerCase()?new Error('Cannot script an SVG in an "img" element. Please use an "object" element or an in-line SVG.'):new Error("Cannot get SVG.");o=e.getSVGDocument().documentElement}return o},proxy:function(t,e){return function(){return t.apply(e,arguments)}},getType:function(t){return Object.prototype.toString.apply(t).replace(/^\[object\s/,"").replace(/\]$/,"")},mouseAndTouchNormalize:function(t,e){if(void 0===t.clientX||null===t.clientX)if(t.clientX=0,t.clientY=0,void 0!==t.touches&&t.touches.length){if(void 0!==t.touches[0].clientX)t.clientX=t.touches[0].clientX,t.clientY=t.touches[0].clientY;else if(void 0!==t.touches[0].pageX){var o=e.getBoundingClientRect();t.clientX=t.touches[0].pageX-o.left,t.clientY=t.touches[0].pageY-o.top}}else void 0!==t.originalEvent&&void 0!==t.originalEvent.clientX&&(t.clientX=t.originalEvent.clientX,t.clientY=t.originalEvent.clientY)},isDblClick:function(t,e){if(2===t.detail)return!0;if(void 0!==e&&null!==e){var o=t.timeStamp-e.timeStamp,n=Math.sqrt(Math.pow(t.clientX-e.clientX,2)+Math.pow(t.clientY-e.clientY,2));return o<250&&n<10}return!1},now:Date.now||function(){return(new Date).getTime()},throttle:function(t,e,o){var n,i,s,r=this,a=null,l=0;o||(o={});var u=function(){l=o.leading===!1?0:r.now(),a=null,s=t.apply(n,i),a||(n=i=null)};return function(){var h=r.now();l||o.leading!==!1||(l=h);var c=e-(h-l);return n=this,i=arguments,c<=0||c>e?(clearTimeout(a),a=null,l=h,s=t.apply(n,i),a||(n=i=null)):a||o.trailing===!1||(a=setTimeout(u,c)),s}},createRequestAnimationFrame:function(t){var e=null;return"auto"!==t&&t<60&&t>1&&(e=Math.floor(1e3/t)),null===e?window.requestAnimationFrame||n(33):n(e)}}},{}]},{},[1]);
+  </script>
+  <style>
+body {
+  background: #4d4d4d;
+  color: white;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+}
+
+svg#graph {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+footer {
+  position: absolute;
+  bottom: 1em;
+  height: 1em;
+}
+
+svg.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.2em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+.icon-github { color: #888; }
+.icon-twitter { color: #55acee; }
+.icon-twitch { color: #6441A4; }
+a:link, a:visited { color: #bbbbbb; }
+a:hover, a:active { color: white; }
+  </style>
+</head>
+
+<body>
+<svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<symbol id="icon-twitter" viewBox="0 0 32 32">
+<title>twitter</title>
+<path d="M32 7.075c-1.175 0.525-2.444 0.875-3.769 1.031 1.356-0.813 2.394-2.1 2.887-3.631-1.269 0.75-2.675 1.3-4.169 1.594-1.2-1.275-2.906-2.069-4.794-2.069-3.625 0-6.563 2.938-6.563 6.563 0 0.512 0.056 1.012 0.169 1.494-5.456-0.275-10.294-2.888-13.531-6.862-0.563 0.969-0.887 2.1-0.887 3.3 0 2.275 1.156 4.287 2.919 5.463-1.075-0.031-2.087-0.331-2.975-0.819 0 0.025 0 0.056 0 0.081 0 3.181 2.263 5.838 5.269 6.437-0.55 0.15-1.131 0.231-1.731 0.231-0.425 0-0.831-0.044-1.237-0.119 0.838 2.606 3.263 4.506 6.131 4.563-2.25 1.762-5.075 2.813-8.156 2.813-0.531 0-1.050-0.031-1.569-0.094 2.913 1.869 6.362 2.95 10.069 2.95 12.075 0 18.681-10.006 18.681-18.681 0-0.287-0.006-0.569-0.019-0.85 1.281-0.919 2.394-2.075 3.275-3.394z"></path>
+</symbol>
+<symbol id="icon-twitch" viewBox="0 0 32 32">
+<title>twitch</title>
+<path d="M3 0l-3 5v23h8v4h4l4-4h5l9-9v-19h-27zM26 17l-5 5h-5l-4 4v-4h-6v-18h20v13z"></path>
+<path d="M19 8h3v8h-3v-8z"></path>
+<path d="M13 8h3v8h-3v-8z"></path>
+</symbol>
+<symbol id="icon-github" viewBox="0 0 32 32">
+<title>github</title>
+<path d="M16 0.395c-8.836 0-16 7.163-16 16 0 7.069 4.585 13.067 10.942 15.182 0.8 0.148 1.094-0.347 1.094-0.77 0-0.381-0.015-1.642-0.022-2.979-4.452 0.968-5.391-1.888-5.391-1.888-0.728-1.849-1.776-2.341-1.776-2.341-1.452-0.993 0.11-0.973 0.11-0.973 1.606 0.113 2.452 1.649 2.452 1.649 1.427 2.446 3.743 1.739 4.656 1.33 0.143-1.034 0.558-1.74 1.016-2.14-3.554-0.404-7.29-1.777-7.29-7.907 0-1.747 0.625-3.174 1.649-4.295-0.166-0.403-0.714-2.030 0.155-4.234 0 0 1.344-0.43 4.401 1.64 1.276-0.355 2.645-0.532 4.005-0.539 1.359 0.006 2.729 0.184 4.008 0.539 3.054-2.070 4.395-1.64 4.395-1.64 0.871 2.204 0.323 3.831 0.157 4.234 1.026 1.12 1.647 2.548 1.647 4.295 0 6.145-3.743 7.498-7.306 7.895 0.574 0.497 1.085 1.47 1.085 2.963 0 2.141-0.019 3.864-0.019 4.391 0 0.426 0.288 0.925 1.099 0.768 6.354-2.118 10.933-8.113 10.933-15.18 0-8.837-7.164-16-16-16z"></path>
+</symbol>
+</defs>
+</svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.20200408.0903 (20200408.0903)
+ -->
+<!-- Title: BeecarbonizeEvents Pages: 1 -->
+<svg id="graph" width="4288pt" height="5642pt"
+ viewBox="0.00 0.00 4288.00 5642.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 5638)">
+<title>BeecarbonizeEvents</title>
+<polygon fill="#4d4d4d" stroke="transparent" points="-4,4 -4,-5638 4284,-5638 4284,4 -4,4"/>
+<!-- Industry 20th century -->
+<g id="node1" class="node">
+<title>Industry 20th century</title>
+<polygon fill="plum" stroke="fuchsia" points="1225.46,-3882.37 1089.46,-3882.37 1089.46,-3846.37 1225.46,-3846.37 1225.46,-3882.37"/>
+<text text-anchor="middle" x="1157.46" y="-3860.67" font-family="Times New Roman,serif" font-size="14.00">Industry 20th century</text>
+</g>
+<!-- Climate change denial -->
+<g id="node80" class="node">
+<title>Climate change denial</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="1061.79" cy="-4234.61" rx="89.08" ry="18"/>
+<text text-anchor="middle" x="1061.79" y="-4230.91" font-family="Times New Roman,serif" font-size="14.00" fill="white">Climate change denial</text>
+</g>
+<!-- Industry 20th century&#45;&gt;Climate change denial -->
+<g id="edge1" class="edge">
+<title>Industry 20th century&#45;&gt;Climate change denial</title>
+<path fill="none" stroke="red" stroke-width="5" d="M1152.78,-3882.48C1137.3,-3942.39 1087.66,-4134.51 1068.99,-4206.78"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="1064.73,-4205.76 1066.46,-4216.54 1073.2,-4207.95 1064.73,-4205.76"/>
+</g>
+<!-- Oil rig explosion -->
+<g id="node81" class="node">
+<title>Oil rig explosion</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="1473.22" cy="-3447.2" rx="70.69" ry="18"/>
+<text text-anchor="middle" x="1473.22" y="-3443.5" font-family="Times New Roman,serif" font-size="14.00" fill="white">Oil rig explosion</text>
+</g>
+<!-- Industry 20th century&#45;&gt;Oil rig explosion -->
+<g id="edge2" class="edge">
+<title>Industry 20th century&#45;&gt;Oil rig explosion</title>
+<path fill="none" stroke="red" stroke-width="5" d="M1171.23,-3846.18C1221.4,-3779.89 1394.57,-3551.1 1453.44,-3473.32"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="1457.18,-3475.64 1459.73,-3465.02 1450.2,-3470.35 1457.18,-3475.64"/>
+</g>
+<!-- Non&#45;regulated pollutants -->
+<g id="node82" class="node">
+<title>Non&#45;regulated pollutants</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="1751.08" cy="-3952.56" rx="99.38" ry="18"/>
+<text text-anchor="middle" x="1751.08" y="-3948.86" font-family="Times New Roman,serif" font-size="14.00" fill="white">Non&#45;regulated pollutants</text>
+</g>
+<!-- Industry 20th century&#45;&gt;Non&#45;regulated pollutants -->
+<g id="edge3" class="edge">
+<title>Industry 20th century&#45;&gt;Non&#45;regulated pollutants</title>
+<path fill="none" stroke="red" stroke-width="5" d="M1225.55,-3874.49C1333.71,-3890.55 1544.68,-3921.9 1663.79,-3939.59"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="1663.43,-3943.96 1673.96,-3941.1 1664.71,-3935.3 1663.43,-3943.96"/>
+</g>
+<!-- Crumbling infrastructure -->
+<g id="node147" class="node">
+<title>Crumbling infrastructure</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="628.39" cy="-3995.9" rx="98.58" ry="18"/>
+<text text-anchor="middle" x="628.39" y="-3992.2" font-family="Times New Roman,serif" font-size="14.00" fill="white">Crumbling infrastructure</text>
+</g>
+<!-- Industry 20th century&#45;&gt;Crumbling infrastructure -->
+<g id="edge4" class="edge">
+<title>Industry 20th century&#45;&gt;Crumbling infrastructure</title>
+<path fill="none" stroke="red" stroke-width="5" d="M1089.37,-3881.3C987.95,-3906.51 798.28,-3953.67 696.72,-3978.92"/>
+<polygon fill="none" stroke="red" stroke-width="5" points="687.84,-3985.25 685.91,-3977.48 693.67,-3975.55 695.6,-3983.32 687.84,-3985.25"/>
+<polyline fill="none" stroke="red" stroke-width="5" points="694.64,-3979.44 696.58,-3978.95 "/>
+</g>
+<!-- Poverty protests -->
+<g id="node148" class="node">
+<title>Poverty protests</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="908.1" cy="-4087.61" rx="70.69" ry="18"/>
+<text text-anchor="middle" x="908.1" y="-4083.91" font-family="Times New Roman,serif" font-size="14.00" fill="white">Poverty protests</text>
+</g>
+<!-- Industry 20th century&#45;&gt;Poverty protests -->
+<g id="edge5" class="edge">
+<title>Industry 20th century&#45;&gt;Poverty protests</title>
+<path fill="none" stroke="red" stroke-width="5" d="M1137.05,-3882.64C1092.34,-3922.67 985.69,-4018.15 935.33,-4063.24"/>
+<polygon fill="none" stroke="red" stroke-width="5" points="930.42,-4073.01 925.08,-4067.05 931.04,-4061.71 936.38,-4067.67 930.42,-4073.01"/>
+<polyline fill="none" stroke="red" stroke-width="5" points="933.71,-4064.69 935.2,-4063.35 "/>
+</g>
+<!-- Renewables -->
+<g id="node2" class="node">
+<title>Renewables</title>
+<polygon fill="plum" stroke="fuchsia" points="1803.88,-3814.42 1720.88,-3814.42 1720.88,-3778.42 1803.88,-3778.42 1803.88,-3814.42"/>
+<text text-anchor="middle" x="1762.38" y="-3792.72" font-family="Times New Roman,serif" font-size="14.00">Renewables</text>
+</g>
+<!-- Desinformation campaign -->
+<g id="node83" class="node">
+<title>Desinformation campaign</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="1603.15" cy="-4049.56" rx="103.18" ry="18"/>
+<text text-anchor="middle" x="1603.15" y="-4045.86" font-family="Times New Roman,serif" font-size="14.00" fill="white">Desinformation campaign</text>
+</g>
+<!-- Renewables&#45;&gt;Desinformation campaign -->
+<g id="edge6" class="edge">
+<title>Renewables&#45;&gt;Desinformation campaign</title>
+<path fill="none" stroke="red" stroke-width="5" d="M1750.93,-3814.62C1723.22,-3858.68 1652.42,-3971.23 1619.92,-4022.9"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="1616.12,-4020.73 1614.5,-4031.52 1623.53,-4025.39 1616.12,-4020.73"/>
+</g>
+<!-- Windless dark winter -->
+<g id="node84" class="node">
+<title>Windless dark winter</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="1874.13" cy="-3534.98" rx="87.18" ry="18"/>
+<text text-anchor="middle" x="1874.13" y="-3531.28" font-family="Times New Roman,serif" font-size="14.00" fill="white">Windless dark winter</text>
+</g>
+<!-- Renewables&#45;&gt;Windless dark winter -->
+<g id="edge7" class="edge">
+<title>Renewables&#45;&gt;Windless dark winter</title>
+<path fill="none" stroke="red" stroke-width="5" d="M1770.24,-3778.03C1789.56,-3732.83 1839.48,-3616.05 1862.35,-3562.52"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="1866.52,-3563.91 1866.43,-3553 1858.47,-3560.47 1866.52,-3563.91"/>
+</g>
+<!-- Fossil power -->
+<g id="node3" class="node">
+<title>Fossil power</title>
+<polygon fill="plum" stroke="fuchsia" points="1500.92,-3755.98 1411.92,-3755.98 1411.92,-3719.98 1500.92,-3719.98 1500.92,-3755.98"/>
+<text text-anchor="middle" x="1456.42" y="-3734.28" font-family="Times New Roman,serif" font-size="14.00">Fossil power</text>
+</g>
+<!-- Fossil power&#45;&gt;Oil rig explosion -->
+<g id="edge8" class="edge">
+<title>Fossil power&#45;&gt;Oil rig explosion</title>
+<path fill="none" stroke="red" stroke-width="5" d="M1457.47,-3719.79C1460.31,-3670.63 1468.16,-3534.83 1471.58,-3475.53"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="1475.96,-3475.62 1472.17,-3465.38 1467.22,-3475.11 1475.96,-3475.62"/>
+</g>
+<!-- Fossil power&#45;&gt;Non&#45;regulated pollutants -->
+<g id="edge9" class="edge">
+<title>Fossil power&#45;&gt;Non&#45;regulated pollutants</title>
+<path fill="none" stroke="red" stroke-width="5" d="M1481.29,-3756.09C1534.45,-3794.8 1659.14,-3885.6 1718.52,-3928.85"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="1716.13,-3932.52 1726.79,-3934.87 1721.28,-3925.45 1716.13,-3932.52"/>
+</g>
+<!-- Wind energy -->
+<g id="node4" class="node">
+<title>Wind energy</title>
+<polygon fill="plum" stroke="fuchsia" points="1994.36,-3279 1906.36,-3279 1906.36,-3243 1994.36,-3243 1994.36,-3279"/>
+<text text-anchor="middle" x="1950.36" y="-3257.3" font-family="Times New Roman,serif" font-size="14.00">Wind energy</text>
+</g>
+<!-- Wind energy&#45;&gt;Windless dark winter -->
+<g id="edge10" class="edge">
+<title>Wind energy&#45;&gt;Windless dark winter</title>
+<path fill="none" stroke="red" stroke-width="5" d="M1945.24,-3279.41C1932.19,-3326.29 1897.63,-3450.51 1882,-3506.68"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="1877.69,-3505.85 1879.22,-3516.66 1886.12,-3508.2 1877.69,-3505.85"/>
+</g>
+<!-- Massive mining -->
+<g id="node5" class="node">
+<title>Massive mining</title>
+<polygon fill="plum" stroke="fuchsia" points="1629.19,-3853.01 1526.19,-3853.01 1526.19,-3817.01 1629.19,-3817.01 1629.19,-3853.01"/>
+<text text-anchor="middle" x="1577.69" y="-3831.31" font-family="Times New Roman,serif" font-size="14.00">Massive mining</text>
+</g>
+<!-- Massive mining&#45;&gt;Oil rig explosion -->
+<g id="edge18" class="edge">
+<title>Massive mining&#45;&gt;Oil rig explosion</title>
+<path fill="none" stroke="red" stroke-width="5" d="M1572.79,-3816.83C1556.03,-3754.61 1500.91,-3549.99 1480.71,-3475.03"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="1484.93,-3473.86 1478.1,-3465.35 1476.48,-3476.14 1484.93,-3473.86"/>
+</g>
+<!-- Lack of fossil fuels -->
+<g id="node85" class="node">
+<title>Lack of fossil fuels</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="1398.62" cy="-3909.07" rx="80.69" ry="18"/>
+<text text-anchor="middle" x="1398.62" y="-3905.37" font-family="Times New Roman,serif" font-size="14.00" fill="white">Lack of fossil fuels</text>
+</g>
+<!-- Massive mining&#45;&gt;Lack of fossil fuels -->
+<g id="edge11" class="edge">
+<title>Massive mining&#45;&gt;Lack of fossil fuels</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1533.89,-3853.13C1507.4,-3864.09 1473.61,-3878.06 1446.43,-3889.3"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1444.68,-3885.29 1437.11,-3893.16 1448.02,-3893.38 1444.68,-3885.29"/>
+</g>
+<!-- Amazon forest collapse -->
+<g id="node86" class="node">
+<title>Amazon forest collapse</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="1318.36" cy="-4063.37" rx="96.68" ry="18"/>
+<text text-anchor="middle" x="1318.36" y="-4059.67" font-family="Times New Roman,serif" font-size="14.00" fill="white">Amazon forest collapse</text>
+</g>
+<!-- Massive mining&#45;&gt;Amazon forest collapse -->
+<g id="edge12" class="edge">
+<title>Massive mining&#45;&gt;Amazon forest collapse</title>
+<path fill="none" stroke="red" stroke-width="5" d="M1556.91,-3853.32C1510.49,-3894.19 1398.39,-3992.9 1346.09,-4038.95"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="1343.14,-4035.72 1338.53,-4045.61 1348.92,-4042.29 1343.14,-4035.72"/>
+</g>
+<!-- Local conflicts -->
+<g id="node87" class="node">
+<title>Local conflicts</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="1927.73" cy="-4058.12" rx="64.99" ry="18"/>
+<text text-anchor="middle" x="1927.73" y="-4054.42" font-family="Times New Roman,serif" font-size="14.00" fill="white">Local conflicts</text>
+</g>
+<!-- Massive mining&#45;&gt;Local conflicts -->
+<g id="edge13" class="edge">
+<title>Massive mining&#45;&gt;Local conflicts</title>
+<path fill="none" stroke="red" stroke-width="5" d="M1606.04,-3853.08C1669.59,-3893.59 1823.31,-3991.56 1892.7,-4035.79"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="1890.74,-4039.73 1901.52,-4041.41 1895.44,-4032.35 1890.74,-4039.73"/>
+</g>
+<!-- Biodiversity breakdown -->
+<g id="node88" class="node">
+<title>Biodiversity breakdown</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="1790.65" cy="-3346.33" rx="96.68" ry="18"/>
+<text text-anchor="middle" x="1790.65" y="-3342.63" font-family="Times New Roman,serif" font-size="14.00" fill="white">Biodiversity breakdown</text>
+</g>
+<!-- Massive mining&#45;&gt;Biodiversity breakdown -->
+<g id="edge14" class="edge">
+<title>Massive mining&#45;&gt;Biodiversity breakdown</title>
+<path fill="none" stroke="red" stroke-width="5" d="M1585.65,-3816.75C1618.04,-3742.43 1740.03,-3462.49 1778.77,-3373.59"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="1782.78,-3375.34 1782.76,-3364.42 1774.76,-3371.84 1782.78,-3375.34"/>
+</g>
+<!-- Mass ecoterrorism -->
+<g id="node89" class="node">
+<title>Mass ecoterrorism</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="1681.29" cy="-3456.02" rx="78.79" ry="18"/>
+<text text-anchor="middle" x="1681.29" y="-3452.32" font-family="Times New Roman,serif" font-size="14.00" fill="white">Mass ecoterrorism</text>
+</g>
+<!-- Massive mining&#45;&gt;Mass ecoterrorism -->
+<g id="edge16" class="edge">
+<title>Massive mining&#45;&gt;Mass ecoterrorism</title>
+<path fill="none" stroke="red" stroke-width="5" d="M1582.62,-3816.99C1599.25,-3756.14 1653.41,-3557.99 1673.6,-3484.12"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="1677.91,-3484.95 1676.33,-3474.15 1669.47,-3482.65 1677.91,-3484.95"/>
+</g>
+<!-- Lack of uranium -->
+<g id="node92" class="node">
+<title>Lack of uranium</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="1019.99" cy="-3648.09" rx="70.39" ry="18"/>
+<text text-anchor="middle" x="1019.99" y="-3644.39" font-family="Times New Roman,serif" font-size="14.00" fill="white">Lack of uranium</text>
+</g>
+<!-- Massive mining&#45;&gt;Lack of uranium -->
+<g id="edge17" class="edge">
+<title>Massive mining&#45;&gt;Lack of uranium</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1525.97,-3817.68C1419.92,-3782.14 1178.85,-3701.34 1072.29,-3665.62"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1073.59,-3661.44 1062.72,-3662.41 1070.81,-3669.74 1073.59,-3661.44"/>
+</g>
+<!-- Food chain disruption -->
+<g id="node114" class="node">
+<title>Food chain disruption</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="2161.92" cy="-3987.78" rx="90.98" ry="18"/>
+<text text-anchor="middle" x="2161.92" y="-3984.08" font-family="Times New Roman,serif" font-size="14.00" fill="white">Food chain disruption</text>
+</g>
+<!-- Massive mining&#45;&gt;Food chain disruption -->
+<g id="edge15" class="edge">
+<title>Massive mining&#45;&gt;Food chain disruption</title>
+<path fill="none" stroke="red" stroke-width="5" d="M1629.28,-3848.5C1735.77,-3876.35 1979.7,-3940.14 2096.82,-3970.76"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="2095.95,-3975.06 2106.73,-3973.35 2098.17,-3966.59 2095.95,-3975.06"/>
+</g>
+<!-- Coal power plants -->
+<g id="node6" class="node">
+<title>Coal power plants</title>
+<polygon fill="plum" stroke="fuchsia" points="710.18,-2857.99 591.18,-2857.99 591.18,-2821.99 710.18,-2821.99 710.18,-2857.99"/>
+<text text-anchor="middle" x="650.68" y="-2836.29" font-family="Times New Roman,serif" font-size="14.00">Coal power plants</text>
+</g>
+<!-- Energy shortage -->
+<g id="node124" class="node">
+<title>Energy shortage</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="967.42" cy="-2992.88" rx="69.59" ry="18"/>
+<text text-anchor="middle" x="967.42" y="-2989.18" font-family="Times New Roman,serif" font-size="14.00" fill="white">Energy shortage</text>
+</g>
+<!-- Coal power plants&#45;&gt;Energy shortage -->
+<g id="edge131" class="edge">
+<title>Coal power plants&#45;&gt;Energy shortage</title>
+<path fill="none" stroke="green" stroke-width="5" d="M688.25,-2858.13C747.64,-2886.79 862.82,-2942.39 925.05,-2972.43"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="923.3,-2976.44 934.21,-2976.85 927.1,-2968.56 923.3,-2976.44"/>
+</g>
+<!-- Gas power plants -->
+<g id="node7" class="node">
+<title>Gas power plants</title>
+<polygon fill="plum" stroke="fuchsia" points="1018.89,-3404.39 903.89,-3404.39 903.89,-3368.39 1018.89,-3368.39 1018.89,-3404.39"/>
+<text text-anchor="middle" x="961.39" y="-3382.69" font-family="Times New Roman,serif" font-size="14.00">Gas power plants</text>
+</g>
+<!-- Gas shortage -->
+<g id="node93" class="node">
+<title>Gas shortage</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="1205.35" cy="-3455.65" rx="58.49" ry="18"/>
+<text text-anchor="middle" x="1205.35" y="-3451.95" font-family="Times New Roman,serif" font-size="14.00" fill="white">Gas shortage</text>
+</g>
+<!-- Gas power plants&#45;&gt;Gas shortage -->
+<g id="edge19" class="edge">
+<title>Gas power plants&#45;&gt;Gas shortage</title>
+<path fill="none" stroke="red" stroke-width="5" d="M1018.9,-3402.72C1059.42,-3414.22 1113.25,-3429.5 1152.66,-3440.69"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="1151.53,-3444.92 1162.35,-3443.44 1153.92,-3436.5 1151.53,-3444.92"/>
+</g>
+<!-- Gas power plants&#45;&gt;Energy shortage -->
+<g id="edge20" class="edge">
+<title>Gas power plants&#45;&gt;Energy shortage</title>
+<path fill="none" stroke="green" stroke-width="5" d="M961.67,-3368.2C962.63,-3305.53 965.8,-3098.24 966.98,-3021.65"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="971.36,-3021.4 967.14,-3011.33 962.61,-3021.26 971.36,-3021.4"/>
+</g>
+<!-- Pollution regulation -->
+<g id="node8" class="node">
+<title>Pollution regulation</title>
+<polygon fill="plum" stroke="fuchsia" points="1366.27,-3697.58 1242.27,-3697.58 1242.27,-3661.58 1366.27,-3661.58 1366.27,-3697.58"/>
+<text text-anchor="middle" x="1304.27" y="-3675.88" font-family="Times New Roman,serif" font-size="14.00">Pollution regulation</text>
+</g>
+<!-- Pollution regulation&#45;&gt;Oil rig explosion -->
+<g id="edge21" class="edge">
+<title>Pollution regulation&#45;&gt;Oil rig explosion</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1317.52,-3661.34C1347.33,-3620.35 1419.72,-3520.79 1454.26,-3473.27"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1457.91,-3475.69 1460.25,-3465.03 1450.83,-3470.55 1457.91,-3475.69"/>
+</g>
+<!-- Pollution regulation&#45;&gt;Non&#45;regulated pollutants -->
+<g id="edge22" class="edge">
+<title>Pollution regulation&#45;&gt;Non&#45;regulated pollutants</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1333.93,-3697.7C1412.71,-3745.83 1627.08,-3876.8 1713.86,-3929.82"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1711.77,-3933.67 1722.58,-3935.15 1716.33,-3926.2 1711.77,-3933.67"/>
+</g>
+<!-- Solar energy -->
+<g id="node9" class="node">
+<title>Solar energy</title>
+<polygon fill="plum" stroke="fuchsia" points="1843.75,-3155.98 1757.75,-3155.98 1757.75,-3119.98 1843.75,-3119.98 1843.75,-3155.98"/>
+<text text-anchor="middle" x="1800.75" y="-3134.28" font-family="Times New Roman,serif" font-size="14.00">Solar energy</text>
+</g>
+<!-- Solar energy&#45;&gt;Windless dark winter -->
+<g id="edge23" class="edge">
+<title>Solar energy&#45;&gt;Windless dark winter</title>
+<path fill="none" stroke="red" stroke-width="5" d="M1804.1,-3156.07C1815.77,-3219.24 1854.78,-3430.29 1868.94,-3506.9"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="1864.64,-3507.75 1870.76,-3516.78 1873.25,-3506.16 1864.64,-3507.75"/>
+</g>
+<!-- Giant hydro plants -->
+<g id="node10" class="node">
+<title>Giant hydro plants</title>
+<polygon fill="plum" stroke="fuchsia" points="1310.53,-2952.87 1190.53,-2952.87 1190.53,-2916.87 1310.53,-2916.87 1310.53,-2952.87"/>
+<text text-anchor="middle" x="1250.53" y="-2931.17" font-family="Times New Roman,serif" font-size="14.00">Giant hydro plants</text>
+</g>
+<!-- Giant hydro plants&#45;&gt;Biodiversity breakdown -->
+<g id="edge24" class="edge">
+<title>Giant hydro plants&#45;&gt;Biodiversity breakdown</title>
+<path fill="none" stroke="red" stroke-width="5" d="M1274.43,-2953.08C1361.52,-3019.42 1661.81,-3248.18 1759.6,-3322.67"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="1757.02,-3326.21 1767.62,-3328.79 1762.32,-3319.25 1757.02,-3326.21"/>
+</g>
+<!-- Giant hydro plants&#45;&gt;Energy shortage -->
+<g id="edge25" class="edge">
+<title>Giant hydro plants&#45;&gt;Energy shortage</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1190.49,-2947.17C1143.97,-2956.7 1079.63,-2969.88 1032,-2979.64"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1031.02,-2975.38 1022.1,-2981.67 1032.77,-2983.95 1031.02,-2975.38"/>
+</g>
+<!-- Sahara solar field -->
+<g id="node11" class="node">
+<title>Sahara solar field</title>
+<polygon fill="plum" stroke="fuchsia" points="1350.14,-4258.65 1237.14,-4258.65 1237.14,-4222.65 1350.14,-4222.65 1350.14,-4258.65"/>
+<text text-anchor="middle" x="1293.64" y="-4236.95" font-family="Times New Roman,serif" font-size="14.00">Sahara solar field</text>
+</g>
+<!-- Sahara solar field&#45;&gt;Desinformation campaign -->
+<g id="edge26" class="edge">
+<title>Sahara solar field&#45;&gt;Desinformation campaign</title>
+<path fill="none" stroke="red" stroke-width="5" d="M1323.03,-4222.5C1379.7,-4187.51 1503.94,-4110.82 1566.14,-4072.41"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="1568.64,-4076.01 1574.85,-4067.04 1564.04,-4068.57 1568.64,-4076.01"/>
+</g>
+<!-- Controlled weather -->
+<g id="node12" class="node">
+<title>Controlled weather</title>
+<polygon fill="plum" stroke="fuchsia" points="2362.63,-3914.14 2240.63,-3914.14 2240.63,-3878.14 2362.63,-3878.14 2362.63,-3914.14"/>
+<text text-anchor="middle" x="2301.63" y="-3892.44" font-family="Times New Roman,serif" font-size="14.00">Controlled weather</text>
+</g>
+<!-- Controlled weather&#45;&gt;Non&#45;regulated pollutants -->
+<g id="edge27" class="edge">
+<title>Controlled weather&#45;&gt;Non&#45;regulated pollutants</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2240.61,-3902.39C2145.49,-3912.14 1961.05,-3931.04 1847.72,-3942.65"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1847.16,-3938.31 1837.66,-3943.69 1848.05,-3947.02 1847.16,-3938.31"/>
+</g>
+<!-- Controlled weather&#45;&gt;Windless dark winter -->
+<g id="edge33" class="edge">
+<title>Controlled weather&#45;&gt;Windless dark winter</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2280.13,-3877.98C2209.26,-3818.1 1982.86,-3626.84 1902.64,-3559.07"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1905.37,-3555.65 1894.91,-3552.53 1899.72,-3562.33 1905.37,-3555.65"/>
+</g>
+<!-- Unpredictable weather -->
+<g id="node95" class="node">
+<title>Unpredictable weather</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="2564.97" cy="-3644.1" rx="91.78" ry="18"/>
+<text text-anchor="middle" x="2564.97" y="-3640.4" font-family="Times New Roman,serif" font-size="14.00" fill="white">Unpredictable weather</text>
+</g>
+<!-- Controlled weather&#45;&gt;Unpredictable weather -->
+<g id="edge28" class="edge">
+<title>Controlled weather&#45;&gt;Unpredictable weather</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2320.57,-3878.01C2366.88,-3833.69 2485.91,-3719.76 2538.88,-3669.06"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2542,-3672.13 2546.2,-3662.06 2535.95,-3665.81 2542,-3672.13"/>
+</g>
+<!-- Local hunger revolutions -->
+<g id="node96" class="node">
+<title>Local hunger revolutions</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="2355.37" cy="-4091.04" rx="100.98" ry="18"/>
+<text text-anchor="middle" x="2355.37" y="-4087.34" font-family="Times New Roman,serif" font-size="14.00" fill="white">Local hunger revolutions</text>
+</g>
+<!-- Controlled weather&#45;&gt;Local hunger revolutions -->
+<g id="edge29" class="edge">
+<title>Controlled weather&#45;&gt;Local hunger revolutions</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2306.68,-3914.48C2316.13,-3948.74 2336.51,-4022.65 2347.68,-4063.13"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2343.49,-4064.42 2350.37,-4072.9 2351.93,-4062.09 2343.49,-4064.42"/>
+</g>
+<!-- Deadly heatwaves -->
+<g id="node97" class="node">
+<title>Deadly heatwaves</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="2391.32" cy="-4255.76" rx="75.29" ry="18"/>
+<text text-anchor="middle" x="2391.32" y="-4252.06" font-family="Times New Roman,serif" font-size="14.00" fill="white">Deadly heatwaves</text>
+</g>
+<!-- Controlled weather&#45;&gt;Deadly heatwaves -->
+<g id="edge30" class="edge">
+<title>Controlled weather&#45;&gt;Deadly heatwaves</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2306.2,-3914.47C2320.83,-3973.15 2366.6,-4156.66 2384.26,-4227.49"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2380.09,-4228.83 2386.75,-4237.47 2388.58,-4226.71 2380.09,-4228.83"/>
+</g>
+<!-- Widespread cancer -->
+<g id="node98" class="node">
+<title>Widespread cancer</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="2646.84" cy="-4223.99" rx="81.49" ry="18"/>
+<text text-anchor="middle" x="2646.84" y="-4220.29" font-family="Times New Roman,serif" font-size="14.00" fill="white">Widespread cancer</text>
+</g>
+<!-- Controlled weather&#45;&gt;Widespread cancer -->
+<g id="edge31" class="edge">
+<title>Controlled weather&#45;&gt;Widespread cancer</title>
+<path fill="none" stroke="red" stroke-width="5" d="M2320.68,-3914.23C2378.81,-3969.44 2554.01,-4135.83 2620.69,-4199.15"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="2618,-4202.63 2628.27,-4206.35 2624.03,-4196.29 2618,-4202.63"/>
+</g>
+<!-- Crop failure -->
+<g id="node99" class="node">
+<title>Crop failure</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="2459.93" cy="-3853.69" rx="53.89" ry="18"/>
+<text text-anchor="middle" x="2459.93" y="-3849.99" font-family="Times New Roman,serif" font-size="14.00" fill="white">Crop failure</text>
+</g>
+<!-- Controlled weather&#45;&gt;Crop failure -->
+<g id="edge32" class="edge">
+<title>Controlled weather&#45;&gt;Crop failure</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2362.83,-3879.73C2377.68,-3875.75 2393.41,-3871.53 2407.79,-3867.67"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2408.98,-3871.88 2417.51,-3865.07 2406.71,-3863.43 2408.98,-3871.88"/>
+</g>
+<!-- Solar subsidies -->
+<g id="node13" class="node">
+<title>Solar subsidies</title>
+<polygon fill="plum" stroke="fuchsia" points="1651.65,-3681.55 1550.65,-3681.55 1550.65,-3645.55 1651.65,-3645.55 1651.65,-3681.55"/>
+<text text-anchor="middle" x="1601.15" y="-3659.85" font-family="Times New Roman,serif" font-size="14.00">Solar subsidies</text>
+</g>
+<!-- Solar subsidies&#45;&gt;Desinformation campaign -->
+<g id="edge34" class="edge">
+<title>Solar subsidies&#45;&gt;Desinformation campaign</title>
+<path fill="none" stroke="red" stroke-width="5" d="M1601.25,-3681.65C1601.57,-3743.45 1602.62,-3946.42 1603.01,-4021.4"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="1598.63,-4021.52 1603.06,-4031.5 1607.38,-4021.48 1598.63,-4021.52"/>
+</g>
+<!-- Solar subsidies&#45;&gt;Windless dark winter -->
+<g id="edge35" class="edge">
+<title>Solar subsidies&#45;&gt;Windless dark winter</title>
+<path fill="none" stroke="red" stroke-width="5" d="M1639.4,-3645.54C1689.37,-3622 1776.71,-3580.86 1829.6,-3555.95"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="1831.56,-3559.87 1838.74,-3551.65 1827.83,-3551.95 1831.56,-3559.87"/>
+</g>
+<!-- Nuclear energy -->
+<g id="node14" class="node">
+<title>Nuclear energy</title>
+<polygon fill="plum" stroke="fuchsia" points="712.16,-3652.53 612.16,-3652.53 612.16,-3616.53 712.16,-3616.53 712.16,-3652.53"/>
+<text text-anchor="middle" x="662.16" y="-3630.83" font-family="Times New Roman,serif" font-size="14.00">Nuclear energy</text>
+</g>
+<!-- Nuclear energy&#45;&gt;Lack of uranium -->
+<g id="edge37" class="edge">
+<title>Nuclear energy&#45;&gt;Lack of uranium</title>
+<path fill="none" stroke="red" stroke-width="5" d="M712.29,-3636.43C771.41,-3638.67 870.45,-3642.43 940.16,-3645.07"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="940.07,-3649.44 950.23,-3645.45 940.4,-3640.7 940.07,-3649.44"/>
+</g>
+<!-- Nuclear catasrophe -->
+<g id="node100" class="node">
+<title>Nuclear catasrophe</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="352.5" cy="-3426.93" rx="80.69" ry="18"/>
+<text text-anchor="middle" x="352.5" y="-3423.23" font-family="Times New Roman,serif" font-size="14.00" fill="white">Nuclear catasrophe</text>
+</g>
+<!-- Nuclear energy&#45;&gt;Nuclear catasrophe -->
+<g id="edge36" class="edge">
+<title>Nuclear energy&#45;&gt;Nuclear catasrophe</title>
+<path fill="none" stroke="red" stroke-width="5" d="M635.22,-3616.47C578.98,-3578.77 449.16,-3491.73 386.95,-3450.03"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="389.02,-3446.15 378.28,-3444.22 384.15,-3453.42 389.02,-3446.15"/>
+</g>
+<!-- Radioactive leak -->
+<g id="node101" class="node">
+<title>Radioactive leak</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="428.57" cy="-3204.68" rx="70.39" ry="18"/>
+<text text-anchor="middle" x="428.57" y="-3200.98" font-family="Times New Roman,serif" font-size="14.00" fill="white">Radioactive leak</text>
+</g>
+<!-- Nuclear energy&#45;&gt;Radioactive leak -->
+<g id="edge38" class="edge">
+<title>Nuclear energy&#45;&gt;Radioactive leak</title>
+<path fill="none" stroke="red" stroke-width="5" d="M652.27,-3616.34C615.56,-3548.77 486.93,-3312.07 443.23,-3231.65"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="446.95,-3229.34 438.33,-3222.64 439.26,-3233.51 446.95,-3229.34"/>
+</g>
+<!-- Nuclear energy&#45;&gt;Energy shortage -->
+<g id="edge39" class="edge">
+<title>Nuclear energy&#45;&gt;Energy shortage</title>
+<path fill="none" stroke="green" stroke-width="5" d="M670.8,-3616.36C713.61,-3526.38 902.92,-3128.46 954.44,-3020.17"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="958.5,-3021.8 958.85,-3010.89 950.6,-3018.04 958.5,-3021.8"/>
+</g>
+<!-- Nuclear clean&#45;up -->
+<g id="node149" class="node">
+<title>Nuclear clean&#45;up</title>
+<ellipse fill="none" stroke="black" cx="145.69" cy="-3855.18" rx="71.49" ry="18"/>
+<text text-anchor="middle" x="145.69" y="-3851.48" font-family="Times New Roman,serif" font-size="14.00">Nuclear clean&#45;up</text>
+</g>
+<!-- Nuclear energy&#45;&gt;Nuclear clean&#45;up -->
+<g id="edge40" class="edge">
+<title>Nuclear energy&#45;&gt;Nuclear clean&#45;up</title>
+<path fill="none" stroke="red" stroke-width="5" d="M619.9,-3652.59C524.07,-3693.53 290.94,-3793.13 191.67,-3835.54"/>
+<polygon fill="none" stroke="red" stroke-width="5" points="183.78,-3843.26 180.64,-3835.9 187.99,-3832.76 191.14,-3840.12 183.78,-3843.26"/>
+<polyline fill="none" stroke="red" stroke-width="5" points="189.57,-3836.44 191.4,-3835.65 "/>
+</g>
+<!-- Safer nuclear energy -->
+<g id="node15" class="node">
+<title>Safer nuclear energy</title>
+<polygon fill="plum" stroke="fuchsia" points="129.98,-3012.92 -0.02,-3012.92 -0.02,-2976.92 129.98,-2976.92 129.98,-3012.92"/>
+<text text-anchor="middle" x="64.98" y="-2991.22" font-family="Times New Roman,serif" font-size="14.00">Safer nuclear energy</text>
+</g>
+<!-- Safer nuclear energy&#45;&gt;Nuclear catasrophe -->
+<g id="edge41" class="edge">
+<title>Safer nuclear energy&#45;&gt;Nuclear catasrophe</title>
+<path fill="none" stroke="green" stroke-width="5" d="M76.97,-3012.93C120.53,-3078.39 270.96,-3304.41 329.2,-3391.93"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="331.28,-3402.94 340.46,-3408.84 338.56,-3398.09 331.28,-3402.94"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="325.74,-3394.61 334.92,-3400.52 333.02,-3389.77 325.74,-3394.61"/>
+</g>
+<!-- Safer nuclear energy&#45;&gt;Radioactive leak -->
+<g id="edge42" class="edge">
+<title>Safer nuclear energy&#45;&gt;Radioactive leak</title>
+<path fill="none" stroke="green" stroke-width="5" d="M96.29,-3012.98C163.03,-3051.49 319.03,-3141.48 390.98,-3182.99"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="388.89,-3186.84 399.74,-3188.05 393.27,-3179.26 388.89,-3186.84"/>
+</g>
+<!-- Nuclear energy 2.0 -->
+<g id="node16" class="node">
+<title>Nuclear energy 2.0</title>
+<polygon fill="plum" stroke="fuchsia" points="788.98,-3304.65 667.98,-3304.65 667.98,-3268.65 788.98,-3268.65 788.98,-3304.65"/>
+<text text-anchor="middle" x="728.48" y="-3282.95" font-family="Times New Roman,serif" font-size="14.00">Nuclear energy 2.0</text>
+</g>
+<!-- Nuclear energy 2.0&#45;&gt;Lack of uranium -->
+<g id="edge44" class="edge">
+<title>Nuclear energy 2.0&#45;&gt;Lack of uranium</title>
+<path fill="none" stroke="red" stroke-width="5" d="M743.34,-3305.07C791.5,-3364.79 943.43,-3553.17 999.19,-3622.31"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="995.82,-3625.1 1005.5,-3630.14 1002.63,-3619.61 995.82,-3625.1"/>
+</g>
+<!-- Nuclear energy 2.0&#45;&gt;Nuclear catasrophe -->
+<g id="edge43" class="edge">
+<title>Nuclear energy 2.0&#45;&gt;Nuclear catasrophe</title>
+<path fill="none" stroke="red" stroke-width="5" d="M680.1,-3304.7C608.82,-3331.3 476.21,-3380.77 403.48,-3407.91"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="401.9,-3403.83 394.06,-3411.42 404.95,-3412.03 401.9,-3403.83"/>
+</g>
+<!-- Nuclear energy 2.0&#45;&gt;Radioactive leak -->
+<g id="edge45" class="edge">
+<title>Nuclear energy 2.0&#45;&gt;Radioactive leak</title>
+<path fill="none" stroke="red" stroke-width="5" d="M667.79,-3270.06C614.89,-3255.6 538.68,-3234.77 486.58,-3220.53"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="487.62,-3216.28 476.82,-3217.87 485.32,-3224.72 487.62,-3216.28"/>
+</g>
+<!-- Nuclear energy 2.0&#45;&gt;Energy shortage -->
+<g id="edge46" class="edge">
+<title>Nuclear energy 2.0&#45;&gt;Energy shortage</title>
+<path fill="none" stroke="green" stroke-width="5" d="M743.43,-3268.28C784.52,-3217.75 899.28,-3076.65 946.61,-3018.46"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="950.17,-3021.02 953.08,-3010.5 943.38,-3015.5 950.17,-3021.02"/>
+</g>
+<!-- Modular nuclear reactor -->
+<g id="node17" class="node">
+<title>Modular nuclear reactor</title>
+<polygon fill="plum" stroke="fuchsia" points="479.7,-2990.64 329.7,-2990.64 329.7,-2954.64 479.7,-2954.64 479.7,-2990.64"/>
+<text text-anchor="middle" x="404.7" y="-2968.94" font-family="Times New Roman,serif" font-size="14.00">Modular nuclear reactor</text>
+</g>
+<!-- Modular nuclear reactor&#45;&gt;Radioactive leak -->
+<g id="edge47" class="edge">
+<title>Modular nuclear reactor&#45;&gt;Radioactive leak</title>
+<path fill="none" stroke="red" stroke-width="5" d="M406.57,-2990.84C410.72,-3031.17 420.71,-3128.25 425.67,-3176.49"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="421.33,-3177.05 426.7,-3186.55 430.03,-3176.16 421.33,-3177.05"/>
+</g>
+<!-- Modular nuclear reactor&#45;&gt;Energy shortage -->
+<g id="edge48" class="edge">
+<title>Modular nuclear reactor&#45;&gt;Energy shortage</title>
+<path fill="none" stroke="green" stroke-width="5" d="M479.71,-2975.33C585.95,-2979.16 779.37,-2986.11 887.97,-2990.02"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="888.06,-2994.4 898.21,-2990.39 888.38,-2985.66 888.06,-2994.4"/>
+</g>
+<!-- Modular fusion reactors -->
+<g id="node18" class="node">
+<title>Modular fusion reactors</title>
+<polygon fill="plum" stroke="fuchsia" points="486.38,-2336.84 335.38,-2336.84 335.38,-2300.84 486.38,-2300.84 486.38,-2336.84"/>
+<text text-anchor="middle" x="410.88" y="-2315.14" font-family="Times New Roman,serif" font-size="14.00">Modular fusion reactors</text>
+</g>
+<!-- Modular fusion reactors&#45;&gt;Energy shortage -->
+<g id="edge49" class="edge">
+<title>Modular fusion reactors&#45;&gt;Energy shortage</title>
+<path fill="none" stroke="green" stroke-width="5" d="M425.77,-2336.87C502.76,-2430.12 855.69,-2857.57 946.21,-2967.2"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="943,-2970.18 952.74,-2975.11 949.75,-2964.61 943,-2970.18"/>
+</g>
+<!-- Deep sea mining -->
+<g id="node19" class="node">
+<title>Deep sea mining</title>
+<polygon fill="plum" stroke="fuchsia" points="1624.24,-2882.82 1516.24,-2882.82 1516.24,-2846.82 1624.24,-2846.82 1624.24,-2882.82"/>
+<text text-anchor="middle" x="1570.24" y="-2861.12" font-family="Times New Roman,serif" font-size="14.00">Deep sea mining</text>
+</g>
+<!-- Deep sea mining&#45;&gt;Oil rig explosion -->
+<g id="edge54" class="edge">
+<title>Deep sea mining&#45;&gt;Oil rig explosion</title>
+<path fill="none" stroke="red" stroke-width="5" d="M1567.23,-2882.89C1553.28,-2966.61 1494.9,-3317.07 1477.89,-3419.17"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="1473.57,-3418.47 1476.24,-3429.06 1482.2,-3419.91 1473.57,-3418.47"/>
+</g>
+<!-- Deep sea mining&#45;&gt;Biodiversity breakdown -->
+<g id="edge50" class="edge">
+<title>Deep sea mining&#45;&gt;Biodiversity breakdown</title>
+<path fill="none" stroke="red" stroke-width="5" d="M1578.61,-2883.11C1611.18,-2954.25 1729.77,-3213.34 1773.93,-3309.81"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="1774.25,-3321 1782.39,-3328.28 1782.2,-3317.36 1774.25,-3321"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="1770.08,-3311.91 1778.22,-3319.18 1778.04,-3308.27 1770.08,-3311.91"/>
+</g>
+<!-- Deep sea mining&#45;&gt;Mass ecoterrorism -->
+<g id="edge52" class="edge">
+<title>Deep sea mining&#45;&gt;Mass ecoterrorism</title>
+<path fill="none" stroke="red" stroke-width="5" d="M1573.63,-2882.84C1589.49,-2967.32 1656.57,-3324.43 1675.99,-3427.85"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="1671.73,-3428.83 1677.87,-3437.85 1680.33,-3427.22 1671.73,-3428.83"/>
+</g>
+<!-- Deep see fishing -->
+<g id="node91" class="node">
+<title>Deep see fishing</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="1341.99" cy="-2404.59" rx="70.39" ry="18"/>
+<text text-anchor="middle" x="1341.99" y="-2400.89" font-family="Times New Roman,serif" font-size="14.00" fill="white">Deep see fishing</text>
+</g>
+<!-- Deep sea mining&#45;&gt;Deep see fishing -->
+<g id="edge51" class="edge">
+<title>Deep sea mining&#45;&gt;Deep see fishing</title>
+<path fill="none" stroke="red" stroke-width="5" d="M1561.3,-2846.78C1527.31,-2778.26 1405.86,-2533.37 1359.84,-2440.58"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="1359.24,-2429.53 1350.88,-2422.51 1351.4,-2433.41 1359.24,-2429.53"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="1363.68,-2438.48 1355.32,-2431.47 1355.84,-2442.37 1363.68,-2438.48"/>
+</g>
+<!-- Lack of rare minerals -->
+<g id="node94" class="node">
+<title>Lack of rare minerals</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="2200.51" cy="-2821.92" rx="87.18" ry="18"/>
+<text text-anchor="middle" x="2200.51" y="-2818.22" font-family="Times New Roman,serif" font-size="14.00" fill="white">Lack of rare minerals</text>
+</g>
+<!-- Deep sea mining&#45;&gt;Lack of rare minerals -->
+<g id="edge53" class="edge">
+<title>Deep sea mining&#45;&gt;Lack of rare minerals</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1624.25,-2861.15C1731.76,-2853.83 1973.68,-2837.36 2107.35,-2828.26"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2107.9,-2832.61 2117.58,-2827.57 2107.3,-2823.88 2107.9,-2832.61"/>
+</g>
+<!-- Fracking -->
+<g id="node20" class="node">
+<title>Fracking</title>
+<polygon fill="plum" stroke="fuchsia" points="1521.24,-3594.58 1456.24,-3594.58 1456.24,-3558.58 1521.24,-3558.58 1521.24,-3594.58"/>
+<text text-anchor="middle" x="1488.74" y="-3572.88" font-family="Times New Roman,serif" font-size="14.00">Fracking</text>
+</g>
+<!-- Fracking&#45;&gt;Non&#45;regulated pollutants -->
+<g id="edge58" class="edge">
+<title>Fracking&#45;&gt;Non&#45;regulated pollutants</title>
+<path fill="none" stroke="red" stroke-width="5" d="M1501.4,-3594.72C1543.99,-3655.77 1682.32,-3854.02 1732.6,-3926.07"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="1729.24,-3928.91 1738.55,-3934.61 1736.42,-3923.9 1729.24,-3928.91"/>
+</g>
+<!-- Fracking&#45;&gt;Mass ecoterrorism -->
+<g id="edge56" class="edge">
+<title>Fracking&#45;&gt;Mass ecoterrorism</title>
+<path fill="none" stroke="red" stroke-width="5" d="M1517.57,-3558.53C1551.61,-3537.22 1608.27,-3501.74 1645.19,-3478.62"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="1647.98,-3482.04 1654.13,-3473.02 1643.34,-3474.62 1647.98,-3482.04"/>
+</g>
+<!-- Ecoterrorism -->
+<g id="node90" class="node">
+<title>Ecoterrorism</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="1745.1" cy="-3648.16" rx="57.69" ry="18"/>
+<text text-anchor="middle" x="1745.1" y="-3644.46" font-family="Times New Roman,serif" font-size="14.00" fill="white">Ecoterrorism</text>
+</g>
+<!-- Fracking&#45;&gt;Ecoterrorism -->
+<g id="edge57" class="edge">
+<title>Fracking&#45;&gt;Ecoterrorism</title>
+<path fill="none" stroke="red" stroke-width="5" d="M1521.47,-3585.72C1564.5,-3597.73 1640.62,-3618.99 1691.96,-3633.32"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="1691.07,-3637.61 1701.88,-3636.09 1693.43,-3629.19 1691.07,-3637.61"/>
+</g>
+<!-- Fracking&#45;&gt;Gas shortage -->
+<g id="edge55" class="edge">
+<title>Fracking&#45;&gt;Gas shortage</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1456.23,-3562.71C1405.25,-3540.95 1306.39,-3498.77 1249.17,-3474.35"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1250.59,-3470.2 1239.68,-3470.3 1247.16,-3478.25 1250.59,-3470.2"/>
+</g>
+<!-- Solar energy 2.0 -->
+<g id="node21" class="node">
+<title>Solar energy 2.0</title>
+<polygon fill="plum" stroke="fuchsia" points="1434.78,-4430.54 1327.78,-4430.54 1327.78,-4394.54 1434.78,-4394.54 1434.78,-4430.54"/>
+<text text-anchor="middle" x="1381.28" y="-4408.84" font-family="Times New Roman,serif" font-size="14.00">Solar energy 2.0</text>
+</g>
+<!-- Solar energy 2.0&#45;&gt;Desinformation campaign -->
+<g id="edge59" class="edge">
+<title>Solar energy 2.0&#45;&gt;Desinformation campaign</title>
+<path fill="none" stroke="red" stroke-width="5" d="M1392.29,-4394.54C1428.44,-4335.4 1543.7,-4146.83 1586.74,-4076.42"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="1590.6,-4078.48 1592.08,-4067.67 1583.14,-4073.92 1590.6,-4078.48"/>
+</g>
+<!-- Geothermal wells -->
+<g id="node22" class="node">
+<title>Geothermal wells</title>
+<polygon fill="plum" stroke="fuchsia" points="1708.54,-3205.81 1595.54,-3205.81 1595.54,-3169.81 1708.54,-3169.81 1708.54,-3205.81"/>
+<text text-anchor="middle" x="1652.04" y="-3184.11" font-family="Times New Roman,serif" font-size="14.00">Geothermal wells</text>
+</g>
+<!-- Geothermal wells&#45;&gt;Windless dark winter -->
+<g id="edge60" class="edge">
+<title>Geothermal wells&#45;&gt;Windless dark winter</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1663.67,-3205.98C1700.32,-3263.28 1813.58,-3440.33 1856.97,-3508.16"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1853.54,-3510.92 1862.61,-3516.98 1860.91,-3506.2 1853.54,-3510.92"/>
+</g>
+<!-- Robobees -->
+<g id="node23" class="node">
+<title>Robobees</title>
+<polygon fill="palegreen" stroke="green" points="3021.56,-2481.37 2947.56,-2481.37 2947.56,-2445.37 3021.56,-2445.37 3021.56,-2481.37"/>
+<text text-anchor="middle" x="2984.56" y="-2459.67" font-family="Times New Roman,serif" font-size="14.00">Robobees</text>
+</g>
+<!-- Pollinators extinction -->
+<g id="node102" class="node">
+<title>Pollinators extinction</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="3021.03" cy="-2509.93" rx="87.18" ry="18"/>
+<text text-anchor="middle" x="3021.03" y="-2506.23" font-family="Times New Roman,serif" font-size="14.00" fill="white">Pollinators extinction</text>
+</g>
+<!-- Robobees&#45;&gt;Pollinators extinction -->
+<g id="edge61" class="edge">
+<title>Robobees&#45;&gt;Pollinators extinction</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2998.77,-2481.5C2999.45,-2482.37 3000.14,-2483.25 3000.83,-2484.13"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2997.44,-2486.9 3007.05,-2492.07 3004.32,-2481.5 2997.44,-2486.9"/>
+</g>
+<!-- Groves and pools -->
+<g id="node24" class="node">
+<title>Groves and pools</title>
+<polygon fill="palegreen" stroke="green" points="1941.25,-965.58 1824.25,-965.58 1824.25,-929.58 1941.25,-929.58 1941.25,-965.58"/>
+<text text-anchor="middle" x="1882.75" y="-943.88" font-family="Times New Roman,serif" font-size="14.00">Groves and pools</text>
+</g>
+<!-- Groves and pools(?) -->
+<g id="node103" class="node">
+<title>Groves and pools(?)</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="2889.67" cy="-186.97" rx="85.59" ry="18"/>
+<text text-anchor="middle" x="2889.67" y="-183.27" font-family="Times New Roman,serif" font-size="14.00" fill="white">Groves and pools(?)</text>
+</g>
+<!-- Groves and pools&#45;&gt;Groves and pools(?) -->
+<g id="edge62" class="edge">
+<title>Groves and pools&#45;&gt;Groves and pools(?)</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1906.64,-929.52C2039.18,-829.41 2683.97,-342.35 2850.41,-216.63"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2861.1,-214.03 2866.44,-204.51 2855.83,-207.05 2861.1,-214.03"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2853.12,-220.06 2858.46,-210.54 2847.85,-213.08 2853.12,-220.06"/>
+</g>
+<!-- Intense drought -->
+<g id="node104" class="node">
+<title>Intense drought</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="1386.22" cy="-1338.79" rx="67.69" ry="18"/>
+<text text-anchor="middle" x="1386.22" y="-1335.09" font-family="Times New Roman,serif" font-size="14.00" fill="white">Intense drought</text>
+</g>
+<!-- Groves and pools&#45;&gt;Intense drought -->
+<g id="edge63" class="edge">
+<title>Groves and pools&#45;&gt;Intense drought</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1859.79,-965.66C1778.88,-1029.42 1506.9,-1243.71 1416.05,-1315.29"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1413.23,-1311.94 1408.09,-1321.57 1418.65,-1318.82 1413.23,-1311.94"/>
+</g>
+<!-- Nature restoration -->
+<g id="node25" class="node">
+<title>Nature restoration</title>
+<polygon fill="palegreen" stroke="green" points="2886.56,-1829.37 2770.56,-1829.37 2770.56,-1793.37 2886.56,-1793.37 2886.56,-1829.37"/>
+<text text-anchor="middle" x="2828.56" y="-1807.67" font-family="Times New Roman,serif" font-size="14.00">Nature restoration</text>
+</g>
+<!-- Anti&#45;monoculture laws -->
+<g id="node105" class="node">
+<title>Anti&#45;monoculture laws</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="2865.03" cy="-1857.93" rx="92.88" ry="18"/>
+<text text-anchor="middle" x="2865.03" y="-1854.23" font-family="Times New Roman,serif" font-size="14.00" fill="white">Anti&#45;monoculture laws</text>
+</g>
+<!-- Nature restoration&#45;&gt;Anti&#45;monoculture laws -->
+<g id="edge64" class="edge">
+<title>Nature restoration&#45;&gt;Anti&#45;monoculture laws</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2842.77,-1829.5C2843.45,-1830.37 2844.14,-1831.25 2844.83,-1832.13"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2841.44,-1834.9 2851.05,-1840.07 2848.32,-1829.5 2841.44,-1834.9"/>
+</g>
+<!-- Protected landscapes -->
+<g id="node26" class="node">
+<title>Protected landscapes</title>
+<polygon fill="palegreen" stroke="green" points="1285.25,-1984.07 1149.25,-1984.07 1149.25,-1948.07 1285.25,-1948.07 1285.25,-1984.07"/>
+<text text-anchor="middle" x="1217.25" y="-1962.37" font-family="Times New Roman,serif" font-size="14.00">Protected landscapes</text>
+</g>
+<!-- Protected landscapes&#45;&gt;Deep see fishing -->
+<g id="edge67" class="edge">
+<title>Protected landscapes&#45;&gt;Deep see fishing</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1222.37,-1984.08C1241.71,-2052.09 1310.42,-2293.61 1333.99,-2376.46"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1329.81,-2377.77 1336.76,-2386.19 1338.23,-2375.38 1329.81,-2377.77"/>
+</g>
+<!-- Protected landscapes&#45;&gt;Intense drought -->
+<g id="edge65" class="edge">
+<title>Protected landscapes&#45;&gt;Intense drought</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1222.12,-1947.98C1245.9,-1859.72 1349.71,-1474.33 1378.69,-1366.76"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1382.95,-1367.76 1381.33,-1356.96 1374.5,-1365.48 1382.95,-1367.76"/>
+</g>
+<!-- Forest fires -->
+<g id="node106" class="node">
+<title>Forest fires</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="1290.87" cy="-1628.97" rx="51.99" ry="18"/>
+<text text-anchor="middle" x="1290.87" y="-1625.27" font-family="Times New Roman,serif" font-size="14.00" fill="white">Forest fires</text>
+</g>
+<!-- Protected landscapes&#45;&gt;Forest fires -->
+<g id="edge66" class="edge">
+<title>Protected landscapes&#45;&gt;Forest fires</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1221.2,-1947.95C1233.34,-1892.39 1270.08,-1724.17 1284.73,-1657.06"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1289.03,-1657.89 1286.89,-1647.19 1280.48,-1656.02 1289.03,-1657.89"/>
+</g>
+<!-- Ecosystems approach -->
+<g id="node27" class="node">
+<title>Ecosystems approach</title>
+<polygon fill="palegreen" stroke="green" points="426.31,-4551.88 286.31,-4551.88 286.31,-4515.88 426.31,-4515.88 426.31,-4551.88"/>
+<text text-anchor="middle" x="356.31" y="-4530.18" font-family="Times New Roman,serif" font-size="14.00">Ecosystems approach</text>
+</g>
+<!-- Ecosystems approach&#45;&gt;Climate change denial -->
+<g id="edge68" class="edge">
+<title>Ecosystems approach&#45;&gt;Climate change denial</title>
+<path fill="none" stroke="green" stroke-width="5" d="M398.85,-4515.83C522.81,-4463.25 883.12,-4310.41 1013.77,-4254.98"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1015.64,-4258.94 1023.14,-4251.01 1012.22,-4250.89 1015.64,-4258.94"/>
+</g>
+<!-- Ecocentrism -->
+<g id="node28" class="node">
+<title>Ecocentrism</title>
+<polygon fill="palegreen" stroke="green" points="1644.54,-4322.28 1558.54,-4322.28 1558.54,-4286.28 1644.54,-4286.28 1644.54,-4322.28"/>
+<text text-anchor="middle" x="1601.54" y="-4300.58" font-family="Times New Roman,serif" font-size="14.00">Ecocentrism</text>
+</g>
+<!-- Ecocentrism&#45;&gt;Climate change denial -->
+<g id="edge69" class="edge">
+<title>Ecocentrism&#45;&gt;Climate change denial</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1558.28,-4298.7C1469.2,-4287.2 1263.84,-4260.69 1147.06,-4245.62"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1147.56,-4241.27 1137.08,-4244.33 1146.44,-4249.95 1147.56,-4241.27"/>
+</g>
+<!-- Ecocentrism&#45;&gt;Desinformation campaign -->
+<g id="edge71" class="edge">
+<title>Ecocentrism&#45;&gt;Desinformation campaign</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1601.66,-4285.96C1601.92,-4244.66 1602.56,-4143.53 1602.91,-4087.86"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1607.35,-4077.74 1603.04,-4067.71 1598.6,-4077.69 1607.35,-4077.74"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1607.29,-4087.74 1602.97,-4077.71 1598.54,-4087.69 1607.29,-4087.74"/>
+</g>
+<!-- Anti enviro movement -->
+<g id="node107" class="node">
+<title>Anti enviro movement</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="1829.15" cy="-4296.26" rx="90.98" ry="18"/>
+<text text-anchor="middle" x="1829.15" y="-4292.56" font-family="Times New Roman,serif" font-size="14.00" fill="white">Anti enviro movement</text>
+</g>
+<!-- Ecocentrism&#45;&gt;Anti enviro movement -->
+<g id="edge70" class="edge">
+<title>Ecocentrism&#45;&gt;Anti enviro movement</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1644.62,-4302.76C1668.48,-4301.92 1699.22,-4300.84 1728.74,-4299.8"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1729.28,-4304.16 1739.12,-4299.43 1728.97,-4295.41 1729.28,-4304.16"/>
+</g>
+<!-- Agroecology -->
+<g id="node29" class="node">
+<title>Agroecology</title>
+<polygon fill="palegreen" stroke="green" points="3446.51,-4165.78 3357.51,-4165.78 3357.51,-4129.78 3446.51,-4129.78 3446.51,-4165.78"/>
+<text text-anchor="middle" x="3402.01" y="-4144.08" font-family="Times New Roman,serif" font-size="14.00">Agroecology</text>
+</g>
+<!-- Agricultural calamity -->
+<g id="node136" class="node">
+<title>Agricultural calamity</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="3029.7" cy="-3998.47" rx="85.29" ry="18"/>
+<text text-anchor="middle" x="3029.7" y="-3994.77" font-family="Times New Roman,serif" font-size="14.00" fill="white">Agricultural calamity</text>
+</g>
+<!-- Agroecology&#45;&gt;Agricultural calamity -->
+<g id="edge72" class="edge">
+<title>Agroecology&#45;&gt;Agricultural calamity</title>
+<path fill="none" stroke="green" stroke-width="5" d="M3357.47,-4129.92C3287.37,-4101.8 3151.79,-4047.43 3078.9,-4018.2"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="3080.39,-4014.08 3069.48,-4014.42 3077.13,-4022.2 3080.39,-4014.08"/>
+</g>
+<!-- Nitrogen run&#45;off -->
+<g id="node137" class="node">
+<title>Nitrogen run&#45;off</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="3850.37" cy="-4222.84" rx="69.59" ry="18"/>
+<text text-anchor="middle" x="3850.37" y="-4219.14" font-family="Times New Roman,serif" font-size="14.00" fill="white">Nitrogen run&#45;off</text>
+</g>
+<!-- Agroecology&#45;&gt;Nitrogen run&#45;off -->
+<g id="edge73" class="edge">
+<title>Agroecology&#45;&gt;Nitrogen run&#45;off</title>
+<path fill="none" stroke="green" stroke-width="5" d="M3446.64,-4155.25C3525.29,-4168.42 3689.02,-4195.83 3782,-4211.4"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="3781.29,-4215.71 3791.87,-4213.05 3782.73,-4207.08 3781.29,-4215.71"/>
+</g>
+<!-- Agroforestry -->
+<g id="node30" class="node">
+<title>Agroforestry</title>
+<polygon fill="palegreen" stroke="green" points="1075.76,-4582.56 986.76,-4582.56 986.76,-4546.56 1075.76,-4546.56 1075.76,-4582.56"/>
+<text text-anchor="middle" x="1031.26" y="-4560.86" font-family="Times New Roman,serif" font-size="14.00">Agroforestry</text>
+</g>
+<!-- Agroforestry&#45;&gt;Amazon forest collapse -->
+<g id="edge75" class="edge">
+<title>Agroforestry&#45;&gt;Amazon forest collapse</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1041.65,-4546.42C1084.95,-4470.83 1251.26,-4180.52 1302.94,-4090.29"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1306.81,-4092.33 1307.99,-4081.48 1299.22,-4087.98 1306.81,-4092.33"/>
+</g>
+<!-- Wild deforestation -->
+<g id="node108" class="node">
+<title>Wild deforestation</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="1318.71" cy="-4918.56" rx="77.99" ry="18"/>
+<text text-anchor="middle" x="1318.71" y="-4914.86" font-family="Times New Roman,serif" font-size="14.00" fill="white">Wild deforestation</text>
+</g>
+<!-- Agroforestry&#45;&gt;Wild deforestation -->
+<g id="edge74" class="edge">
+<title>Agroforestry&#45;&gt;Wild deforestation</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1045.91,-4582.6C1093.2,-4640.83 1241.92,-4823.99 1297.49,-4892.42"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1294.39,-4895.55 1304.09,-4900.55 1301.19,-4890.03 1294.39,-4895.55"/>
+</g>
+<!-- 30 by 30 -->
+<g id="node31" class="node">
+<title>30 by 30</title>
+<polygon fill="palegreen" stroke="green" points="1069.63,-765.33 1004.63,-765.33 1004.63,-729.33 1069.63,-729.33 1069.63,-765.33"/>
+<text text-anchor="middle" x="1037.13" y="-743.63" font-family="Times New Roman,serif" font-size="14.00">30 by 30</text>
+</g>
+<!-- 30 by 30&#45;&gt;Intense drought -->
+<g id="edge76" class="edge">
+<title>30 by 30&#45;&gt;Intense drought</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1047.77,-765.36C1097.91,-850.31 1310.7,-1210.84 1370.52,-1312.19"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1366.82,-1314.52 1375.67,-1320.91 1374.35,-1310.07 1366.82,-1314.52"/>
+</g>
+<!-- Mega&#45;drought -->
+<g id="node109" class="node">
+<title>Mega&#45;drought</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="324.18" cy="-818.72" rx="61.99" ry="18"/>
+<text text-anchor="middle" x="324.18" y="-815.02" font-family="Times New Roman,serif" font-size="14.00" fill="white">Mega&#45;drought</text>
+</g>
+<!-- 30 by 30&#45;&gt;Mega&#45;drought -->
+<g id="edge77" class="edge">
+<title>30 by 30&#45;&gt;Mega&#45;drought</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1004.18,-750.63C894.82,-761.58 542.4,-796.87 392.59,-811.87"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="392.1,-807.53 382.59,-812.88 392.98,-816.23 392.1,-807.53"/>
+</g>
+<!-- Carbon agriculture -->
+<g id="node32" class="node">
+<title>Carbon agriculture</title>
+<polygon fill="palegreen" stroke="green" points="4164.89,-5144.46 4044.89,-5144.46 4044.89,-5108.46 4164.89,-5108.46 4164.89,-5144.46"/>
+<text text-anchor="middle" x="4104.89" y="-5122.76" font-family="Times New Roman,serif" font-size="14.00">Carbon agriculture</text>
+</g>
+<!-- Carbon agriculture&#45;&gt;Nitrogen run&#45;off -->
+<g id="edge78" class="edge">
+<title>Carbon agriculture&#45;&gt;Nitrogen run&#45;off</title>
+<path fill="none" stroke="green" stroke-width="5" d="M4099.81,-5108.41C4068.05,-4995.68 3897.09,-4388.69 3858.23,-4250.75"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="3862.39,-4249.38 3855.47,-4240.94 3853.97,-4251.75 3862.39,-4249.38"/>
+</g>
+<!-- Carbon storing pasture -->
+<g id="node33" class="node">
+<title>Carbon storing pasture</title>
+<polygon fill="palegreen" stroke="green" points="3024.74,-1188.93 2879.74,-1188.93 2879.74,-1152.93 3024.74,-1152.93 3024.74,-1188.93"/>
+<text text-anchor="middle" x="2952.24" y="-1167.23" font-family="Times New Roman,serif" font-size="14.00">Carbon storing pasture</text>
+</g>
+<!-- Peatland drying up -->
+<g id="node110" class="node">
+<title>Peatland drying up</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="1895.36" cy="-2314.01" rx="78.79" ry="18"/>
+<text text-anchor="middle" x="1895.36" y="-2310.31" font-family="Times New Roman,serif" font-size="14.00" fill="white">Peatland drying up</text>
+</g>
+<!-- Carbon storing pasture&#45;&gt;Peatland drying up -->
+<g id="edge79" class="edge">
+<title>Carbon storing pasture&#45;&gt;Peatland drying up</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2935.21,-1189.35C2812.36,-1322.22 2062.25,-2133.51 1918.99,-2288.45"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1915.47,-2285.82 1911.89,-2296.13 1921.9,-2291.76 1915.47,-2285.82"/>
+</g>
+<!-- Precision agriculture -->
+<g id="node34" class="node">
+<title>Precision agriculture</title>
+<polygon fill="palegreen" stroke="green" points="2856.94,-3933.73 2726.94,-3933.73 2726.94,-3897.73 2856.94,-3897.73 2856.94,-3933.73"/>
+<text text-anchor="middle" x="2791.94" y="-3912.03" font-family="Times New Roman,serif" font-size="14.00">Precision agriculture</text>
+</g>
+<!-- Precision agriculture&#45;&gt;Crop failure -->
+<g id="edge80" class="edge">
+<title>Precision agriculture&#45;&gt;Crop failure</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2726.74,-3903.55C2665.73,-3892.14 2575.47,-3875.28 2517.17,-3864.38"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2517.66,-3860.03 2507.03,-3862.49 2516.06,-3868.63 2517.66,-3860.03"/>
+</g>
+<!-- Tragic harvest -->
+<g id="node111" class="node">
+<title>Tragic harvest</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="2828.64" cy="-4151.16" rx="62.29" ry="18"/>
+<text text-anchor="middle" x="2828.64" y="-4147.46" font-family="Times New Roman,serif" font-size="14.00" fill="white">Tragic harvest</text>
+</g>
+<!-- Precision agriculture&#45;&gt;Tragic harvest -->
+<g id="edge81" class="edge">
+<title>Precision agriculture&#45;&gt;Tragic harvest</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2794.76,-3933.81C2801.12,-3974.64 2816.64,-4074.2 2824.27,-4123.11"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2819.95,-4123.81 2825.81,-4133.02 2828.59,-4122.47 2819.95,-4123.81"/>
+</g>
+<!-- Kelp plantations -->
+<g id="node35" class="node">
+<title>Kelp plantations</title>
+<polygon fill="palegreen" stroke="green" points="635.42,-428.09 528.42,-428.09 528.42,-392.09 635.42,-392.09 635.42,-428.09"/>
+<text text-anchor="middle" x="581.92" y="-406.39" font-family="Times New Roman,serif" font-size="14.00">Kelp plantations</text>
+</g>
+<!-- Kelp plantations&#45;&gt;Mega&#45;drought -->
+<g id="edge83" class="edge">
+<title>Kelp plantations&#45;&gt;Mega&#45;drought</title>
+<path fill="none" stroke="green" stroke-width="5" d="M570.51,-428.17C529.51,-493.18 389.45,-715.23 340.91,-792.2"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="337.09,-790.06 335.45,-800.85 344.49,-794.72 337.09,-790.06"/>
+</g>
+<!-- Kelp forest breakdown -->
+<g id="node112" class="node">
+<title>Kelp forest breakdown</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="685.66" cy="-17.63" rx="94.48" ry="18"/>
+<text text-anchor="middle" x="685.66" y="-13.93" font-family="Times New Roman,serif" font-size="14.00" fill="white">Kelp forest breakdown</text>
+</g>
+<!-- Kelp plantations&#45;&gt;Kelp forest breakdown -->
+<g id="edge82" class="edge">
+<title>Kelp plantations&#45;&gt;Kelp forest breakdown</title>
+<path fill="none" stroke="green" stroke-width="5" d="M586.72,-391.94C603.27,-329.31 658.11,-121.86 678.2,-45.86"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="682.47,-46.82 680.8,-36.03 674.01,-44.58 682.47,-46.82"/>
+</g>
+<!-- Biophilic approach -->
+<g id="node36" class="node">
+<title>Biophilic approach</title>
+<polygon fill="palegreen" stroke="green" points="1534.34,-4200.05 1412.34,-4200.05 1412.34,-4164.05 1534.34,-4164.05 1534.34,-4200.05"/>
+<text text-anchor="middle" x="1473.34" y="-4178.35" font-family="Times New Roman,serif" font-size="14.00">Biophilic approach</text>
+</g>
+<!-- Biophilic approach&#45;&gt;Climate change denial -->
+<g id="edge84" class="edge">
+<title>Biophilic approach&#45;&gt;Climate change denial</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1412.17,-4189.86C1341.95,-4198.83 1226.31,-4213.6 1147.23,-4223.7"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1146.66,-4219.36 1137.29,-4224.97 1147.76,-4228.04 1146.66,-4219.36"/>
+</g>
+<!-- Biophilic approach&#45;&gt;Desinformation campaign -->
+<g id="edge86" class="edge">
+<title>Biophilic approach&#45;&gt;Desinformation campaign</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1491.12,-4163.9C1513.74,-4140.81 1552.94,-4100.8 1578.46,-4074.76"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1581.72,-4077.69 1585.59,-4067.49 1575.47,-4071.57 1581.72,-4077.69"/>
+</g>
+<!-- Biophilic approach&#45;&gt;Anti enviro movement -->
+<g id="edge85" class="edge">
+<title>Biophilic approach&#45;&gt;Anti enviro movement</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1529.72,-4200.14C1595.79,-4221.35 1704.7,-4256.32 1771.37,-4277.72"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1770.44,-4282.01 1781.3,-4280.9 1773.11,-4273.68 1770.44,-4282.01"/>
+</g>
+<!-- Hydropony -->
+<g id="node37" class="node">
+<title>Hydropony</title>
+<polygon fill="palegreen" stroke="green" points="2582.58,-3999.21 2501.58,-3999.21 2501.58,-3963.21 2582.58,-3963.21 2582.58,-3999.21"/>
+<text text-anchor="middle" x="2542.08" y="-3977.51" font-family="Times New Roman,serif" font-size="14.00">Hydropony</text>
+</g>
+<!-- Hydropony&#45;&gt;Local hunger revolutions -->
+<g id="edge88" class="edge">
+<title>Hydropony&#45;&gt;Local hunger revolutions</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2511.25,-3999.34C2479.02,-4018.3 2428.38,-4048.09 2393.62,-4068.54"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2391.11,-4064.94 2384.71,-4073.78 2395.55,-4072.48 2391.11,-4064.94"/>
+</g>
+<!-- Lack of coffee -->
+<g id="node113" class="node">
+<title>Lack of coffee</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="2577.61" cy="-4346.16" rx="64.19" ry="18"/>
+<text text-anchor="middle" x="2577.61" y="-4342.46" font-family="Times New Roman,serif" font-size="14.00" fill="white">Lack of coffee</text>
+</g>
+<!-- Hydropony&#45;&gt;Lack of coffee -->
+<g id="edge87" class="edge">
+<title>Hydropony&#45;&gt;Lack of coffee</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2543.84,-3999.3C2549.59,-4058.4 2567.86,-4246.05 2574.85,-4317.84"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2570.51,-4318.42 2575.84,-4327.95 2579.22,-4317.57 2570.51,-4318.42"/>
+</g>
+<!-- Hydropony&#45;&gt;Food chain disruption -->
+<g id="edge89" class="edge">
+<title>Hydropony&#45;&gt;Food chain disruption</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2501.39,-3981.91C2445.03,-3982.89 2341.3,-3984.68 2263.29,-3986.03"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2262.86,-3981.66 2252.94,-3986.21 2263.01,-3990.41 2262.86,-3981.66"/>
+</g>
+<!-- Hydropony&#45;&gt;Agricultural calamity -->
+<g id="edge90" class="edge">
+<title>Hydropony&#45;&gt;Agricultural calamity</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2582.81,-3982.65C2659.87,-3985.38 2828.79,-3991.36 2935.46,-3995.13"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2935.43,-3999.51 2945.58,-3995.49 2935.74,-3990.76 2935.43,-3999.51"/>
+</g>
+<!-- Mass forestation -->
+<g id="node38" class="node">
+<title>Mass forestation</title>
+<polygon fill="palegreen" stroke="green" points="1714.18,-4628.3 1604.18,-4628.3 1604.18,-4592.3 1714.18,-4592.3 1714.18,-4628.3"/>
+<text text-anchor="middle" x="1659.18" y="-4606.6" font-family="Times New Roman,serif" font-size="14.00">Mass forestation</text>
+</g>
+<!-- Mass forestation&#45;&gt;Non&#45;regulated pollutants -->
+<g id="edge92" class="edge">
+<title>Mass forestation&#45;&gt;Non&#45;regulated pollutants</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1661.74,-4592.03C1674.52,-4500.56 1731.52,-4092.57 1747.12,-3980.9"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1751.48,-3981.26 1748.54,-3970.75 1742.82,-3980.05 1751.48,-3981.26"/>
+</g>
+<!-- Mass forestation&#45;&gt;Wild deforestation -->
+<g id="edge91" class="edge">
+<title>Mass forestation&#45;&gt;Wild deforestation</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1638.91,-4628.66C1580.44,-4681.6 1411.52,-4834.53 1345.56,-4894.26"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1342.51,-4891.11 1338.04,-4901.06 1348.39,-4897.6 1342.51,-4891.11"/>
+</g>
+<!-- Greening deserts -->
+<g id="node39" class="node">
+<title>Greening deserts</title>
+<polygon fill="palegreen" stroke="green" points="383.47,-5341.88 273.47,-5341.88 273.47,-5305.88 383.47,-5305.88 383.47,-5341.88"/>
+<text text-anchor="middle" x="328.47" y="-5320.18" font-family="Times New Roman,serif" font-size="14.00">Greening deserts</text>
+</g>
+<!-- Greening deserts&#45;&gt;Wild deforestation -->
+<g id="edge93" class="edge">
+<title>Greening deserts&#45;&gt;Wild deforestation</title>
+<path fill="none" stroke="green" stroke-width="5" d="M372.62,-5305.81C535.53,-5239.13 1102.23,-5007.17 1270.96,-4938.11"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1272.73,-4942.11 1280.33,-4934.27 1269.42,-4934.01 1272.73,-4942.11"/>
+</g>
+<!-- Coral restoration -->
+<g id="node40" class="node">
+<title>Coral restoration</title>
+<polygon fill="palegreen" stroke="green" points="2269.2,-3328.82 2159.2,-3328.82 2159.2,-3292.82 2269.2,-3292.82 2269.2,-3328.82"/>
+<text text-anchor="middle" x="2214.2" y="-3307.12" font-family="Times New Roman,serif" font-size="14.00">Coral restoration</text>
+</g>
+<!-- Coral restoration&#45;&gt;Biodiversity breakdown -->
+<g id="edge94" class="edge">
+<title>Coral restoration&#45;&gt;Biodiversity breakdown</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2158.83,-3315.47C2090.52,-3321.19 1973.17,-3331.03 1889.31,-3338.06"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1888.85,-3333.7 1879.25,-3338.9 1889.58,-3342.42 1888.85,-3333.7"/>
+</g>
+<!-- Equatoral famine -->
+<g id="node131" class="node">
+<title>Equatoral famine</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="2552.18" cy="-3391.14" rx="71.49" ry="18"/>
+<text text-anchor="middle" x="2552.18" y="-3387.44" font-family="Times New Roman,serif" font-size="14.00" fill="white">Equatoral famine</text>
+</g>
+<!-- Coral restoration&#45;&gt;Equatoral famine -->
+<g id="edge95" class="edge">
+<title>Coral restoration&#45;&gt;Equatoral famine</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2269.25,-3323.91C2329.8,-3338.29 2426.87,-3361.36 2490.08,-3376.38"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2489.19,-3380.67 2499.93,-3378.72 2491.21,-3372.16 2489.19,-3380.67"/>
+</g>
+<!-- GMO -->
+<g id="node41" class="node">
+<title>GMO</title>
+<polygon fill="palegreen" stroke="green" points="2634.02,-4103.72 2580.02,-4103.72 2580.02,-4067.72 2634.02,-4067.72 2634.02,-4103.72"/>
+<text text-anchor="middle" x="2607.02" y="-4082.02" font-family="Times New Roman,serif" font-size="14.00">GMO</text>
+</g>
+<!-- GMO&#45;&gt;Local hunger revolutions -->
+<g id="edge97" class="edge">
+<title>GMO&#45;&gt;Local hunger revolutions</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2579.61,-4086.3C2552.02,-4086.88 2507.63,-4087.82 2465.6,-4088.71"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2465.45,-4084.34 2455.55,-4088.92 2465.64,-4093.08 2465.45,-4084.34"/>
+</g>
+<!-- GMO&#45;&gt;Tragic harvest -->
+<g id="edge98" class="edge">
+<title>GMO&#45;&gt;Tragic harvest</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2634.2,-4093.74C2669.12,-4104.06 2730.54,-4122.19 2775.02,-4135.33"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2773.97,-4139.58 2784.8,-4138.22 2776.45,-4131.19 2773.97,-4139.58"/>
+</g>
+<!-- GMO&#45;&gt;Lack of coffee -->
+<g id="edge96" class="edge">
+<title>GMO&#45;&gt;Lack of coffee</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2604.95,-4104.03C2599.9,-4148.77 2586.9,-4263.87 2580.83,-4317.66"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2576.45,-4317.43 2579.68,-4327.86 2585.15,-4318.42 2576.45,-4317.43"/>
+</g>
+<!-- GMO&#45;&gt;Food chain disruption -->
+<g id="edge99" class="edge">
+<title>GMO&#45;&gt;Food chain disruption</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2579.85,-4079.74C2511.97,-4064.8 2333.24,-4025.48 2232.88,-4003.4"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2233.53,-3999.06 2222.82,-4001.19 2231.65,-4007.61 2233.53,-3999.06"/>
+</g>
+<!-- GMO&#45;&gt;Agricultural calamity -->
+<g id="edge100" class="edge">
+<title>GMO&#45;&gt;Agricultural calamity</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2634.11,-4080.13C2698.69,-4066.8 2863.45,-4032.79 2958.73,-4013.12"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2959.67,-4017.39 2968.58,-4011.09 2957.9,-4008.82 2959.67,-4017.39"/>
+</g>
+<!-- Laboratory food -->
+<g id="node42" class="node">
+<title>Laboratory food</title>
+<polygon fill="palegreen" stroke="green" points="2996.72,-4492.11 2886.72,-4492.11 2886.72,-4456.11 2996.72,-4456.11 2996.72,-4492.11"/>
+<text text-anchor="middle" x="2941.72" y="-4470.41" font-family="Times New Roman,serif" font-size="14.00">Laboratory food</text>
+</g>
+<!-- Laboratory food&#45;&gt;Widespread cancer -->
+<g id="edge104" class="edge">
+<title>Laboratory food&#45;&gt;Widespread cancer</title>
+<path fill="none" stroke="red" stroke-width="5" d="M2920.04,-4455.72C2867.7,-4411.33 2734.44,-4298.3 2675.56,-4248.35"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="2678.22,-4244.87 2667.76,-4241.73 2672.56,-4251.54 2678.22,-4244.87"/>
+</g>
+<!-- Laboratory food&#45;&gt;Tragic harvest -->
+<g id="edge101" class="edge">
+<title>Laboratory food&#45;&gt;Tragic harvest</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2935.32,-4455.83C2916.42,-4401.87 2860.83,-4243.11 2838.29,-4178.74"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2842.4,-4177.25 2834.97,-4169.25 2834.15,-4180.14 2842.4,-4177.25"/>
+</g>
+<!-- Climate refugees -->
+<g id="node116" class="node">
+<title>Climate refugees</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="2642.62" cy="-4673.89" rx="70.69" ry="18"/>
+<text text-anchor="middle" x="2642.62" y="-4670.19" font-family="Times New Roman,serif" font-size="14.00" fill="white">Climate refugees</text>
+</g>
+<!-- Laboratory food&#45;&gt;Climate refugees -->
+<g id="edge102" class="edge">
+<title>Laboratory food&#45;&gt;Climate refugees</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2914.65,-4492.2C2859.96,-4528.72 2736.44,-4611.23 2676.51,-4651.26"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2674.03,-4647.65 2668.14,-4656.84 2678.89,-4654.93 2674.03,-4647.65"/>
+</g>
+<!-- World hunger -->
+<g id="node117" class="node">
+<title>World hunger</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="3495.97" cy="-4972.47" rx="61.19" ry="18"/>
+<text text-anchor="middle" x="3495.97" y="-4968.77" font-family="Times New Roman,serif" font-size="14.00" fill="white">World hunger</text>
+</g>
+<!-- Laboratory food&#45;&gt;World hunger -->
+<g id="edge103" class="edge">
+<title>Laboratory food&#45;&gt;World hunger</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2961.77,-4492.15C3046.25,-4568.1 3373.16,-4862.05 3469.26,-4948.45"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="3466.44,-4951.8 3476.81,-4955.24 3472.29,-4945.3 3466.44,-4951.8"/>
+</g>
+<!-- Nature engineers -->
+<g id="node43" class="node">
+<title>Nature engineers</title>
+<polygon fill="palegreen" stroke="green" points="363.53,-1514.39 254.53,-1514.39 254.53,-1478.39 363.53,-1478.39 363.53,-1514.39"/>
+<text text-anchor="middle" x="309.03" y="-1492.69" font-family="Times New Roman,serif" font-size="14.00">Nature engineers</text>
+</g>
+<!-- Nature engineers&#45;&gt;Intense drought -->
+<g id="edge105" class="edge">
+<title>Nature engineers&#45;&gt;Intense drought</title>
+<path fill="none" stroke="green" stroke-width="5" d="M363.56,-1488.41C543.27,-1462.12 1116.81,-1378.21 1316.71,-1348.96"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1317.53,-1353.26 1326.79,-1347.49 1316.27,-1344.61 1317.53,-1353.26"/>
+</g>
+<!-- Mangroves planting -->
+<g id="node44" class="node">
+<title>Mangroves planting</title>
+<polygon fill="palegreen" stroke="green" points="1809.89,-2040.28 1683.89,-2040.28 1683.89,-2004.28 1809.89,-2004.28 1809.89,-2040.28"/>
+<text text-anchor="middle" x="1746.89" y="-2018.58" font-family="Times New Roman,serif" font-size="14.00">Mangroves planting</text>
+</g>
+<!-- Massive flood -->
+<g id="node118" class="node">
+<title>Massive flood</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="1762.79" cy="-1973.51" rx="62.29" ry="18"/>
+<text text-anchor="middle" x="1762.79" y="-1969.81" font-family="Times New Roman,serif" font-size="14.00" fill="white">Massive flood</text>
+</g>
+<!-- Mangroves planting&#45;&gt;Massive flood -->
+<g id="edge106" class="edge">
+<title>Mangroves planting&#45;&gt;Massive flood</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1752.81,-2004.12C1752.85,-2003.99 1752.89,-2003.86 1752.94,-2003.73"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1757.98,-2002.38 1756.92,-1991.52 1749.66,-1999.67 1757.98,-2002.38"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1754.88,-2011.89 1753.82,-2001.03 1746.56,-2009.18 1754.88,-2011.89"/>
+</g>
+<!-- Rising ocean levels -->
+<g id="node119" class="node">
+<title>Rising ocean levels</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="1718.18" cy="-2070.88" rx="79.89" ry="18"/>
+<text text-anchor="middle" x="1718.18" y="-2067.18" font-family="Times New Roman,serif" font-size="14.00" fill="white">Rising ocean levels</text>
+</g>
+<!-- Mangroves planting&#45;&gt;Rising ocean levels -->
+<g id="edge107" class="edge">
+<title>Mangroves planting&#45;&gt;Rising ocean levels</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1736.2,-2040.38C1735.44,-2041.66 1734.67,-2042.96 1733.89,-2044.28"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1730.1,-2042.09 1728.78,-2052.93 1737.64,-2046.54 1730.1,-2042.09"/>
+</g>
+<!-- Coastal countries sunk -->
+<g id="node120" class="node">
+<title>Coastal countries sunk</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="1910.92" cy="-2080.69" rx="92.88" ry="18"/>
+<text text-anchor="middle" x="1910.92" y="-2076.99" font-family="Times New Roman,serif" font-size="14.00" fill="white">Coastal countries sunk</text>
+</g>
+<!-- Mangroves planting&#45;&gt;Coastal countries sunk -->
+<g id="edge108" class="edge">
+<title>Mangroves planting&#45;&gt;Coastal countries sunk</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1797.44,-2040.28C1816.29,-2046.99 1837.74,-2054.63 1856.89,-2061.45"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1855.48,-2065.59 1866.37,-2064.82 1858.41,-2057.35 1855.48,-2065.59"/>
+</g>
+<!-- Rainwater harvest -->
+<g id="node45" class="node">
+<title>Rainwater harvest</title>
+<polygon fill="palegreen" stroke="green" points="1238.86,-1067.62 1122.86,-1067.62 1122.86,-1031.62 1238.86,-1031.62 1238.86,-1067.62"/>
+<text text-anchor="middle" x="1180.86" y="-1045.92" font-family="Times New Roman,serif" font-size="14.00">Rainwater harvest</text>
+</g>
+<!-- Rainwater harvest&#45;&gt;Intense drought -->
+<g id="edge109" class="edge">
+<title>Rainwater harvest&#45;&gt;Intense drought</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1193.71,-1067.71C1228.87,-1117.22 1326.79,-1255.11 1367.8,-1312.85"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1364.29,-1315.46 1373.65,-1321.08 1371.42,-1310.39 1364.29,-1315.46"/>
+</g>
+<!-- Regenerative agriculture -->
+<g id="node46" class="node">
+<title>Regenerative agriculture</title>
+<polygon fill="palegreen" stroke="green" points="4279.58,-3722.8 4130.58,-3722.8 4130.58,-3686.8 4279.58,-3686.8 4279.58,-3722.8"/>
+<text text-anchor="middle" x="4205.08" y="-3701.1" font-family="Times New Roman,serif" font-size="14.00">Regenerative agriculture</text>
+</g>
+<!-- Regenerative agriculture&#45;&gt;Nitrogen run&#45;off -->
+<g id="edge110" class="edge">
+<title>Regenerative agriculture&#45;&gt;Nitrogen run&#45;off</title>
+<path fill="none" stroke="green" stroke-width="5" d="M4192.67,-3722.94C4139.56,-3800.49 3931.39,-4104.52 3868.48,-4196.4"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="3864.73,-4194.14 3862.69,-4204.86 3871.95,-4199.08 3864.73,-4194.14"/>
+</g>
+<!-- Aquaponics -->
+<g id="node47" class="node">
+<title>Aquaponics</title>
+<polygon fill="palegreen" stroke="green" points="2879.47,-3676.7 2795.47,-3676.7 2795.47,-3640.7 2879.47,-3640.7 2879.47,-3676.7"/>
+<text text-anchor="middle" x="2837.47" y="-3655" font-family="Times New Roman,serif" font-size="14.00">Aquaponics</text>
+</g>
+<!-- Aquaponics&#45;&gt;Equatoral famine -->
+<g id="edge111" class="edge">
+<title>Aquaponics&#45;&gt;Equatoral famine</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2817.86,-3640.31C2767.72,-3593.29 2634.83,-3468.65 2578.26,-3415.6"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2581.09,-3412.26 2570.8,-3408.61 2575.1,-3418.64 2581.09,-3412.26"/>
+</g>
+<!-- Aquaponics&#45;&gt;Agricultural calamity -->
+<g id="edge112" class="edge">
+<title>Aquaponics&#45;&gt;Agricultural calamity</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2847.8,-3676.97C2879.69,-3733.33 2976.66,-3904.72 3014.42,-3971.46"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="3010.81,-3973.97 3019.55,-3980.52 3018.43,-3969.66 3010.81,-3973.97"/>
+</g>
+<!-- Amazon reforestation -->
+<g id="node48" class="node">
+<title>Amazon reforestation</title>
+<polygon fill="palegreen" stroke="green" points="1276.22,-5533.46 1139.22,-5533.46 1139.22,-5497.46 1276.22,-5497.46 1276.22,-5533.46"/>
+<text text-anchor="middle" x="1207.72" y="-5511.76" font-family="Times New Roman,serif" font-size="14.00">Amazon reforestation</text>
+</g>
+<!-- Amazon reforestation&#45;&gt;Wild deforestation -->
+<g id="edge113" class="edge">
+<title>Amazon reforestation&#45;&gt;Wild deforestation</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1211.1,-5497.27C1226.98,-5411.88 1294.16,-5050.61 1313.49,-4946.65"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1317.83,-4947.24 1315.36,-4936.61 1309.23,-4945.64 1317.83,-4947.24"/>
+</g>
+<!-- Loss &amp; Damage Aid -->
+<g id="node49" class="node">
+<title>Loss &amp; Damage Aid</title>
+<polygon fill="#ffc125" stroke="gold" points="2132.15,-4486.11 2000.15,-4486.11 2000.15,-4450.11 2132.15,-4450.11 2132.15,-4486.11"/>
+<text text-anchor="middle" x="2066.15" y="-4464.41" font-family="Times New Roman,serif" font-size="14.00">Loss &amp; Damage Aid</text>
+</g>
+<!-- Loss &amp; Damage Aid&#45;&gt;Local conflicts -->
+<g id="edge114" class="edge">
+<title>Loss &amp; Damage Aid&#45;&gt;Local conflicts</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2060.02,-4449.97C2038.09,-4385.01 1963.39,-4163.76 1937.03,-4085.68"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1941.13,-4084.13 1933.78,-4076.05 1932.84,-4086.93 1941.13,-4084.13"/>
+</g>
+<!-- Loss &amp; Damage Aid&#45;&gt;Local hunger revolutions -->
+<g id="edge115" class="edge">
+<title>Loss &amp; Damage Aid&#45;&gt;Local hunger revolutions</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2080.1,-4449.93C2127.16,-4388.57 2280.19,-4189.06 2335.34,-4117.16"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2338.95,-4119.64 2341.56,-4109.05 2332,-4114.32 2338.95,-4119.64"/>
+</g>
+<!-- Loss &amp; Damage Aid&#45;&gt;Climate refugees -->
+<g id="edge116" class="edge">
+<title>Loss &amp; Damage Aid&#45;&gt;Climate refugees</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2116.8,-4486.2C2226.02,-4525.18 2482.59,-4616.76 2591.88,-4655.77"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2590.48,-4659.92 2601.37,-4659.16 2593.42,-4651.68 2590.48,-4659.92"/>
+</g>
+<!-- Carbon tax -->
+<g id="node50" class="node">
+<title>Carbon tax</title>
+<polygon fill="#ffc125" stroke="gold" points="2599.58,-2379.63 2520.58,-2379.63 2520.58,-2343.63 2599.58,-2343.63 2599.58,-2379.63"/>
+<text text-anchor="middle" x="2560.08" y="-2357.93" font-family="Times New Roman,serif" font-size="14.00">Carbon tax</text>
+</g>
+<!-- Carbon tax&#45;&gt;Lack of rare minerals -->
+<g id="edge117" class="edge">
+<title>Carbon tax&#45;&gt;Lack of rare minerals</title>
+<path fill="none" stroke="red" stroke-width="5" d="M2545.98,-2379.67C2490.37,-2450.86 2286.06,-2712.41 2220.73,-2796.03"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="2217.22,-2793.43 2214.51,-2804 2224.11,-2798.81 2217.22,-2793.43"/>
+</g>
+<!-- VR utopia -->
+<g id="node51" class="node">
+<title>VR utopia</title>
+<polygon fill="#ffc125" stroke="gold" points="1992.02,-3714.29 1918.02,-3714.29 1918.02,-3678.29 1992.02,-3678.29 1992.02,-3714.29"/>
+<text text-anchor="middle" x="1955.02" y="-3692.59" font-family="Times New Roman,serif" font-size="14.00">VR utopia</text>
+</g>
+<!-- VR utopia&#45;&gt;Non&#45;regulated pollutants -->
+<g id="edge118" class="edge">
+<title>VR utopia&#45;&gt;Non&#45;regulated pollutants</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1940.68,-3714.31C1905.21,-3758.89 1813.24,-3874.44 1771.83,-3926.48"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1768.21,-3924.01 1765.4,-3934.56 1775.05,-3929.46 1768.21,-3924.01"/>
+</g>
+<!-- VR utopia&#45;&gt;Desinformation campaign -->
+<g id="edge119" class="edge">
+<title>VR utopia&#45;&gt;Desinformation campaign</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1937.09,-3714.3C1880.85,-3770.76 1707.43,-3944.86 1635.22,-4017.36"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1625.01,-4021.42 1621.05,-4031.59 1631.21,-4027.6 1625.01,-4021.42"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1632.06,-4014.34 1628.11,-4024.51 1638.26,-4020.51 1632.06,-4014.34"/>
+</g>
+<!-- VR utopia&#45;&gt;Local conflicts -->
+<g id="edge121" class="edge">
+<title>VR utopia&#45;&gt;Local conflicts</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1953.63,-3714.73C1949.17,-3773.77 1935.25,-3958.41 1929.87,-4029.67"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1925.5,-4029.41 1929.12,-4039.71 1934.23,-4030.07 1925.5,-4029.41"/>
+</g>
+<!-- VR utopia&#45;&gt;Mass ecoterrorism -->
+<g id="edge125" class="edge">
+<title>VR utopia&#45;&gt;Mass ecoterrorism</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1934.44,-3678.23C1885.86,-3635.59 1763.96,-3528.59 1708.97,-3480.32"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1711.76,-3476.94 1701.35,-3473.63 1705.98,-3483.52 1711.76,-3476.94"/>
+</g>
+<!-- VR utopia&#45;&gt;Ecoterrorism -->
+<g id="edge124" class="edge">
+<title>VR utopia&#45;&gt;Ecoterrorism</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1917.97,-3687.8C1885.8,-3680.42 1838.72,-3669.62 1801.81,-3661.16"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1802.42,-3656.81 1791.69,-3658.84 1800.46,-3665.34 1802.42,-3656.81"/>
+</g>
+<!-- Fossil backed dezinfo -->
+<g id="node121" class="node">
+<title>Fossil backed dezinfo</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="2113.43" cy="-3554.22" rx="90.98" ry="18"/>
+<text text-anchor="middle" x="2113.43" y="-3550.52" font-family="Times New Roman,serif" font-size="14.00" fill="white">Fossil backed dezinfo</text>
+</g>
+<!-- VR utopia&#45;&gt;Fossil backed dezinfo -->
+<g id="edge120" class="edge">
+<title>VR utopia&#45;&gt;Fossil backed dezinfo</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1975.4,-3678.01C2003.6,-3652.73 2054.57,-3607.01 2086.06,-3578.77"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2089.1,-3581.92 2093.62,-3571.99 2083.26,-3575.41 2089.1,-3581.92"/>
+</g>
+<!-- Youth revolt -->
+<g id="node122" class="node">
+<title>Youth revolt</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="2137.41" cy="-4171.23" rx="55.79" ry="18"/>
+<text text-anchor="middle" x="2137.41" y="-4167.53" font-family="Times New Roman,serif" font-size="14.00" fill="white">Youth revolt</text>
+</g>
+<!-- VR utopia&#45;&gt;Youth revolt -->
+<g id="edge122" class="edge">
+<title>VR utopia&#45;&gt;Youth revolt</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1961.95,-3714.33C1989.74,-3786.7 2093.25,-4056.26 2126.82,-4143.67"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2122.8,-4145.41 2130.47,-4153.18 2130.97,-4142.27 2122.8,-4145.41"/>
+</g>
+<!-- Climate apathy -->
+<g id="node123" class="node">
+<title>Climate apathy</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="2033.5" cy="-3411.72" rx="64.19" ry="18"/>
+<text text-anchor="middle" x="2033.5" y="-3408.02" font-family="Times New Roman,serif" font-size="14.00" fill="white">Climate apathy</text>
+</g>
+<!-- VR utopia&#45;&gt;Climate apathy -->
+<g id="edge123" class="edge">
+<title>VR utopia&#45;&gt;Climate apathy</title>
+<path fill="none" stroke="red" stroke-width="5" d="M1960.05,-3678.06C1973.39,-3629.67 2009.77,-3497.76 2025.78,-3439.74"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="2030.08,-3440.6 2028.52,-3429.8 2021.64,-3438.28 2030.08,-3440.6"/>
+</g>
+<!-- Local protests -->
+<g id="node135" class="node">
+<title>Local protests</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="2309.54" cy="-3509.91" rx="63.09" ry="18"/>
+<text text-anchor="middle" x="2309.54" y="-3506.21" font-family="Times New Roman,serif" font-size="14.00" fill="white">Local protests</text>
+</g>
+<!-- VR utopia&#45;&gt;Local protests -->
+<g id="edge126" class="edge">
+<title>VR utopia&#45;&gt;Local protests</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1989.33,-3678.25C2055.52,-3643.46 2200.45,-3567.27 2270.32,-3530.53"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2272.45,-3534.35 2279.27,-3525.83 2268.38,-3526.61 2272.45,-3534.35"/>
+</g>
+<!-- War on science -->
+<g id="node146" class="node">
+<title>War on science</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="2382.82" cy="-3660.13" rx="67.69" ry="18"/>
+<text text-anchor="middle" x="2382.82" y="-3656.43" font-family="Times New Roman,serif" font-size="14.00" fill="white">War on science</text>
+</g>
+<!-- VR utopia&#45;&gt;War on science -->
+<g id="edge127" class="edge">
+<title>VR utopia&#45;&gt;War on science</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1992.23,-3693.15C2062.48,-3687.21 2215.81,-3674.25 2308.09,-3666.45"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2308.6,-3670.79 2318.2,-3665.59 2307.86,-3662.08 2308.6,-3670.79"/>
+</g>
+<!-- Polluters pay -->
+<g id="node52" class="node">
+<title>Polluters pay</title>
+<polygon fill="#ffc125" stroke="gold" points="2283.21,-2101.65 2194.21,-2101.65 2194.21,-2065.65 2283.21,-2065.65 2283.21,-2101.65"/>
+<text text-anchor="middle" x="2238.71" y="-2079.95" font-family="Times New Roman,serif" font-size="14.00">Polluters pay</text>
+</g>
+<!-- Polluters pay&#45;&gt;Lack of rare minerals -->
+<g id="edge128" class="edge">
+<title>Polluters pay&#45;&gt;Lack of rare minerals</title>
+<path fill="none" stroke="red" stroke-width="5" d="M2237.77,-2101.9C2232.66,-2200.73 2208.27,-2671.89 2201.99,-2793.32"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="2197.6,-2793.44 2201.46,-2803.65 2206.34,-2793.89 2197.6,-2793.44"/>
+</g>
+<!-- Decentralized power grid -->
+<g id="node53" class="node">
+<title>Decentralized power grid</title>
+<polygon fill="#ffc125" stroke="gold" points="1384.1,-3313.28 1228.1,-3313.28 1228.1,-3277.28 1384.1,-3277.28 1384.1,-3313.28"/>
+<text text-anchor="middle" x="1306.1" y="-3291.58" font-family="Times New Roman,serif" font-size="14.00">Decentralized power grid</text>
+</g>
+<!-- Decentralized power grid&#45;&gt;Windless dark winter -->
+<g id="edge129" class="edge">
+<title>Decentralized power grid&#45;&gt;Windless dark winter</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1348.79,-3313.29C1452.48,-3357.05 1717.04,-3468.69 1826.06,-3514.7"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1824.58,-3518.82 1835.5,-3518.68 1827.98,-3510.76 1824.58,-3518.82"/>
+</g>
+<!-- Decentralized power grid&#45;&gt;Energy shortage -->
+<g id="edge130" class="edge">
+<title>Decentralized power grid&#45;&gt;Energy shortage</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1285.92,-3277.27C1227.9,-3225.46 1060.53,-3076.01 994.58,-3017.13"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="997.43,-3013.81 987.06,-3010.42 991.6,-3020.34 997.43,-3013.81"/>
+</g>
+<!-- Refugee integration -->
+<g id="node54" class="node">
+<title>Refugee integration</title>
+<polygon fill="#ffc125" stroke="gold" points="2998.1,-5046.41 2874.1,-5046.41 2874.1,-5010.41 2998.1,-5010.41 2998.1,-5046.41"/>
+<text text-anchor="middle" x="2936.1" y="-5024.71" font-family="Times New Roman,serif" font-size="14.00">Refugee integration</text>
+</g>
+<!-- Refugee integration&#45;&gt;Climate refugees -->
+<g id="edge132" class="edge">
+<title>Refugee integration&#45;&gt;Climate refugees</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2921.14,-5010.34C2872.76,-4951.9 2720.41,-4767.85 2663.95,-4699.65"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2667.3,-4696.83 2657.55,-4691.92 2660.56,-4702.41 2667.3,-4696.83"/>
+</g>
+<!-- Mass airconditioning -->
+<g id="node55" class="node">
+<title>Mass airconditioning</title>
+<polygon fill="#ffc125" stroke="gold" points="2704.34,-4498.36 2571.34,-4498.36 2571.34,-4462.36 2704.34,-4462.36 2704.34,-4498.36"/>
+<text text-anchor="middle" x="2637.84" y="-4476.66" font-family="Times New Roman,serif" font-size="14.00">Mass airconditioning</text>
+</g>
+<!-- Mass airconditioning&#45;&gt;Deadly heatwaves -->
+<g id="edge133" class="edge">
+<title>Mass airconditioning&#45;&gt;Deadly heatwaves</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2618.08,-4462.36C2576.14,-4424.15 2477.74,-4334.5 2425.43,-4286.84"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2420.82,-4276.73 2410.49,-4273.23 2414.93,-4283.2 2420.82,-4276.73"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2428.22,-4283.46 2417.88,-4279.96 2422.32,-4289.93 2428.22,-4283.46"/>
+</g>
+<!-- Tribal culture -->
+<g id="node56" class="node">
+<title>Tribal culture</title>
+<polygon fill="#ffc125" stroke="gold" points="1232.06,-2644.37 1141.06,-2644.37 1141.06,-2608.37 1232.06,-2608.37 1232.06,-2644.37"/>
+<text text-anchor="middle" x="1186.56" y="-2622.67" font-family="Times New Roman,serif" font-size="14.00">Tribal culture</text>
+</g>
+<!-- War On science -->
+<g id="node150" class="node">
+<title>War On science</title>
+<ellipse fill="none" stroke="black" cx="1223.03" cy="-2672.93" rx="69.59" ry="18"/>
+<text text-anchor="middle" x="1223.03" y="-2669.23" font-family="Times New Roman,serif" font-size="14.00">War On science</text>
+</g>
+<!-- Tribal culture&#45;&gt;War On science -->
+<g id="edge134" class="edge">
+<title>Tribal culture&#45;&gt;War On science</title>
+<path fill="none" stroke="red" stroke-width="5" d="M1200.77,-2644.5C1200.85,-2644.61 1200.94,-2644.72 1201.02,-2644.83"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="1199.44,-2649.9 1209.05,-2655.07 1206.32,-2644.5 1199.44,-2649.9"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="1193.27,-2642.03 1202.88,-2647.2 1200.16,-2636.63 1193.27,-2642.03"/>
+</g>
+<!-- Genetic utopia -->
+<g id="node57" class="node">
+<title>Genetic utopia</title>
+<polygon fill="#ffc125" stroke="gold" points="2359.69,-4448.54 2261.69,-4448.54 2261.69,-4412.54 2359.69,-4412.54 2359.69,-4448.54"/>
+<text text-anchor="middle" x="2310.69" y="-4426.84" font-family="Times New Roman,serif" font-size="14.00">Genetic utopia</text>
+</g>
+<!-- Genetic utopia&#45;&gt;Deadly heatwaves -->
+<g id="edge135" class="edge">
+<title>Genetic utopia&#45;&gt;Deadly heatwaves</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2319.01,-4412.49C2333.17,-4381.8 2362.02,-4319.25 2378.68,-4283.14"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2382.82,-4284.62 2383.04,-4273.71 2374.87,-4280.96 2382.82,-4284.62"/>
+</g>
+<!-- Genetic utopia&#45;&gt;Widespread cancer -->
+<g id="edge136" class="edge">
+<title>Genetic utopia&#45;&gt;Widespread cancer</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2340.23,-4412.39C2401.71,-4374.61 2543.29,-4287.61 2610.34,-4246.41"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2612.68,-4250.11 2618.91,-4241.14 2608.1,-4242.65 2612.68,-4250.11"/>
+</g>
+<!-- Genetic utopia&#45;&gt;Lack of coffee -->
+<g id="edge138" class="edge">
+<title>Genetic utopia&#45;&gt;Lack of coffee</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2359.96,-4414.96C2406.89,-4400.13 2477.29,-4377.87 2525.22,-4362.72"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2526.58,-4366.88 2534.8,-4359.69 2523.94,-4358.53 2526.58,-4366.88"/>
+</g>
+<!-- Genetic utopia&#45;&gt;Youth revolt -->
+<g id="edge139" class="edge">
+<title>Genetic utopia&#45;&gt;Youth revolt</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2298.5,-4412.3C2268.36,-4367.19 2190.17,-4250.19 2155,-4197.56"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2158.54,-4194.98 2149.35,-4189.1 2151.27,-4199.85 2158.54,-4194.98"/>
+</g>
+<!-- Stop wasting food -->
+<g id="node132" class="node">
+<title>Stop wasting food</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="1927.59" cy="-5011.4" rx="77.99" ry="18"/>
+<text text-anchor="middle" x="1927.59" y="-5007.7" font-family="Times New Roman,serif" font-size="14.00" fill="white">Stop wasting food</text>
+</g>
+<!-- Genetic utopia&#45;&gt;Stop wasting food -->
+<g id="edge137" class="edge">
+<title>Genetic utopia&#45;&gt;Stop wasting food</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2298.8,-4448.56C2243.45,-4532.49 2010.81,-4885.21 1945,-4984.99"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1941.19,-4982.83 1939.34,-4993.58 1948.5,-4987.65 1941.19,-4982.83"/>
+</g>
+<!-- Pandemic -->
+<g id="node134" class="node">
+<title>Pandemic</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="2343.41" cy="-4710.58" rx="46.29" ry="18"/>
+<text text-anchor="middle" x="2343.41" y="-4706.88" font-family="Times New Roman,serif" font-size="14.00" fill="white">Pandemic</text>
+</g>
+<!-- Genetic utopia&#45;&gt;Pandemic -->
+<g id="edge140" class="edge">
+<title>Genetic utopia&#45;&gt;Pandemic</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2312.84,-4448.91C2318.42,-4496.7 2333.43,-4625.11 2340.12,-4682.36"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2335.79,-4683.08 2341.3,-4692.51 2344.49,-4682.06 2335.79,-4683.08"/>
+</g>
+<!-- Lifestyle changes -->
+<g id="node58" class="node">
+<title>Lifestyle changes</title>
+<polygon fill="#ffc125" stroke="gold" points="2232.06,-1829.37 2119.06,-1829.37 2119.06,-1793.37 2232.06,-1793.37 2232.06,-1829.37"/>
+<text text-anchor="middle" x="2175.56" y="-1807.67" font-family="Times New Roman,serif" font-size="14.00">Lifestyle changes</text>
+</g>
+<!-- No to consumerism -->
+<g id="node138" class="node">
+<title>No to consumerism</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="2212.03" cy="-1857.93" rx="82.59" ry="18"/>
+<text text-anchor="middle" x="2212.03" y="-1854.23" font-family="Times New Roman,serif" font-size="14.00" fill="white">No to consumerism</text>
+</g>
+<!-- Lifestyle changes&#45;&gt;No to consumerism -->
+<g id="edge141" class="edge">
+<title>Lifestyle changes&#45;&gt;No to consumerism</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2189.77,-1829.5C2190.45,-1830.37 2191.14,-1831.25 2191.83,-1832.13"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2188.44,-1834.9 2198.05,-1840.07 2195.32,-1829.5 2188.44,-1834.9"/>
+</g>
+<!-- Voluntary frugality -->
+<g id="node59" class="node">
+<title>Voluntary frugality</title>
+<polygon fill="#ffc125" stroke="gold" points="3216.56,-3133.37 3096.56,-3133.37 3096.56,-3097.37 3216.56,-3097.37 3216.56,-3133.37"/>
+<text text-anchor="middle" x="3156.56" y="-3111.67" font-family="Times New Roman,serif" font-size="14.00">Voluntary frugality</text>
+</g>
+<!-- Private space travels -->
+<g id="node139" class="node">
+<title>Private space travels</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="3193.03" cy="-3161.93" rx="85.29" ry="18"/>
+<text text-anchor="middle" x="3193.03" y="-3158.23" font-family="Times New Roman,serif" font-size="14.00" fill="white">Private space travels</text>
+</g>
+<!-- Voluntary frugality&#45;&gt;Private space travels -->
+<g id="edge142" class="edge">
+<title>Voluntary frugality&#45;&gt;Private space travels</title>
+<path fill="none" stroke="green" stroke-width="5" d="M3170.77,-3133.5C3171.45,-3134.37 3172.14,-3135.25 3172.83,-3136.13"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="3169.44,-3138.9 3179.05,-3144.07 3176.32,-3133.5 3169.44,-3138.9"/>
+</g>
+<!-- Science funding -->
+<g id="node60" class="node">
+<title>Science funding</title>
+<polygon fill="lightskyblue" stroke="dodgerblue" points="3202.56,-1666.37 3096.56,-1666.37 3096.56,-1630.37 3202.56,-1630.37 3202.56,-1666.37"/>
+<text text-anchor="middle" x="3149.56" y="-1644.67" font-family="Times New Roman,serif" font-size="14.00">Science funding</text>
+</g>
+<!-- Fringe research -->
+<g id="node126" class="node">
+<title>Fringe research</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="3186.03" cy="-1694.93" rx="66.09" ry="18"/>
+<text text-anchor="middle" x="3186.03" y="-1691.23" font-family="Times New Roman,serif" font-size="14.00" fill="white">Fringe research</text>
+</g>
+<!-- Science funding&#45;&gt;Fringe research -->
+<g id="edge143" class="edge">
+<title>Science funding&#45;&gt;Fringe research</title>
+<path fill="none" stroke="red" stroke-width="5" d="M3163.77,-1666.5C3164.45,-1667.37 3165.14,-1668.25 3165.83,-1669.13"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="3162.44,-1671.9 3172.05,-1677.07 3169.32,-1666.5 3162.44,-1671.9"/>
+</g>
+<!-- Emission cleaning -->
+<g id="node61" class="node">
+<title>Emission cleaning</title>
+<polygon fill="lightskyblue" stroke="dodgerblue" points="3170.53,-4377.66 3054.53,-4377.66 3054.53,-4341.66 3170.53,-4341.66 3170.53,-4377.66"/>
+<text text-anchor="middle" x="3112.53" y="-4355.96" font-family="Times New Roman,serif" font-size="14.00">Emission cleaning</text>
+</g>
+<!-- Emission cleaning&#45;&gt;Widespread cancer -->
+<g id="edge144" class="edge">
+<title>Emission cleaning&#45;&gt;Widespread cancer</title>
+<path fill="none" stroke="red" stroke-width="5" d="M3054.49,-4342.75C2965.3,-4316.77 2795.48,-4267.29 2705.76,-4241.15"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="2706.85,-4236.91 2696.02,-4238.31 2704.4,-4245.31 2706.85,-4236.91"/>
+</g>
+<!-- Research centers -->
+<g id="node62" class="node">
+<title>Research centers</title>
+<polygon fill="lightskyblue" stroke="dodgerblue" points="2159.26,-3130.68 2047.26,-3130.68 2047.26,-3094.68 2159.26,-3094.68 2159.26,-3130.68"/>
+<text text-anchor="middle" x="2103.26" y="-3108.98" font-family="Times New Roman,serif" font-size="14.00">Research centers</text>
+</g>
+<!-- Research centers&#45;&gt;Climate apathy -->
+<g id="edge145" class="edge">
+<title>Research centers&#45;&gt;Climate apathy</title>
+<path fill="none" stroke="red" stroke-width="5" d="M2099,-3130.93C2087.22,-3181.41 2054.16,-3323.14 2040.04,-3383.71"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="2035.72,-3382.97 2037.71,-3393.7 2044.24,-3384.95 2035.72,-3382.97"/>
+</g>
+<!-- Geoengineering -->
+<g id="node63" class="node">
+<title>Geoengineering</title>
+<polygon fill="lightskyblue" stroke="dodgerblue" points="2916.7,-4639.14 2813.7,-4639.14 2813.7,-4603.14 2916.7,-4603.14 2916.7,-4639.14"/>
+<text text-anchor="middle" x="2865.2" y="-4617.44" font-family="Times New Roman,serif" font-size="14.00">Geoengineering</text>
+</g>
+<!-- Geoengineering&#45;&gt;Widespread cancer -->
+<g id="edge146" class="edge">
+<title>Geoengineering&#45;&gt;Widespread cancer</title>
+<path fill="none" stroke="red" stroke-width="5" d="M2855.25,-4603.05C2820.36,-4539.6 2703.47,-4326.98 2661.77,-4251.15"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="2665.5,-4248.84 2656.85,-4242.19 2657.83,-4253.06 2665.5,-4248.84"/>
+</g>
+<!-- Artificial ecosystems -->
+<g id="node64" class="node">
+<title>Artificial ecosystems</title>
+<polygon fill="lightskyblue" stroke="dodgerblue" points="1990.49,-2978.24 1857.49,-2978.24 1857.49,-2942.24 1990.49,-2942.24 1990.49,-2978.24"/>
+<text text-anchor="middle" x="1923.99" y="-2956.54" font-family="Times New Roman,serif" font-size="14.00">Artificial ecosystems</text>
+</g>
+<!-- Artificial ecosystems&#45;&gt;Biodiversity breakdown -->
+<g id="edge149" class="edge">
+<title>Artificial ecosystems&#45;&gt;Biodiversity breakdown</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1917.74,-2978.34C1896.35,-3040.28 1825.99,-3244 1800.22,-3318.62"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1796.02,-3317.38 1796.89,-3328.26 1804.29,-3320.24 1796.02,-3317.38"/>
+</g>
+<!-- Artificial ecosystems&#45;&gt;Peatland drying up -->
+<g id="edge147" class="edge">
+<title>Artificial ecosystems&#45;&gt;Peatland drying up</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1923.18,-2941.94C1919.17,-2851.49 1901.48,-2452.17 1896.61,-2342.15"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1900.98,-2341.95 1896.17,-2332.15 1892.24,-2342.33 1900.98,-2341.95"/>
+</g>
+<!-- Artificial ecosystems&#45;&gt;Climate apathy -->
+<g id="edge148" class="edge">
+<title>Artificial ecosystems&#45;&gt;Climate apathy</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1928.42,-2978.5C1945.38,-3048.42 2006.28,-3299.49 2026.74,-3383.84"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2022.53,-3385.04 2029.14,-3393.73 2031.04,-3382.98 2022.53,-3385.04"/>
+</g>
+<!-- Last elephants -->
+<g id="node127" class="node">
+<title>Last elephants</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="1791.7" cy="-2680" rx="62.29" ry="18"/>
+<text text-anchor="middle" x="1791.7" y="-2676.3" font-family="Times New Roman,serif" font-size="14.00" fill="white">Last elephants</text>
+</g>
+<!-- Artificial ecosystems&#45;&gt;Last elephants -->
+<g id="edge150" class="edge">
+<title>Artificial ecosystems&#45;&gt;Last elephants</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1915.31,-2941.85C1892.6,-2893.74 1831.32,-2763.92 1804.53,-2707.17"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1808.47,-2705.26 1800.24,-2698.09 1800.56,-2709 1808.47,-2705.26"/>
+</g>
+<!-- Carbon Storage -->
+<g id="node65" class="node">
+<title>Carbon Storage</title>
+<polygon fill="lightskyblue" stroke="dodgerblue" points="2403.15,-3061.69 2298.15,-3061.69 2298.15,-3025.69 2403.15,-3025.69 2403.15,-3061.69"/>
+<text text-anchor="middle" x="2350.65" y="-3039.99" font-family="Times New Roman,serif" font-size="14.00">Carbon Storage</text>
+</g>
+<!-- Carbon Storage&#45;&gt;Climate apathy -->
+<g id="edge151" class="edge">
+<title>Carbon Storage&#45;&gt;Climate apathy</title>
+<path fill="none" stroke="red" stroke-width="5" d="M2334.92,-3061.94C2282.91,-3122.29 2116.37,-3315.55 2055.8,-3385.84"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="2052.17,-3383.36 2048.95,-3393.79 2058.79,-3389.07 2052.17,-3383.36"/>
+</g>
+<!-- Meteorological models -->
+<g id="node66" class="node">
+<title>Meteorological models</title>
+<polygon fill="lightskyblue" stroke="dodgerblue" points="2206.66,-3820.77 2062.66,-3820.77 2062.66,-3784.77 2206.66,-3784.77 2206.66,-3820.77"/>
+<text text-anchor="middle" x="2134.66" y="-3799.07" font-family="Times New Roman,serif" font-size="14.00">Meteorological models</text>
+</g>
+<!-- Meteorological models&#45;&gt;Non&#45;regulated pollutants -->
+<g id="edge152" class="edge">
+<title>Meteorological models&#45;&gt;Non&#45;regulated pollutants</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2088.39,-3820.84C2016.4,-3848.95 1878.06,-3902.97 1802.84,-3932.34"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1800.83,-3928.43 1793.11,-3936.15 1804.01,-3936.58 1800.83,-3928.43"/>
+</g>
+<!-- Meteorological models&#45;&gt;Windless dark winter -->
+<g id="edge155" class="edge">
+<title>Meteorological models&#45;&gt;Windless dark winter</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2116.75,-3784.36C2071.17,-3737.51 1950.68,-3613.66 1898.64,-3560.17"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1901.58,-3556.93 1891.47,-3552.81 1895.31,-3563.03 1901.58,-3556.93"/>
+</g>
+<!-- Meteorological models&#45;&gt;Unpredictable weather -->
+<g id="edge153" class="edge">
+<title>Meteorological models&#45;&gt;Unpredictable weather</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2183.6,-3784.72C2265.18,-3754.64 2428.27,-3694.5 2512.27,-3663.53"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2514,-3667.55 2521.87,-3659.99 2510.97,-3659.34 2514,-3667.55"/>
+</g>
+<!-- Meteorological models&#45;&gt;Crop failure -->
+<g id="edge154" class="edge">
+<title>Meteorological models&#45;&gt;Crop failure</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2206.85,-3814.07C2265.05,-3823.18 2345.91,-3835.84 2400.43,-3844.38"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2400.08,-3848.75 2410.63,-3845.97 2401.43,-3840.1 2400.08,-3848.75"/>
+</g>
+<!-- Artificial corals -->
+<g id="node67" class="node">
+<title>Artificial corals</title>
+<polygon fill="lightskyblue" stroke="dodgerblue" points="3156.89,-3389.21 3055.89,-3389.21 3055.89,-3353.21 3156.89,-3353.21 3156.89,-3389.21"/>
+<text text-anchor="middle" x="3106.39" y="-3367.51" font-family="Times New Roman,serif" font-size="14.00">Artificial corals</text>
+</g>
+<!-- Artificial corals&#45;&gt;Unpredictable weather -->
+<g id="edge156" class="edge">
+<title>Artificial corals&#45;&gt;Unpredictable weather</title>
+<path fill="none" stroke="green" stroke-width="5" d="M3070.44,-3389.33C2974.25,-3437.81 2711.24,-3570.37 2607.68,-3622.57"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2605.41,-3618.81 2598.45,-3627.22 2609.35,-3626.62 2605.41,-3618.81"/>
+</g>
+<!-- Coral die&#45;off -->
+<g id="node115" class="node">
+<title>Coral die&#45;off</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="3919.61" cy="-2564.98" rx="57.69" ry="18"/>
+<text text-anchor="middle" x="3919.61" y="-2561.28" font-family="Times New Roman,serif" font-size="14.00" fill="white">Coral die&#45;off</text>
+</g>
+<!-- Artificial corals&#45;&gt;Coral die&#45;off -->
+<g id="edge157" class="edge">
+<title>Artificial corals&#45;&gt;Coral die&#45;off</title>
+<path fill="none" stroke="green" stroke-width="5" d="M3124.9,-3352.86C3232.12,-3246.56 3772.9,-2710.43 3895.06,-2589.32"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="3898.16,-2592.41 3902.18,-2582.26 3892,-2586.2 3898.16,-2592.41"/>
+</g>
+<!-- Coastal barriers -->
+<g id="node68" class="node">
+<title>Coastal barriers</title>
+<polygon fill="lightskyblue" stroke="dodgerblue" points="1750.77,-2137.89 1646.77,-2137.89 1646.77,-2101.89 1750.77,-2101.89 1750.77,-2137.89"/>
+<text text-anchor="middle" x="1698.77" y="-2116.19" font-family="Times New Roman,serif" font-size="14.00">Coastal barriers</text>
+</g>
+<!-- Coastal barriers&#45;&gt;Rising ocean levels -->
+<g id="edge158" class="edge">
+<title>Coastal barriers&#45;&gt;Rising ocean levels</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1706,-2101.64C1706.41,-2100.6 1706.82,-2099.55 1707.24,-2098.49"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1711.4,-2099.89 1711.01,-2088.98 1703.26,-2096.66 1711.4,-2099.89"/>
+</g>
+<!-- Coastal barriers&#45;&gt;Coastal countries sunk -->
+<g id="edge159" class="edge">
+<title>Coastal barriers&#45;&gt;Coastal countries sunk</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1750.94,-2110.25C1775.74,-2105.66 1805.9,-2100.09 1833.32,-2095.03"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1834.25,-2099.3 1843.28,-2093.18 1832.66,-2090.7 1834.25,-2099.3"/>
+</g>
+<!-- Coastal refugees -->
+<g id="node128" class="node">
+<title>Coastal refugees</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="1538" cy="-2228.15" rx="70.69" ry="18"/>
+<text text-anchor="middle" x="1538" y="-2224.45" font-family="Times New Roman,serif" font-size="14.00" fill="white">Coastal refugees</text>
+</g>
+<!-- Coastal barriers&#45;&gt;Coastal refugees -->
+<g id="edge160" class="edge">
+<title>Coastal barriers&#45;&gt;Coastal refugees</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1671.86,-2138.01C1644.28,-2156.58 1601.33,-2185.5 1571.55,-2205.55"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1568.99,-2202 1563.14,-2211.22 1573.88,-2209.26 1568.99,-2202"/>
+</g>
+<!-- Moon commuting -->
+<g id="node69" class="node">
+<title>Moon commuting</title>
+<polygon fill="lightskyblue" stroke="dodgerblue" points="2015,-3861.04 1899,-3861.04 1899,-3825.04 2015,-3825.04 2015,-3861.04"/>
+<text text-anchor="middle" x="1957" y="-3839.34" font-family="Times New Roman,serif" font-size="14.00">Moon commuting</text>
+</g>
+<!-- Moon commuting&#45;&gt;Youth revolt -->
+<g id="edge162" class="edge">
+<title>Moon commuting&#45;&gt;Youth revolt</title>
+<path fill="none" stroke="red" stroke-width="5" d="M1966.95,-3861.15C1997.02,-3915.84 2086.99,-4079.51 2122.63,-4144.35"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="2118.83,-4146.52 2127.48,-4153.18 2126.5,-4142.3 2118.83,-4146.52"/>
+</g>
+<!-- Moon commuting&#45;&gt;Climate apathy -->
+<g id="edge161" class="edge">
+<title>Moon commuting&#45;&gt;Climate apathy</title>
+<path fill="none" stroke="red" stroke-width="5" d="M1960.23,-3824.78C1972.21,-3757.26 2014.05,-3521.4 2028.53,-3439.77"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="2032.87,-3440.35 2030.31,-3429.74 2024.25,-3438.82 2032.87,-3440.35"/>
+</g>
+<!-- High&#45;capacity batteries -->
+<g id="node70" class="node">
+<title>High&#45;capacity batteries</title>
+<polygon fill="lightskyblue" stroke="dodgerblue" points="1577.18,-3237.87 1433.18,-3237.87 1433.18,-3201.87 1577.18,-3201.87 1577.18,-3237.87"/>
+<text text-anchor="middle" x="1505.18" y="-3216.17" font-family="Times New Roman,serif" font-size="14.00">High&#45;capacity batteries</text>
+</g>
+<!-- High&#45;capacity batteries&#45;&gt;Windless dark winter -->
+<g id="edge163" class="edge">
+<title>High&#45;capacity batteries&#45;&gt;Windless dark winter</title>
+<path fill="none" stroke="green" stroke-width="5" d="M1526.34,-3237.95C1589.15,-3291.59 1774.55,-3449.93 1845.79,-3510.78"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1843.06,-3514.2 1853.51,-3517.37 1848.74,-3507.55 1843.06,-3514.2"/>
+</g>
+<!-- Departure of some -->
+<g id="node71" class="node">
+<title>Departure of some</title>
+<polygon fill="lightskyblue" stroke="dodgerblue" points="2265.52,-3728.91 2144.52,-3728.91 2144.52,-3692.91 2265.52,-3692.91 2265.52,-3728.91"/>
+<text text-anchor="middle" x="2205.02" y="-3707.21" font-family="Times New Roman,serif" font-size="14.00">Departure of some</text>
+</g>
+<!-- Departure of some&#45;&gt;Youth revolt -->
+<g id="edge165" class="edge">
+<title>Departure of some&#45;&gt;Youth revolt</title>
+<path fill="none" stroke="red" stroke-width="5" d="M2202.37,-3728.96C2192.01,-3799.5 2154.2,-4056.92 2141.56,-4142.99"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="2137.2,-4142.53 2140.08,-4153.06 2145.86,-4143.8 2137.2,-4142.53"/>
+</g>
+<!-- Departure of some&#45;&gt;Climate apathy -->
+<g id="edge164" class="edge">
+<title>Departure of some&#45;&gt;Climate apathy</title>
+<path fill="none" stroke="red" stroke-width="5" d="M2194.55,-3692.65C2165.41,-3641.83 2083.29,-3498.57 2048.93,-3438.62"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="2052.61,-3436.24 2043.84,-3429.74 2045.02,-3440.59 2052.61,-3436.24"/>
+</g>
+<!-- Reflective sheets -->
+<g id="node72" class="node">
+<title>Reflective sheets</title>
+<polygon fill="lightskyblue" stroke="dodgerblue" points="3371.51,-2200.29 3261.51,-2200.29 3261.51,-2164.29 3371.51,-2164.29 3371.51,-2200.29"/>
+<text text-anchor="middle" x="3316.51" y="-2178.59" font-family="Times New Roman,serif" font-size="14.00">Reflective sheets</text>
+</g>
+<!-- Melting arctic ice -->
+<g id="node129" class="node">
+<title>Melting arctic ice</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="3332.93" cy="-2228.79" rx="72.59" ry="18"/>
+<text text-anchor="middle" x="3332.93" y="-2225.09" font-family="Times New Roman,serif" font-size="14.00" fill="white">Melting arctic ice</text>
+</g>
+<!-- Reflective sheets&#45;&gt;Melting arctic ice -->
+<g id="edge166" class="edge">
+<title>Reflective sheets&#45;&gt;Melting arctic ice</title>
+<path fill="none" stroke="green" stroke-width="5" d="M3322.91,-2200.4C3322.94,-2200.5 3322.98,-2200.61 3323.02,-2200.71"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="3319.07,-2202.68 3326.53,-2210.65 3327.32,-2199.76 3319.07,-2202.68"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="3315.74,-2193.25 3323.2,-2201.22 3323.99,-2190.33 3315.74,-2193.25"/>
+</g>
+<!-- No arctic reflections -->
+<g id="node130" class="node">
+<title>No arctic reflections</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="3413.07" cy="-2137.5" rx="84.49" ry="18"/>
+<text text-anchor="middle" x="3413.07" y="-2133.8" font-family="Times New Roman,serif" font-size="14.00" fill="white">No arctic reflections</text>
+</g>
+<!-- Reflective sheets&#45;&gt;No arctic reflections -->
+<g id="edge167" class="edge">
+<title>Reflective sheets&#45;&gt;No arctic reflections</title>
+<path fill="none" stroke="green" stroke-width="5" d="M3355.5,-2164.2C3356.76,-2163.61 3358.03,-2163.03 3359.31,-2162.43"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="3370.44,-2162.09 3377.67,-2153.92 3366.75,-2154.16 3370.44,-2162.09"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="3361.36,-2166.3 3368.59,-2158.13 3357.68,-2158.36 3361.36,-2166.3"/>
+</g>
+<!-- Designer babies -->
+<g id="node73" class="node">
+<title>Designer babies</title>
+<polygon fill="lightskyblue" stroke="dodgerblue" points="2456.17,-4554.13 2351.17,-4554.13 2351.17,-4518.13 2456.17,-4518.13 2456.17,-4554.13"/>
+<text text-anchor="middle" x="2403.67" y="-4532.43" font-family="Times New Roman,serif" font-size="14.00">Designer babies</text>
+</g>
+<!-- Designer babies&#45;&gt;Deadly heatwaves -->
+<g id="edge168" class="edge">
+<title>Designer babies&#45;&gt;Deadly heatwaves</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2402.86,-4517.74C2400.75,-4469.9 2395.09,-4341.33 2392.56,-4284.01"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2396.92,-4283.66 2392.11,-4273.86 2388.18,-4284.04 2396.92,-4283.66"/>
+</g>
+<!-- Designer babies&#45;&gt;Widespread cancer -->
+<g id="edge169" class="edge">
+<title>Designer babies&#45;&gt;Widespread cancer</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2417.8,-4518C2458.94,-4465.18 2578.8,-4311.32 2626.71,-4249.82"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2630.28,-4252.36 2632.98,-4241.78 2623.38,-4246.98 2630.28,-4252.36"/>
+</g>
+<!-- Designer babies&#45;&gt;Lack of coffee -->
+<g id="edge171" class="edge">
+<title>Designer babies&#45;&gt;Lack of coffee</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2420.35,-4517.92C2451.55,-4483.84 2518.79,-4410.4 2554.4,-4371.51"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2557.96,-4374.09 2561.49,-4363.76 2551.51,-4368.18 2557.96,-4374.09"/>
+</g>
+<!-- Designer babies&#45;&gt;Youth revolt -->
+<g id="edge172" class="edge">
+<title>Designer babies&#45;&gt;Youth revolt</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2390.47,-4518.04C2346.9,-4458.32 2207.55,-4267.36 2156.44,-4197.31"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2159.81,-4194.51 2150.38,-4189.01 2152.74,-4199.66 2159.81,-4194.51"/>
+</g>
+<!-- Designer babies&#45;&gt;Stop wasting food -->
+<g id="edge170" class="edge">
+<title>Designer babies&#45;&gt;Stop wasting food</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2385.59,-4554.18C2312.22,-4627.42 2036.65,-4902.52 1952.29,-4986.74"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1949.17,-4983.67 1945.18,-4993.83 1955.35,-4989.86 1949.17,-4983.67"/>
+</g>
+<!-- Aging Demographic -->
+<g id="node133" class="node">
+<title>Aging Demographic</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="2559.79" cy="-4852.12" rx="83.39" ry="18"/>
+<text text-anchor="middle" x="2559.79" y="-4848.42" font-family="Times New Roman,serif" font-size="14.00" fill="white">Aging Demographic</text>
+</g>
+<!-- Designer babies&#45;&gt;Aging Demographic -->
+<g id="edge173" class="edge">
+<title>Designer babies&#45;&gt;Aging Demographic</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2412.74,-4554.49C2439,-4607.62 2515.17,-4761.8 2546.3,-4824.81"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2542.54,-4827.08 2550.89,-4834.11 2550.39,-4823.21 2542.54,-4827.08"/>
+</g>
+<!-- Rouge AI -->
+<g id="node142" class="node">
+<title>Rouge AI</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="2413.31" cy="-5050.37" rx="46.29" ry="18"/>
+<text text-anchor="middle" x="2413.31" y="-5046.67" font-family="Times New Roman,serif" font-size="14.00" fill="white">Rouge AI</text>
+</g>
+<!-- Designer babies&#45;&gt;Rouge AI -->
+<g id="edge174" class="edge">
+<title>Designer babies&#45;&gt;Rouge AI</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2404.01,-4554.13C2405.44,-4630.57 2411.03,-4928.6 2412.78,-5022.12"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2408.41,-5022.33 2412.97,-5032.25 2417.16,-5022.17 2408.41,-5022.33"/>
+</g>
+<!-- Advanced robotics -->
+<g id="node74" class="node">
+<title>Advanced robotics</title>
+<polygon fill="lightskyblue" stroke="dodgerblue" points="3865.35,-1397.15 3741.35,-1397.15 3741.35,-1361.15 3865.35,-1361.15 3865.35,-1397.15"/>
+<text text-anchor="middle" x="3803.35" y="-1375.45" font-family="Times New Roman,serif" font-size="14.00">Advanced robotics</text>
+</g>
+<!-- Advanced robotics&#45;&gt;Lack of rare minerals -->
+<g id="edge175" class="edge">
+<title>Advanced robotics&#45;&gt;Lack of rare minerals</title>
+<path fill="none" stroke="red" stroke-width="5" d="M3783.08,-1397.39C3612.85,-1550.62 2422.88,-2621.76 2227.6,-2797.54"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="2224.56,-2794.39 2220.05,-2804.33 2230.41,-2800.89 2224.56,-2794.39"/>
+</g>
+<!-- Atmospheric aerosols -->
+<g id="node75" class="node">
+<title>Atmospheric aerosols</title>
+<polygon fill="lightskyblue" stroke="dodgerblue" points="2740.95,-3814.43 2601.95,-3814.43 2601.95,-3778.43 2740.95,-3778.43 2740.95,-3814.43"/>
+<text text-anchor="middle" x="2671.45" y="-3792.73" font-family="Times New Roman,serif" font-size="14.00">Atmospheric aerosols</text>
+</g>
+<!-- Atmospheric aerosols&#45;&gt;Unpredictable weather -->
+<g id="edge177" class="edge">
+<title>Atmospheric aerosols&#45;&gt;Unpredictable weather</title>
+<path fill="none" stroke="red" stroke-width="5" d="M2658.81,-3778.36C2640.16,-3751.67 2605.14,-3701.57 2583.55,-3670.69"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="2586.9,-3667.83 2577.58,-3662.14 2579.72,-3672.85 2586.9,-3667.83"/>
+</g>
+<!-- Atmospheric aerosols&#45;&gt;Widespread cancer -->
+<g id="edge176" class="edge">
+<title>Atmospheric aerosols&#45;&gt;Widespread cancer</title>
+<path fill="none" stroke="red" stroke-width="5" d="M2670.4,-3814.53C2666.56,-3881.31 2653.16,-4114.2 2648.47,-4195.62"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="2644.1,-4195.41 2647.89,-4205.64 2652.84,-4195.91 2644.1,-4195.41"/>
+</g>
+<!-- Atmospheric aerosols&#45;&gt;Tragic harvest -->
+<g id="edge182" class="edge">
+<title>Atmospheric aerosols&#45;&gt;Tragic harvest</title>
+<path fill="none" stroke="red" stroke-width="5" d="M2679.46,-3814.51C2705.16,-3872.51 2785.65,-4054.16 2816.47,-4123.7"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="2812.59,-4125.75 2820.64,-4133.12 2820.59,-4122.21 2812.59,-4125.75"/>
+</g>
+<!-- Atmospheric aerosols&#45;&gt;Local protests -->
+<g id="edge183" class="edge">
+<title>Atmospheric aerosols&#45;&gt;Local protests</title>
+<path fill="none" stroke="red" stroke-width="5" d="M2648.53,-3778.29C2585.52,-3728.41 2409.67,-3589.19 2339.25,-3533.44"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="2341.75,-3529.84 2331.2,-3527.06 2336.32,-3536.7 2341.75,-3529.84"/>
+</g>
+<!-- Atmospheric aerosols&#45;&gt;Agricultural calamity -->
+<g id="edge180" class="edge">
+<title>Atmospheric aerosols&#45;&gt;Agricultural calamity</title>
+<path fill="none" stroke="red" stroke-width="5" d="M2703.55,-3814.54C2769.3,-3851.62 2919.06,-3936.07 2990.44,-3976.33"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="2988.71,-3980.37 2999.57,-3981.48 2993.01,-3972.75 2988.71,-3980.37"/>
+</g>
+<!-- Regional clima collapse -->
+<g id="node140" class="node">
+<title>Regional clima collapse</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="2773.2" cy="-3314.67" rx="96.38" ry="18"/>
+<text text-anchor="middle" x="2773.2" y="-3310.97" font-family="Times New Roman,serif" font-size="14.00" fill="white">Regional clima collapse</text>
+</g>
+<!-- Atmospheric aerosols&#45;&gt;Regional clima collapse -->
+<g id="edge178" class="edge">
+<title>Atmospheric aerosols&#45;&gt;Regional clima collapse</title>
+<path fill="none" stroke="red" stroke-width="5" d="M2675.25,-3778.42C2690.66,-3705.46 2748.53,-3431.48 2767.29,-3342.66"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="2771.59,-3343.46 2769.38,-3332.77 2763.03,-3341.65 2771.59,-3343.46"/>
+</g>
+<!-- Ecological disbalance -->
+<g id="node141" class="node">
+<title>Ecological disbalance</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="3236.04" cy="-3725.05" rx="89.08" ry="18"/>
+<text text-anchor="middle" x="3236.04" y="-3721.35" font-family="Times New Roman,serif" font-size="14.00" fill="white">Ecological disbalance</text>
+</g>
+<!-- Atmospheric aerosols&#45;&gt;Ecological disbalance -->
+<g id="edge179" class="edge">
+<title>Atmospheric aerosols&#45;&gt;Ecological disbalance</title>
+<path fill="none" stroke="red" stroke-width="5" d="M2740.96,-3787.64C2844.28,-3774.58 3038.21,-3750.06 3150.23,-3735.9"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="3151.1,-3740.2 3160.48,-3734.61 3150.01,-3731.52 3151.1,-3740.2"/>
+</g>
+<!-- Atmospheric aerosols&#45;&gt;War on science -->
+<g id="edge181" class="edge">
+<title>Atmospheric aerosols&#45;&gt;War on science</title>
+<path fill="none" stroke="red" stroke-width="5" d="M2633.12,-3778.33C2579.34,-3752.93 2481.79,-3706.87 2425.67,-3680.37"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="2427.28,-3676.29 2416.37,-3675.97 2423.54,-3684.2 2427.28,-3676.29"/>
+</g>
+<!-- Humankind engineering -->
+<g id="node76" class="node">
+<title>Humankind engineering</title>
+<polygon fill="lightskyblue" stroke="dodgerblue" points="2334.46,-5546.07 2188.46,-5546.07 2188.46,-5510.07 2334.46,-5510.07 2334.46,-5546.07"/>
+<text text-anchor="middle" x="2261.46" y="-5524.37" font-family="Times New Roman,serif" font-size="14.00">Humankind engineering</text>
+</g>
+<!-- Humankind engineering&#45;&gt;Rouge AI -->
+<g id="edge185" class="edge">
+<title>Humankind engineering&#45;&gt;Rouge AI</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2267.23,-5509.92C2290.37,-5437.13 2376.57,-5165.95 2404.51,-5078.06"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2408.76,-5079.13 2407.62,-5068.27 2400.42,-5076.48 2408.76,-5079.13"/>
+</g>
+<!-- SuperBacteria -->
+<g id="node143" class="node">
+<title>SuperBacteria</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="3231.02" cy="-5615.81" rx="61.99" ry="18"/>
+<text text-anchor="middle" x="3231.02" y="-5612.11" font-family="Times New Roman,serif" font-size="14.00" fill="white">SuperBacteria</text>
+</g>
+<!-- Humankind engineering&#45;&gt;SuperBacteria -->
+<g id="edge184" class="edge">
+<title>Humankind engineering&#45;&gt;SuperBacteria</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2334.73,-5534.7C2516.27,-5551.13 2984.99,-5593.54 3161.98,-5609.56"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="3161.6,-5613.92 3171.95,-5610.46 3162.39,-5605.2 3161.6,-5613.92"/>
+</g>
+<!-- Radiative cooling -->
+<g id="node77" class="node">
+<title>Radiative cooling</title>
+<polygon fill="lightskyblue" stroke="dodgerblue" points="3817.82,-3397.87 3704.82,-3397.87 3704.82,-3361.87 3817.82,-3361.87 3817.82,-3397.87"/>
+<text text-anchor="middle" x="3761.32" y="-3376.17" font-family="Times New Roman,serif" font-size="14.00">Radiative cooling</text>
+</g>
+<!-- Radiative cooling&#45;&gt;Ecological disbalance -->
+<g id="edge186" class="edge">
+<title>Radiative cooling&#45;&gt;Ecological disbalance</title>
+<path fill="none" stroke="red" stroke-width="5" d="M3733.82,-3397.94C3645.4,-3456.05 3368.51,-3638.01 3270.69,-3702.29"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="3268.28,-3698.63 3262.33,-3707.78 3273.09,-3705.94 3268.28,-3698.63"/>
+</g>
+<!-- Space mirrors -->
+<g id="node78" class="node">
+<title>Space mirrors</title>
+<polygon fill="lightskyblue" stroke="dodgerblue" points="2512.03,-3244.79 2417.03,-3244.79 2417.03,-3208.79 2512.03,-3208.79 2512.03,-3244.79"/>
+<text text-anchor="middle" x="2464.53" y="-3223.09" font-family="Times New Roman,serif" font-size="14.00">Space mirrors</text>
+</g>
+<!-- Space mirrors&#45;&gt;Lack of rare minerals -->
+<g id="edge191" class="edge">
+<title>Space mirrors&#45;&gt;Lack of rare minerals</title>
+<path fill="none" stroke="red" stroke-width="5" d="M2452.67,-3208.61C2410.54,-3143.99 2267.89,-2925.25 2217.95,-2848.67"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="2221.46,-2846.04 2212.33,-2840.05 2214.13,-2850.82 2221.46,-2846.04"/>
+</g>
+<!-- Space mirrors&#45;&gt;Local protests -->
+<g id="edge190" class="edge">
+<title>Space mirrors&#45;&gt;Local protests</title>
+<path fill="none" stroke="red" stroke-width="5" d="M2454.6,-3244.93C2428.08,-3293.37 2355.5,-3425.95 2324.21,-3483.11"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="2320.35,-3481.05 2319.38,-3491.92 2328.02,-3485.25 2320.35,-3481.05"/>
+</g>
+<!-- Space mirrors&#45;&gt;Regional clima collapse -->
+<g id="edge188" class="edge">
+<title>Space mirrors&#45;&gt;Regional clima collapse</title>
+<path fill="none" stroke="red" stroke-width="5" d="M2512.08,-3240.33C2565.24,-3255.46 2651.54,-3280.03 2710.25,-3296.75"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="2709.34,-3301.04 2720.16,-3299.57 2711.74,-3292.62 2709.34,-3301.04"/>
+</g>
+<!-- Kessler syndrom -->
+<g id="node144" class="node">
+<title>Kessler syndrom</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="3115.11" cy="-2685.38" rx="72.29" ry="18"/>
+<text text-anchor="middle" x="3115.11" y="-2681.68" font-family="Times New Roman,serif" font-size="14.00" fill="white">Kessler syndrom</text>
+</g>
+<!-- Space mirrors&#45;&gt;Kessler syndrom -->
+<g id="edge187" class="edge">
+<title>Space mirrors&#45;&gt;Kessler syndrom</title>
+<path fill="none" stroke="red" stroke-width="5" d="M2486.18,-3208.78C2583.08,-3128.13 2977.05,-2800.27 3086.68,-2709.04"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="3089.48,-2712.4 3094.37,-2702.64 3083.88,-2705.68 3089.48,-2712.4"/>
+</g>
+<!-- Asteroid swarm -->
+<g id="node145" class="node">
+<title>Asteroid swarm</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="2668" cy="-2826.67" rx="68.49" ry="18"/>
+<text text-anchor="middle" x="2668" y="-2822.97" font-family="Times New Roman,serif" font-size="14.00" fill="white">Asteroid swarm</text>
+</g>
+<!-- Space mirrors&#45;&gt;Asteroid swarm -->
+<g id="edge189" class="edge">
+<title>Space mirrors&#45;&gt;Asteroid swarm</title>
+<path fill="none" stroke="red" stroke-width="5" d="M2473.8,-3208.56C2506.38,-3144.49 2615.73,-2929.45 2654.35,-2853.51"/>
+<polygon fill="red" stroke="red" stroke-width="5" points="2658.27,-2855.45 2658.91,-2844.55 2650.47,-2851.48 2658.27,-2855.45"/>
+</g>
+<!-- Space mirrors&#45;&gt;War on science -->
+<g id="edge192" class="edge">
+<title>Space mirrors&#45;&gt;War on science</title>
+<path fill="none" stroke="red" stroke-width="5" d="M2461.12,-3244.86C2449.05,-3308.87 2408.12,-3525.93 2390.74,-3618.14"/>
+<polygon fill="none" stroke="red" stroke-width="5" points="2388.46,-3630.19 2391.28,-3636.83 2386.24,-3641.98 2383.42,-3635.35 2388.46,-3630.19"/>
+<polygon fill="none" stroke="red" stroke-width="5" points="2390.69,-3618.4 2393.5,-3625.04 2388.46,-3630.19 2385.64,-3623.55 2390.69,-3618.4"/>
+</g>
+<!-- VR worlds -->
+<g id="node79" class="node">
+<title>VR worlds</title>
+<polygon fill="lightskyblue" stroke="dodgerblue" points="2098.78,-3933.87 2020.78,-3933.87 2020.78,-3897.87 2098.78,-3897.87 2098.78,-3933.87"/>
+<text text-anchor="middle" x="2059.78" y="-3912.17" font-family="Times New Roman,serif" font-size="14.00">VR worlds</text>
+</g>
+<!-- VR worlds&#45;&gt;Local hunger revolutions -->
+<g id="edge195" class="edge">
+<title>VR worlds&#45;&gt;Local hunger revolutions</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2090.3,-3933.96C2144.6,-3966.13 2257.83,-4033.24 2317.19,-4068.42"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2315.06,-4072.24 2325.9,-4073.57 2319.52,-4064.71 2315.06,-4072.24"/>
+</g>
+<!-- VR worlds&#45;&gt;Anti enviro movement -->
+<g id="edge196" class="edge">
+<title>VR worlds&#45;&gt;Anti enviro movement</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2048.81,-3933.96C2011.55,-3995.41 1889.72,-4196.36 1845.43,-4269.41"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="1841.63,-4267.24 1840.18,-4278.06 1849.11,-4271.78 1841.63,-4267.24"/>
+</g>
+<!-- VR worlds&#45;&gt;Local protests -->
+<g id="edge193" class="edge">
+<title>VR worlds&#45;&gt;Local protests</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2071,-3897.64C2110.86,-3832.85 2245.79,-3613.52 2293.04,-3536.73"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2296.84,-3538.91 2298.35,-3528.1 2289.38,-3534.32 2296.84,-3538.91"/>
+</g>
+<!-- VR worlds&#45;&gt;War on science -->
+<g id="edge194" class="edge">
+<title>VR worlds&#45;&gt;War on science</title>
+<path fill="none" stroke="green" stroke-width="5" d="M2082.75,-3897.68C2140,-3852.36 2288.99,-3734.41 2352.94,-3683.78"/>
+<polygon fill="green" stroke="green" stroke-width="5" points="2355.9,-3687.02 2361.03,-3677.38 2350.47,-3680.16 2355.9,-3687.02"/>
+</g>
+<!-- Chaotic monsoons -->
+<g id="node125" class="node">
+<title>Chaotic monsoons</title>
+<ellipse fill="#1a1a1a" stroke="#1a1a1a" cx="2687.14" cy="-2137.3" rx="79.09" ry="18"/>
+<text text-anchor="middle" x="2687.14" y="-2133.6" font-family="Times New Roman,serif" font-size="14.00" fill="white">Chaotic monsoons</text>
+</g>
+</g>
+</svg>
+  <footer>
+    <a href="https://github.com/JustinLove/beecarbonize_graphs"><svg class="icon icon-github"><use xlink:href="#icon-github"></use></svg>beecarbonize_graphs</a>
+    <a href="https://twitter.com/wondible"><svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg>@wondible</a>
+    <a href="https://twitch.tv/wondible"><svg class="icon icon-twitch"><use xlink:href="#icon-twitch"></use></svg>wondible</a>
+    <span>Beecarbonize 2.0.2</span>
+  </footer>
+</body>
+
+<script type="text/javascript">
+  //var element = document.querySelector('svg')
+  svgPanZoom('#graph', {
+    zoomEnabled: true,
+    controlIconsEnabled: true,
+  })
+</script>
+
+
+</html>
