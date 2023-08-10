@@ -4,10 +4,15 @@ A set of handwritten [Graphviz](https://graphviz.org/) DOT files mapping upgrade
 
 Thanks to Perfect Info's [Full Events List][https://steamcommunity.com/sharedfiles/filedetails/?id=3016705367] for filling in a few missing links.
 
-## Published output (Steam release)
+## Published output (Steam 2023-08-10)
 
 - [Beecarbonize Tech Tree](https://wondible.com/beecarbonize/beecarbonize_tech_tree.html)
 - [Beecarbonize Event Chances](https://wondible.com/beecarbonize/beecarbonize_event_chances.html)
+
+### Permanent Steam 2023-08-10
+
+- [Beecarbonize Tech Tree - Steam 2023-08-10](https://wondible.com/beecarbonize/20230810/beecarbonize_tech_tree.html)
+- [Beecarbonize Event Chances - Steam 2023-08-10](https://wondible.com/beecarbonize/20230810beecarbonize_event_chances.html)
 
 ### Permanent Steam 2023-08-01
 

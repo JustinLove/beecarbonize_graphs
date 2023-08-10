@@ -161,7 +161,8 @@ digraph BeecarbonizeTechTree {
     "Tribal culture" -> "No tech civilization" [dir=both,arrowtail=odiamond]
     "No tech civilization" [style=filled,fillcolor="khaki1",shape=octagon]
     "Energy-efficient cities"
-    "Genetic utopia"
+    //"Genetic utopia"
+    "Designer babies"
   }
   subgraph Science {
     // cluster=true;
@@ -206,7 +207,7 @@ digraph BeecarbonizeTechTree {
     "Departure of some" -> "Planet B colonised" [dir=both,arrowtail=odiamond]
     "Reflective sheets"
     "Planet B colonised" [style=filled,fillcolor="khaki1",shape=octagon]
-    "Designer babies" -> "Genetic utopia" [dir=both,arrowtail=odiamond]
+    //"Designer babies" -> "Genetic utopia" [dir=both,arrowtail=odiamond]
     "Atmospheric aerosols" -> "Radiative cooling"
     "Atmospheric aerosols" -> "Space mirrors"
     "Atmospheric aerosols" -> "Reflective sheets"

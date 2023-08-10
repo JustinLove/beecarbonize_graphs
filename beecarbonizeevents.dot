@@ -79,7 +79,8 @@ digraph BeecarbonizeEvents {
       "Refugee integration"
       "Mass airconditioning"
       "Tribal culture"
-      "Genetic utopia"
+      "Designer babies"
+      //"Genetic utopia"
       "Lifestyle changes"
       "Voluntary frugality"
     }
@@ -101,7 +102,6 @@ digraph BeecarbonizeEvents {
       "High-capacity batteries"
       "Departure of some"
       "Reflective sheets"
-      "Designer babies"
       "Advanced robotics"
       "Atmospheric aerosols"
       "Humankind engineering"
@@ -235,7 +235,7 @@ digraph BeecarbonizeEvents {
   "Nuclear energy 2.0" -> "Energy shortage" [color="green"]
   "Modular nuclear reactor" -> "Radioactive leak" [color="red"]
   "Modular nuclear reactor" -> "Energy shortage" [color="green"]
-  "Modular fusion reactors" -> "Energy shortage" [color="green"]
+  "Modular fusion" -> "Energy shortage" [color="green"]
   "Deep sea mining" -> "Biodiversity breakdown" [color="red",arrowhead=normalnormal]
   "Deep sea mining" -> "Deep see fishing" [color="red",arrowhead=normalnormal]
   "Deep sea mining" -> "Mass ecoterrorism" [color="red"]
@@ -321,12 +321,12 @@ digraph BeecarbonizeEvents {
   "Refugee integration" -> "Climate refugees" [color="green"]
   "Mass airconditioning" -> "Deadly heatwaves" [color="green",arrowhead=normalnormal]
   "Tribal culture" -> "War On science" [color="red",arrowhead=normalnormal]
-  "Genetic utopia" -> "Deadly heatwaves" [color="green"]
-  "Genetic utopia" -> "Widespread cancer" [color="green"]
-  "Genetic utopia" -> "Stop wasting food" [color="green"]
-  "Genetic utopia" -> "Lack of coffee" [color="green"]
-  "Genetic utopia" -> "Youth revolt" [color="green"]
-  "Genetic utopia" -> "Pandemic" [color="green"]
+  //"Genetic utopia" -> "Deadly heatwaves" [color="green"]
+  //"Genetic utopia" -> "Widespread cancer" [color="green"]
+  //"Genetic utopia" -> "Stop wasting food" [color="green"]
+  //"Genetic utopia" -> "Lack of coffee" [color="green"]
+  //"Genetic utopia" -> "Youth revolt" [color="green"]
+  //"Genetic utopia" -> "Pandemic" [color="green"]
   "Lifestyle changes" -> "No to consumerism" [color="green"]
   "Voluntary frugality" -> "Private space travels" [color="green"]
   "Science funding" -> "Fringe research" [color="red"]
@@ -361,6 +361,7 @@ digraph BeecarbonizeEvents {
   "Designer babies" -> "Youth revolt" [color="green"]
   "Designer babies" -> "Aging Demographic" [color="green"]
   "Designer babies" -> "Rouge AI" [color="green"]
+  "Designer babies" -> "Pandemic" [color="green"]
   "Advanced robotics" -> "Lack of rare minerals" [color="red"]
   "Atmospheric aerosols" -> "Widespread cancer" [color="red"]
   "Atmospheric aerosols" -> "Unpredictable weather" [color="red"]
