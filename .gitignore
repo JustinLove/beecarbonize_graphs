@@ -1,2 +1,3 @@
 *.dot.svg
 public/*
+data/*
