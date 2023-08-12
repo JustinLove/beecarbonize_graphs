@@ -1,3 +1,5 @@
 *.dot.svg
 public/*
 data/*
+elm-stuff/*
+js/ImportData.js
