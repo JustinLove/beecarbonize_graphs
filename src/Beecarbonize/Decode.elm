@@ -1,9 +1,10 @@
-module Beecarbonize.Decode exposing (card, event)
+module Beecarbonize.Decode exposing (card, event, languages)
 
 import Beecarbonize exposing (..)
 
 import Bytes exposing (..)
 import Bytes.Decode exposing (..)
+import Dict exposing (Dict)
 import Hex.Convert as Hex
 
 cardAssembler : Identification -> Building -> Production -> Events -> Misc -> Card
@@ -69,6 +70,11 @@ event =
     eventEffects
     activation
     trailer
+
+languages : Decoder (Dict String String)
+languages =
+  discard 56
+    <| translationList
 
 type alias Identification =
   { objectName : String
@@ -359,17 +365,53 @@ tokens =
 listOfIds : Decoder (List Int)
 listOfIds =
   list (unsignedInt32 LE)
-    |> map (Debug.log "ids")
+    --|> map (Debug.log "ids")
 
 arbitraryList : Decoder (List Int)
 arbitraryList =
   list (unsignedInt32 LE)
     |> map (Debug.log "arbitrary")
 
+listOfStrings : Decoder (List String)
+listOfStrings =
+  list prefixedString
+    --|> map (Debug.log "strings")
+
+type alias LanguageEntry =
+  { key : String
+  , v1 : Int
+  , translations : List String
+  , mystery : List Int
+  }
+
+languageEntry : Decoder LanguageEntry
+languageEntry =
+  map4 LanguageEntry
+    prefixedString
+    arbitraryValue
+    listOfStrings
+    listOfIds
+    --|> map (Debug.log "langentry")
+
+langToPair : LanguageEntry -> (String, String)
+langToPair lang =
+  (lang.key, lang.translations |> List.head |> Maybe.withDefault lang.key)
+
+languagePair : Decoder (String, String)
+languagePair =
+  languageEntry
+    |> map langToPair
+
+translationList : Decoder (Dict String String)
+translationList =
+  list languagePair
+    --|> map (Debug.log "trans")
+    |> map Dict.fromList
+
 list : Decoder a -> Decoder (List a)
 list decoder =
   unsignedInt32 LE
-    |> map (Debug.log "n")
+    --|> map (Debug.log "n")
     |> andThen (\len -> loop (len, []) (listStep decoder))
 
 listStep : Decoder a -> (Int, List a) -> Decoder (Step (Int, List a) (List a))

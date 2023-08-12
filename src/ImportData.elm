@@ -7,6 +7,7 @@ import Console
 import Bytes exposing (Bytes)
 import Bytes.Decode
 import Bytes.Encode
+import Dict exposing (Dict)
 import Hex.Convert as Hex
 import Json.Decode
 
@@ -22,6 +23,7 @@ type alias Model =
   , filesRead : Int
   , cards : List Card
   , events : List Event
+  , translations : Dict String String
   }
 
 type Msg
@@ -35,6 +37,10 @@ type File
   | Dir (List String)
   | CardFile Card
   | EventFile Event
+  | Translations (Dict String String)
+
+
+langPath = "export/MonoBehaviour/I2Languages.dat"
 
 init : () -> (Model, Cmd Msg)
 init _ =
@@ -42,10 +48,12 @@ init _ =
     , filesRead = 0
     , cards = []
     , events = []
+    , translations = Dict.empty
     }
   , Cmd.batch
     [ Console.write "start"
     , Console.readFile "files.txt"
+    , Console.readFileBinary langPath
     ]
   )
 
@@ -84,14 +92,19 @@ updateReadFile name contents model =
       let _ = Debug.log name event.objectName in
       {model | filesRead = model.filesRead + 1, events = event :: model.events}
         |> checkDone
+    Ok (Translations dict) -> 
+      --let _ = Debug.log name dict in
+      {model | filesRead = model.filesRead + 1, translations = dict}
+        |> checkDone
     Ok (Dir paths) -> 
       let
         proc = paths
-          |> List.drop 121
+          |> List.take 0
+          --|> List.drop 121
           --|> List.drop 2
           --|> List.take 160
       in
-      ( {model | fileCount = List.length proc}
+      ( {model | fileCount = List.length proc + 1}
       , proc
         |> Debug.log "paths"
         |> List.map Console.readFileBinary
@@ -112,7 +125,8 @@ checkDone model =
     ( model
     , Cmd.batch
       --(Console.exit :: (List.map (Console.write<<printCard) model.cards))
-      (Console.exit :: (List.map (Console.write<<printEvent) model.events))
+      --(Console.exit :: (List.map (Console.write<<printEvent) model.events))
+      (Console.exit :: [Console.write (printTranslations model.translations)])
       --(Console.exit :: [Console.write "done"])
     )
   else
@@ -155,6 +169,13 @@ printEvent event =
     , event.emissionRange |> Tuple.second |> String.fromInt |> String.padLeft 6 ' '
     , event.displayName
     ]
+
+printTranslations : Dict String String -> String
+printTranslations trans =
+  trans
+    |> Dict.toList
+    |> List.map (\(k,v) -> k ++ " " ++ v)
+    |> String.join "\n"
 
 cardTypeString : CardType -> String
 cardTypeString ct = 
@@ -204,6 +225,10 @@ parseFile filename contents =
       |> String.split "\n"
       |> Dir
       |> Ok
+  else if filename == langPath then
+    contents
+      |> parseLang
+      |> Result.map Translations
   else if String.contains "card" filename then
     contents
       --|> Debug.log "contents"
@@ -230,6 +255,13 @@ parseEvent contents =
     --|> Maybe.map (dump "contents")
     |> Maybe.andThen (Bytes.Decode.decode Decode.event)
     |> Result.fromMaybe ("decode failed " ++ contents)
+
+parseLang : String -> Result String (Dict String String)
+parseLang contents =
+  Hex.toBytes contents
+    --|> Maybe.map (dump "contents")
+    |> Maybe.andThen (Bytes.Decode.decode Decode.languages)
+    |> Result.fromMaybe ("decode failed ")-- ++ contents)
 
 dump title x =
   let _ = Debug.log title (Hex.toString x |> Hex.blocks 8) in x
