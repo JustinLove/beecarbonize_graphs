@@ -1,4 +1,4 @@
-module Beecarbonize.Decode exposing (card)
+module Beecarbonize.Decode exposing (card, event)
 
 import Beecarbonize exposing (..)
 
@@ -6,8 +6,8 @@ import Bytes exposing (..)
 import Bytes.Decode exposing (..)
 import Hex.Convert as Hex
 
-assembler : Identification -> Building -> Production -> Events -> Misc -> Card
-assembler id build prod ev mc =
+cardAssembler : Identification -> Building -> Production -> Events -> Misc -> Card
+cardAssembler id build prod ev mc =
   { objectName = id.objectName
   , id = id.id
   , displayName = id.displayName
@@ -32,12 +32,43 @@ assembler id build prod ev mc =
 
 card : Decoder Card
 card =
-  map5 assembler
+  map5 cardAssembler
     (expect "before id" [0,0,0,1,1,637,0] identification)
     building
     production
     events
     misc
+
+eventAssembler : Identification -> EventStuff -> EventEffects -> Activation -> Trailer -> Event
+eventAssembler id es ef act trail =
+  { objectName = id.objectName
+  , id = id.id
+  , displayName = id.displayName
+  , duration = es.duration
+  , eventType = es.eventType
+  , v2 = es.v2
+  , v3 = es.v3
+  , everyRoundEffect = ef.everyRoundEffect
+  , expireEffect = ef.expireEffect
+  , solveEffect = ef.solveEffect
+  , insolvencyEffect = ef.insolvencyEffect
+  , solutionCost = act.solutionCost
+  , tippingPoint = act.tippingPoint
+  , emissionRange = act.emissionRange
+  , probability = act.probability
+  , minRounds = act.minRounds
+  , v5 = trail.v5
+  , spriteId = trail.spriteId
+  }
+
+event : Decoder Event
+event =
+  map5 eventAssembler
+    (expect "before id" [0,0,0,1,1,136,0] identification)
+    eventStuff
+    eventEffects
+    activation
+    trailer
 
 type alias Identification =
   { objectName : String
@@ -121,6 +152,90 @@ misc =
     prefixedString
     |> map (Debug.log "misc")
 
+type alias EventStuff =
+  { eventType : EventType
+  , v2 : Int
+  , duration : Int
+  , v3 : Int
+  }
+
+eventStuff : Decoder EventStuff
+eventStuff =
+  map4 EventStuff
+    eventType
+    arbitraryValue
+    buildTime
+    arbitraryValue
+    |> map (Debug.log "eventStuff")
+
+type alias EventEffects =
+  { everyRoundEffect : Effect
+  , expireEffect : Effect
+  , solveEffect : Effect
+  , insolvencyEffect : Effect
+  }
+
+eventEffects : Decoder EventEffects
+eventEffects =
+  map4 EventEffects
+    effect
+    effect
+    effect
+    effect
+    |> map (Debug.log "effects")
+
+type alias Activation =
+  { solutionCost : Tokens
+  , tippingPoint : TippingPoint
+  , emissionRange : (Int,Int)
+  , probability : Float
+  , minRounds : Int
+  }
+
+activation : Decoder Activation
+activation =
+  map5 Activation
+    tokens
+    tippingPoint
+    emissionRange
+    (expect "before probability" [0] probability)
+    rounds
+    |> map (Debug.log "activation")
+
+type alias Trailer =
+  { v5 : Int
+  , spriteId : Int
+  , internalName : String
+  }
+
+trailer : Decoder Trailer
+trailer =
+  map3 Trailer
+    arbitraryValue
+    (expect "before spriteId" [0] spriteId)
+    prefixedString
+    |> map (Debug.log "trailer")
+
+tippingPoint : Decoder TippingPoint
+tippingPoint =
+  unsignedInt32 LE
+    |> map (\x -> if x == 0 then Random else TippingPoint x)
+
+emissionRange : Decoder (Int, Int)
+emissionRange =
+  map2 Tuple.pair
+    (unsignedInt32 LE)
+    (unsignedInt32 LE)
+
+effect : Decoder Effect
+effect =
+  map4 Effect
+    effectType
+    tokens
+    listOfIds
+    emissions
+    |> map (Debug.log "effect")
+
 prefixedString : Decoder String
 prefixedString =
   unsignedInt32 LE
@@ -148,6 +263,10 @@ buildTime : Decoder Int
 buildTime =
   unsignedInt32 LE
 
+rounds : Decoder Int
+rounds =
+  unsignedInt32 LE
+
 speed : Decoder Float
 speed =
   float32 LE
@@ -165,6 +284,20 @@ sector =
         3 -> succeed Environment
         4 -> succeed Science
         _ -> let _ = Debug.log "unknown sector" x in fail
+      )
+
+effectType : Decoder EffectType
+effectType =
+  unsignedInt32 LE
+    |> andThen (\x -> case x of
+        0 -> succeed NoEffect
+        1 -> succeed GainResources
+        2 -> succeed LoseResources
+        3 -> succeed DestroyCards
+        4 -> succeed CreateCards
+        5 -> succeed ModifyEmissions
+        6 -> succeed LoseGame
+        _ -> let _ = Debug.log "unknown effect type" x in fail
       )
 
 replacedByBuild = bool
@@ -189,6 +322,15 @@ cardType =
         4 -> succeed Starred
         5 -> succeed Victory
         _ -> let _ = Debug.log "unknown card type" x in fail
+      )
+
+eventType : Decoder EventType
+eventType =
+  unsignedInt32 LE
+    |> andThen (\x -> case x of
+        1 -> succeed Negative
+        2 -> succeed Positive
+        _ -> let _ = Debug.log "unknown event type" x in fail
       )
 
 probability : Decoder Float
