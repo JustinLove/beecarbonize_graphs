@@ -16,7 +16,10 @@ suite : Test
 suite =
   describe "tests"
     [ describe "card"
-      [ test "true" <| \_ -> Expect.equal True True
+    --[ test "true" <| \_ -> Expect.equal True True
+      [ test "thermo2" <| \_ ->
+        decode card thermo2
+          |> Expect.equal (Just thermoCard2)
       {-[ test "industry" <| \_ ->
         decode card industry
           |> Expect.equal (Just industryCard)
@@ -82,7 +85,7 @@ industryCard =
     , EventChance 921 (imprecise 0.02)
     ]
   , eventsOnDestruction = [1022, 1023]
-  , spriteId = 308
+  , spriteId = ObjectId 0 308
   , arbitraryValue = 1
   , internalName = "industry20"
   }
@@ -109,7 +112,7 @@ coolingCard =
     [ EventChance 1016 (imprecise 0.02)
     ]
   , eventsOnDestruction = []
-  , spriteId = 357
+  , spriteId = ObjectId 0 357
   , arbitraryValue = 1
   , internalName = "radiative_cooling"
   }
@@ -137,7 +140,7 @@ coalCard =
     [ EventChance 911 (imprecise -0.01)
     ]
   , eventsOnDestruction = [904,1022, 1023]
-  , spriteId = 367
+  , spriteId = ObjectId 0 367
   , arbitraryValue = 2
   , internalName = "more_coal"
   }
@@ -162,8 +165,33 @@ thermoCard =
   , cardType = Victory
   , eventChances = []
   , eventsOnDestruction = []
-  , spriteId = 371
+  , spriteId = ObjectId 0 371
   , arbitraryValue = 1
+  , internalName = "planetary_thermostat"
+  }
+
+thermo2 = Hex.toBytes thermoString2 |> Maybe.withDefault (Encode.encode (Encode.string ""))
+thermoString2 = "00000000000000000000000001000000010000007e0200000000000008000000636172645f343634d00100001e000000636172645f6e616d652f706c616e65746172795f746865726d6f73746174000014000000140000001e000000000000000000000000000000000000000000000000000000900100000000803fecffffff040000000000000000000000000000000500000000000000000000000000000071010000000000000300000014000000706c616e65746172795f746865726d6f73746174"
+thermoCard2 =
+  { objectName = "card_464"
+  , id = 464
+  , displayName = "card_name/planetary_thermostat"
+  , buildCost = Tokens 20 20 30
+  , dubiousValue = 0
+  , rebate = Tokens 0 0 0
+  , instantEmissions = 0
+  , buildableCardsIds = []
+  , buildTime = 400
+  , speed = 1.0
+  , emissions = -20
+  , sector = Science
+  , replacedByBuild = False
+  , randomBuild = False
+  , cardType = Victory
+  , eventChances = []
+  , eventsOnDestruction = []
+  , spriteId = ObjectId 0 369
+  , arbitraryValue = 3
   , internalName = "planetary_thermostat"
   }
 
@@ -194,7 +222,7 @@ mirrorsCard =
     , EventChance 983 (imprecise 0.01)
     ]
   , eventsOnDestruction = []
-  , spriteId = 188
+  , spriteId = ObjectId 0 188
   , arbitraryValue = 2
   , internalName = "space_mirrors"
   }
@@ -226,7 +254,7 @@ geneticCard =
     , EventChance 1010 (imprecise -0.02)
     ]
   , eventsOnDestruction = []
-  , spriteId = 209
+  , spriteId = ObjectId 0 209
   , arbitraryValue = 1
   , internalName = "genetical_utopia"
   }
@@ -252,7 +280,7 @@ ideaCard =
   , cardType = Normal
   , eventChances = [ ]
   , eventsOnDestruction = []
-  , spriteId = 0
+  , spriteId = ObjectId 0 0
   , arbitraryValue = 1
   , internalName = "idea_incubator"
   }

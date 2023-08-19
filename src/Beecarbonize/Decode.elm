@@ -34,7 +34,7 @@ cardAssembler id build prod ev mc =
 card : Decoder Card
 card =
   map5 cardAssembler
-    (expect "before id" [0,0,0,1,1,637,0] identification)
+    identification
     building
     production
     events
@@ -65,7 +65,7 @@ eventAssembler id es ef act trail =
 event : Decoder Event
 event =
   map5 eventAssembler
-    (expect "before id" [0,0,0,1,1,136,0] identification)
+    identification
     eventStuff
     eventEffects
     activation
@@ -77,18 +77,20 @@ languages =
     <| translationList
 
 type alias Identification =
-  { objectName : String
+  { class : ObjectId
+  , objectName : String
   , id : Int
   , displayName : String
   }
 
 identification : Decoder Identification
 identification =
-  map3 Identification
-    prefixedString
+  map4 Identification
+    (expect "before class" [0,0,0,1] objectId)
+    (expect "before name" [0] prefixedString)
     cardId
     prefixedString
-    |> map (Debug.log "id")
+    |> map (log "id")
 
 type alias Building =
   { buildCost : Tokens
@@ -106,7 +108,7 @@ building =
     tokens
     emissions
     listOfIds
-    |> map (Debug.log "build")
+    |> map (log "build")
 
 type alias Production =
   { buildTime : Int
@@ -124,7 +126,7 @@ production =
     emissions
     sector
     arbitraryList
-    |> map (Debug.log "production")
+    |> map (log "production")
 
 type alias Events =
   { replacedByBuild : Bool
@@ -142,10 +144,10 @@ events =
     cardType
     eventChances
     listOfIds
-    |> map (Debug.log "events")
+    |> map (log "events")
 
 type alias Misc =
-  { spriteId : Int
+  { spriteId : ObjectId
   , arbitraryValue : Int
   , internalName : String
   }
@@ -153,10 +155,10 @@ type alias Misc =
 misc : Decoder Misc
 misc =
   map3 Misc
-    (expect "before spriteId" [0] spriteId)
+    spriteId
     (expect "before arbitrary" [0] arbitraryValue)
     prefixedString
-    |> map (Debug.log "misc")
+    |> map (log "misc")
 
 type alias EventStuff =
   { eventType : EventType
@@ -172,7 +174,7 @@ eventStuff =
     arbitraryValue
     buildTime
     arbitraryValue
-    |> map (Debug.log "eventStuff")
+    |> map (log "eventStuff")
 
 type alias EventEffects =
   { everyRoundEffect : Effect
@@ -188,7 +190,7 @@ eventEffects =
     effect
     effect
     effect
-    |> map (Debug.log "effects")
+    |> map (log "effects")
 
 type alias Activation =
   { solutionCost : Tokens
@@ -206,11 +208,11 @@ activation =
     emissionRange
     (expect "before probability" [0] probability)
     rounds
-    |> map (Debug.log "activation")
+    |> map (log "activation")
 
 type alias Trailer =
   { v5 : Int
-  , spriteId : Int
+  , spriteId : ObjectId
   , internalName : String
   }
 
@@ -218,9 +220,9 @@ trailer : Decoder Trailer
 trailer =
   map3 Trailer
     arbitraryValue
-    (expect "before spriteId" [0] spriteId)
+    spriteId
     prefixedString
-    |> map (Debug.log "trailer")
+    |> map (log "trailer")
 
 tippingPoint : Decoder TippingPoint
 tippingPoint =
@@ -240,7 +242,7 @@ effect =
     tokens
     listOfIds
     emissions
-    |> map (Debug.log "effect")
+    |> map (log "effect")
 
 prefixedString : Decoder String
 prefixedString =
@@ -257,9 +259,15 @@ cardId : Decoder Int
 cardId =
   unsignedInt32 LE
 
-spriteId : Decoder Int
+spriteId : Decoder ObjectId
 spriteId =
-  unsignedInt32 LE
+  objectId
+
+objectId : Decoder ObjectId
+objectId =
+  map2 ObjectId
+    (unsignedInt32 LE)
+    (unsignedInt32 LE)
 
 arbitraryValue : Decoder Int
 arbitraryValue =
@@ -289,7 +297,7 @@ sector =
         2 -> succeed People
         3 -> succeed Environment
         4 -> succeed Science
-        _ -> let _ = Debug.log "unknown sector" x in fail
+        _ -> failLog "unknown sector" x
       )
 
 effectType : Decoder EffectType
@@ -303,7 +311,7 @@ effectType =
         4 -> succeed CreateCards
         5 -> succeed ModifyEmissions
         6 -> succeed LoseGame
-        _ -> let _ = Debug.log "unknown effect type" x in fail
+        _ -> failLog "unknown effect type" x
       )
 
 replacedByBuild = bool
@@ -315,7 +323,7 @@ bool =
     |> andThen (\x -> case x of
       0 -> succeed False
       1 -> succeed True
-      _ -> let _ = Debug.log "unknown boolean value" x in fail
+      _ -> failLog "unknown boolean value" x
     )
 
 cardType : Decoder CardType
@@ -327,7 +335,7 @@ cardType =
         2 -> succeed SomethingElse
         4 -> succeed Starred
         5 -> succeed Victory
-        _ -> let _ = Debug.log "unknown card type" x in fail
+        _ -> failLog "unknown card type" x
       )
 
 eventType : Decoder EventType
@@ -336,7 +344,7 @@ eventType =
     |> andThen (\x -> case x of
         1 -> succeed Negative
         2 -> succeed Positive
-        _ -> let _ = Debug.log "unknown event type" x in fail
+        _ -> failLog "unknown event type" x
       )
 
 probability : Decoder Float
@@ -346,7 +354,7 @@ probability =
 eventChances : Decoder (List EventChance)
 eventChances =
   list (eventChance)
-    |> map (Debug.log "chances")
+    |> map (log "chances")
 
 eventChance : Decoder EventChance
 eventChance =
@@ -360,22 +368,22 @@ tokens =
     (unsignedInt32 LE)
     (unsignedInt32 LE)
     (unsignedInt32 LE)
-    |> map (Debug.log "tokens")
+    |> map (log "tokens")
 
 listOfIds : Decoder (List Int)
 listOfIds =
   list (unsignedInt32 LE)
-    --|> map (Debug.log "ids")
+    --|> map (log "ids")
 
 arbitraryList : Decoder (List Int)
 arbitraryList =
   list (unsignedInt32 LE)
-    |> map (Debug.log "arbitrary")
+    |> map (log "arbitrary")
 
 listOfStrings : Decoder (List String)
 listOfStrings =
   list prefixedString
-    --|> map (Debug.log "strings")
+    --|> map (log "strings")
 
 type alias LanguageEntry =
   { key : String
@@ -391,7 +399,7 @@ languageEntry =
     arbitraryValue
     listOfStrings
     listOfIds
-    --|> map (Debug.log "langentry")
+    --|> map (log "langentry")
 
 langToPair : LanguageEntry -> (String, String)
 langToPair lang =
@@ -405,13 +413,13 @@ languagePair =
 translationList : Decoder (Dict String String)
 translationList =
   list languagePair
-    --|> map (Debug.log "trans")
+    --|> map (log "trans")
     |> map Dict.fromList
 
 list : Decoder a -> Decoder (List a)
 list decoder =
   unsignedInt32 LE
-    --|> map (Debug.log "n")
+    --|> map (log "n")
     |> andThen (\len -> loop (len, []) (listStep decoder))
 
 listStep : Decoder a -> (Int, List a) -> Decoder (Step (Int, List a) (List a))
@@ -424,13 +432,13 @@ listStep decoder (n, xs) =
 discard : Int -> Decoder a -> Decoder a
 discard count x =
   bytes count
-    |> map ( Hex.toString >> Debug.log "discard")
+    |> map ( Hex.toString >> log "discard")
     |> andThen (always x)
 
 discardInts : Int -> Decoder a -> Decoder a
 discardInts count x =
   loop (count//4, []) (listStep (unsignedInt32 LE))
-    |> map (Debug.log "discard")
+    |> map (log "discard")
     |> andThen (always x)
 
 expect : String -> List Int -> Decoder a -> Decoder a
@@ -445,18 +453,15 @@ compare label next expected actual =
       case actual of
         a :: az ->
           if e /= a then
-            let _ = Debug.log label (expected, actual) in
-            fail
+            failLog label (expected, actual)
           else
             compare label next ez az
         [] ->
-          let _ = Debug.log label (expected, actual) in
-          fail
+          failLog label (expected, actual)
     [] -> 
       case actual of
         a :: az ->
-          let _ = Debug.log label (expected, actual) in
-          fail
+          failLog label (expected, actual)
         [] ->
           next
 
@@ -465,4 +470,12 @@ toList b =
   decode (loop (width b, []) (listStep unsignedInt8)) b
 
 dump title x =
-  let _ = Debug.log title (Hex.toString x) in x
+  let _ = log title (Hex.toString x) in x
+
+log title x =
+  --Debug.log title x
+  x
+
+failLog title x =
+  --let _ = Debug.log title x in fail
+  fail

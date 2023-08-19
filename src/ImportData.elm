@@ -3,6 +3,7 @@ module ImportData exposing (..)
 import Beecarbonize exposing (..)
 import Beecarbonize.Decode as Decode
 import Console
+import ResourceGraph
 
 import Bytes exposing (Bytes)
 import Bytes.Decode
@@ -71,7 +72,7 @@ update msg model =
     ConsoleEvent (Ok (Console.ReadFileBinary name (Err err))) ->
       (model, Console.write ("Failed to read " ++ name ++ " : " ++ err))
     ConsoleEvent (Ok (Console.WriteFile name (Ok _))) ->
-      (model, Cmd.none)
+      departure model
     ConsoleEvent (Ok (Console.WriteFile name (Err err))) ->
       (model, Console.write ("Failed to write " ++ name ++ " : " ++ err))
     ConsoleEvent (Err err) ->
@@ -85,11 +86,11 @@ updateReadFile name contents model =
       {model | filesRead = model.filesRead + 1}
         |> checkDone
     Ok (CardFile card) -> 
-      let _ = Debug.log name card.objectName in
+      --let _ = Debug.log name card.objectName in
       {model | filesRead = model.filesRead + 1, cards = card :: model.cards}
         |> checkDone
     Ok (EventFile event) -> 
-      let _ = Debug.log name event.objectName in
+      --let _ = Debug.log name event.objectName in
       {model | filesRead = model.filesRead + 1, events = event :: model.events}
         |> checkDone
     Ok (Translations dict) -> 
@@ -99,14 +100,14 @@ updateReadFile name contents model =
     Ok (Dir paths) -> 
       let
         proc = paths
-          |> List.take 0
+          --|> List.take 0
           --|> List.drop 121
           --|> List.drop 2
           --|> List.take 160
       in
       ( {model | fileCount = List.length proc + 1}
       , proc
-        |> Debug.log "paths"
+        --|> Debug.log "paths"
         |> List.map Console.readFileBinary
         |> Cmd.batch
       )
@@ -120,17 +121,29 @@ updateReadFile name contents model =
 
 checkDone : Model -> (Model, Cmd Msg)
 checkDone model =
-  let _ = Debug.log "check" ((model.fileCount, model.filesRead), (List.length model.cards, List.length model.events)) in
+  --let _ = Debug.log "check" ((model.fileCount, model.filesRead), (List.length model.cards, List.length model.events)) in
   if model.filesRead >= model.fileCount then
     ( model
-    , Cmd.batch
-      --(Console.exit :: (List.map (Console.write<<printCard) model.cards))
-      --(Console.exit :: (List.map (Console.write<<printEvent) model.events))
-      (Console.exit :: [Console.write (printTranslations model.translations)])
-      --(Console.exit :: [Console.write "done"])
+    , 
+      { cards = model.cards
+      , events = model.events
+      , translations = model.translations
+      }
+        |> ResourceGraph.resourceGraph
+        |> Console.writeFile "resources.dot"
     )
   else
     (model, Cmd.none)
+
+departure : Model -> (Model, Cmd Msg)
+departure model =
+  ( model
+  , Cmd.batch
+    --(Console.exit :: (List.map (Console.write<<printCard) model.cards))
+    --(Console.exit :: (List.map (Console.write<<printEvent) model.events))
+    --(Console.exit :: [Console.write (printTranslations model.translations)])
+    (Console.exit :: [Console.write "done"])
+  )
 
 printCard : Card -> String
 printCard card =

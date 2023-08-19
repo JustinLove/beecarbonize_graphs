@@ -1,7 +1,9 @@
 module Beecarbonize exposing
   ( Card
   , Event
+  , GameObject
   , Effect
+  , ObjectId(..)
   , Tokens(..)
   , EventChance(..)
   , CardType(..)
@@ -14,6 +16,8 @@ module Beecarbonize exposing
   , gainResources
   , destroyCards
   )
+
+type ObjectId = ObjectId Int Int
 
 type Tokens = Tokens Int Int Int
 
@@ -31,6 +35,13 @@ type Sector
   | People
   | Environment
   | Science
+
+type alias GameObject o =
+  { o
+  | objectName : String
+  , id : Int
+  , displayName : String
+  }
 
 type alias Card =
   { objectName : String
@@ -50,7 +61,7 @@ type alias Card =
   , cardType : CardType
   , eventChances : List EventChance
   , eventsOnDestruction : List Int
-  , spriteId : Int
+  , spriteId : ObjectId
   , arbitraryValue : Int
   , internalName : String
   }
@@ -73,7 +84,7 @@ type alias Event =
   , probability : Float
   , minRounds : Int
   , v5 : Int
-  , spriteId : Int
+  , spriteId : ObjectId
   }
 
 type EventType
