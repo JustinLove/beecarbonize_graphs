@@ -9,12 +9,14 @@ Thanks to Perfect Info's [Full Events List][https://steamcommunity.com/sharedfil
 - [Beecarbonize Tech Tree](https://wondible.com/beecarbonize/beecarbonize_tech_tree.html)
 - [Beecarbonize Event Chances](https://wondible.com/beecarbonize/beecarbonize_event_chances.html)
 - [Beecarbonize Tech Resources](https://wondible.com/beecarbonize/beecarbonize_tech_resources.html)
+- [Beecarbonize Event Resources](https://wondible.com/beecarbonize/beecarbonize_event_resources.html)
 
 ### Permanent Steam 2023-08-10
 
 - [Beecarbonize Tech Tree - Steam 2023-08-10](https://wondible.com/beecarbonize/20230810/beecarbonize_tech_tree.html)
 - [Beecarbonize Event Chances - Steam 2023-08-10](https://wondible.com/beecarbonize/20230810/beecarbonize_event_chances.html)
 - [Beecarbonize Tech Resources](https://wondible.com/beecarbonize/20230810/beecarbonize_tech_resources.html)
+- [Beecarbonize Event Resources](https://wondible.com/beecarbonize/20230810/beecarbonize_event_resources.html)
 
 ### Permanent Steam 2023-08-01
 
