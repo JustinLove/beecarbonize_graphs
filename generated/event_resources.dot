@@ -1,0 +1,321 @@
+digraph EventResourceGraph {
+    bgcolor=gray30
+    graph [rankdir=LR]
+    edge [color=white]
+    subgraph Industry {
+        color=fuchsia
+        node [color=fuchsia,shape=box,style=filled,fillcolor=plum]
+        110[label=Fracking]
+        115[label="Pollution regulation"]
+        116[label="Water desalination"]
+        117[label="Massive mining"]
+        129[label="Deep sea mining"]
+        435[label="Geothermal wells"]
+        460[label="Miracle enzyme"]
+    }
+    subgraph Environment {
+        color=green
+        node [color=green,shape=box,style=filled,fillcolor=palegreen]
+        303[label="Kelp plantations (-30)"]
+        301[label="Agroecology (-10)"]
+        307[label="Agroforestry (-50)"]
+        310[label="Amazon reforestation (-70)"]
+        311[label=Permaculture]
+        314[label="Mass forestation (-30)"]
+        313[label="Groves and pools (-20)"]
+        320[label="Nature engineers (-20)"]
+        322[label="Nature restoration (-50)"]
+        324[label="30 by 30 (-70)"]
+        323[label="Protected landscapes (-40)"]
+        327[label="Ecocentrism (-40)"]
+        332[label="Regenerative agriculture"]
+        430[label="Robobees (-10)"]
+    }
+    subgraph People {
+        color=gold
+        node [color=gold,shape=box,style=filled,fillcolor=goldenrod1]
+        229[label="Carbon tax"]
+        235[label="Mass airconditioning"]
+        234[label="Voluntary frugality"]
+        238[label="Decentralised economy (-40)"]
+        237[label="Lifestyle changes"]
+        246[label="Transition from fossils"]
+        250[label="Energy-efficient cities (-30)"]
+    }
+    subgraph Science {
+        color=dodgerblue
+        node [color=dodgerblue,shape=box,style=filled,fillcolor=lightskyblue]
+        417[label="Coastal barriers"]
+        418[label="Artificial corals"]
+        424[label="Meteorological models"]
+        438[label="Reflective sheets"]
+        441[label="Space research"]
+        454[label="Humankind engineering"]
+    }
+    subgraph Events {
+        color=""
+        node [color=gray10,shape=ellipse,style=filled,fontcolor=white]
+        edge [color=gold3,dir=both,arrowtail=odiamond]
+        1001[label="Destructive hurricanes"]
+        1002[label="Acidic oceans"]
+        1003[label="Mass flight to poles"]
+        1005[label="All wildlife extinct"]
+        1004[label="Sea current disruption"]
+        1013[label="Local protests"]
+        1007[label="Chaotic Monsoons"]
+        1008[label="Antarctic collapse"]
+        1014[label="Mass protests"]
+        1015[label="Regional clima collapse"]
+        1017[label="Agricultural calamity"]
+        1018[label="Kessler syndrome"]
+        1019[label="Asteroid swarm"]
+        1023[label="Poverty protests"]
+        1020[label="Nuclear clean-up"]
+        1021[label="General strike"]
+        1025[label="Hunger strikes"]
+        1022[label="Crumbling infrastructure"]
+        1026[label="Dead corals"]
+        1029[label="Private space travels"]
+        1031[label="Rogue AI"]
+        1033[label="Invasive weeds"]
+        1032[label="Garbage landslides"]
+        1034[label="Nitrogen run-off"]
+        1101[label="100 year floods"]
+        1102[label="Permafrost decay"]
+        1103[label="Marine life decline"]
+        1104[label="Food conflicts"]
+        1105[label="Boreal forest collapse"]
+        1106[label="No drinking water"]
+        1107[label=Chaos]
+        915[label=Heatwaves]
+        916[label="No to consumerism"]
+        917[label="Windless dark winter"]
+        918[label="Stop wasting food"]
+        920[label="Last elephants"]
+        919[label="Anti enviro movement"]
+        921[label="Non-regulated pollutants"]
+        922[label="Wild deforestation"]
+        926[label="Fossil backed dezinfo"]
+        930[label="Widespread cancer"]
+        928[label="Amazon forest collapse"]
+        932[label="Gulf stream slowdown"]
+        934[label="Rising ocean levels"]
+        931[label="Oil rig explosion"]
+        933[label="Equatorial famine"]
+        936[label="Coastal refugees"]
+        935[label="Coastal countries sunk"]
+        938[label="Deadly heatwaves"]
+        939[label="Climate refugees"]
+        940[label="Wave of protectionism"]
+        943[label="Local hunger revolutions"]
+        942[label="Kelp forest breakdown"]
+        946[label="Anti-monoculture laws"]
+        945[label="Groves and pools"]
+        947[label="Youth revolt"]
+        948[label="Melting arctic ice"]
+        949[label="No arctic reflections"]
+        954[label="Unpredictable weather"]
+        955[label="Melting permafrost"]
+        950[label="Climate apathy"]
+        951[label="Tragic harvest"]
+        956[label="Deep see fishing"]
+        957[label="Biodiversity breakdown"]
+        958[label="Biosphere collapse"]
+        962[label="Pollinators extinction"]
+        959[label="Food chain disruption"]
+        963[label="Greenland on fire"]
+        968[label="World hunger"]
+        969[label="Resource wars"]
+        965[label="Dead oceans"]
+        966[label="Massive migration"]
+        967[label="50% land is dead"]
+        970[label="The End"]
+        972[label="Coral die-off"]
+        983[label="Lack of rare minerals"]
+        981[label="Gas shortage"]
+        982[label="Lack of fossil fuels"]
+        986[label="Mass ecoterorism"]
+    }
+    subgraph {
+        1002 -> 322[label="2",arrowhead=onormal,color=plum,fontcolor=plum]
+        1002 -> 322[label="2",arrowhead=onormal,color=goldenrod1,fontcolor=goldenrod1]
+        1002 -> 322[label="3",arrowhead=onormal,color=lightskyblue,fontcolor=lightskyblue]
+        1002 -> 959
+        1003 -> 324[label="10",arrowhead=onormaldotdot,color=plum,fontcolor=plum]
+        1003 -> 324[label="20",arrowhead=onormal,color=lightskyblue,fontcolor=lightskyblue]
+        Lose1003[label=Lose,style=filled,fillcolor=crimson,shape=octagon]
+        1003 -> Lose1003
+        Lose1005[label=Lose,style=filled,fillcolor=crimson,shape=octagon]
+        1005 -> Lose1005
+        1004 -> 229[label="5",arrowhead=onormaldotdot,color=plum,fontcolor=plum]
+        1004 -> 229[label="6",arrowhead=onormal,color=lightskyblue,fontcolor=lightskyblue]
+        1013 -> 1014
+        1007 -> 424[label="5",arrowhead=onormal,color=plum,fontcolor=plum]
+        1007 -> 424[label="5",arrowhead=onormaldot,color=goldenrod1,fontcolor=goldenrod1]
+        1007 -> 424[label="5",arrowhead=onormal,color=lightskyblue,fontcolor=lightskyblue]
+        1007 -> 966
+        1008 -> 958
+        1015 -> 313[label="4",arrowhead=onormal,color=plum,fontcolor=plum]
+        1015 -> 1013
+        1017 -> 943
+        1018 -> 441[label="7",arrowhead=onormal,color=plum,fontcolor=plum]
+        1018 -> 441[label="7",arrowhead=onormal,color=lightskyblue,fontcolor=lightskyblue]
+        1019 -> 460[label="3",arrowhead=onormal,color=plum,fontcolor=plum]
+        1019 -> 460[label="5",arrowhead=onormal,color=lightskyblue,fontcolor=lightskyblue]
+        1023 -> 307[label="6",arrowhead=onormal,color=goldenrod1,fontcolor=goldenrod1]
+        1023 -> 307[label="",arrowhead=onormaldot,color=lightskyblue,fontcolor=lightskyblue]
+        1023 -> 968
+        1020 -> 322[label="5",arrowhead=onormal,color=plum,fontcolor=plum]
+        1020 -> 322[label="5",arrowhead=onormal,color=lightskyblue,fontcolor=lightskyblue]
+        1021 -> 246[label="6",arrowhead=onormal,color=plum,fontcolor=plum]
+        1021 -> 246[label="6",arrowhead=onormaldot,color=goldenrod1,fontcolor=goldenrod1]
+        1025 -> 301[label="4",arrowhead=onormal,color=goldenrod1,fontcolor=goldenrod1]
+        1025 -> 1023
+        1022 -> 250[label="5",arrowhead=onormaldotdot,color=plum,fontcolor=plum]
+        1022 -> 250[label="5",arrowhead=onormal,color=lightskyblue,fontcolor=lightskyblue]
+        1022 -> 1023
+        1026 -> 418[label="10",arrowhead=onormal,color=plum,fontcolor=plum]
+        1026 -> 418[label="15",arrowhead=onormal,color=lightskyblue,fontcolor=lightskyblue]
+        1026 -> 965
+        1029 -> 234[label="",arrowhead=onormaldotdotdot,color=plum,fontcolor=plum]
+        1029 -> 234[label="10",arrowhead=onormal,color=goldenrod1,fontcolor=goldenrod1]
+        1031 -> 454[label="6",arrowhead=onormaldotdot,color=goldenrod1,fontcolor=goldenrod1]
+        1031 -> 454[label="12",arrowhead=onormal,color=lightskyblue,fontcolor=lightskyblue]
+        1033 -> 327[label="7",arrowhead=onormaldot,color=plum,fontcolor=plum]
+        1033 -> 327[label="9",arrowhead=onormal,color=lightskyblue,fontcolor=lightskyblue]
+        1032 -> 320[label="10",arrowhead=onormal,color=plum,fontcolor=plum]
+        1032 -> 320[label="",arrowhead=onormaldotdot,color=goldenrod1,fontcolor=goldenrod1]
+        1032 -> 320[label="10",arrowhead=onormal,color=lightskyblue,fontcolor=lightskyblue]
+        1032 -> 986
+        1034 -> 332[label="5",arrowhead=onormal,color=plum,fontcolor=plum]
+        1034 -> 332[label="5",arrowhead=onormaldot,color=lightskyblue,fontcolor=lightskyblue]
+        1034 -> 959
+        1101 -> 320[label="3",arrowhead=onormal,color=plum,fontcolor=plum]
+        1101 -> 320[label="2",arrowhead=onormaldotdot,color=goldenrod1,fontcolor=goldenrod1]
+        1101 -> 1013
+        1102 -> 310[label="4",arrowhead=onormal,color=plum,fontcolor=plum]
+        1102 -> 310[label="",arrowhead=onormaldotdot,color=goldenrod1,fontcolor=goldenrod1]
+        1102 -> 310[label="3",arrowhead=onormal,color=lightskyblue,fontcolor=lightskyblue]
+        1103 -> 936
+        1104 -> 1025
+        1105 -> 322[label="7",arrowhead=onormal,color=goldenrod1,fontcolor=goldenrod1]
+        1106 -> 116[label="10",arrowhead=onormal,color=plum,fontcolor=plum]
+        1106 -> 116[label="10",arrowhead=onormal,color=goldenrod1,fontcolor=goldenrod1]
+        1106 -> 969
+        1107 -> 238[label="10",arrowhead=onormal,color=plum,fontcolor=plum]
+        1107 -> 238[label="25",arrowhead=onormal,color=goldenrod1,fontcolor=goldenrod1]
+        Lose1107[label=Lose,style=filled,fillcolor=crimson,shape=octagon]
+        1107 -> Lose1107
+        916 -> 237[label="2",arrowhead=onormaldotdot,color=goldenrod1,fontcolor=goldenrod1]
+        917 -> 435[label="3",arrowhead=onormal,color=lightskyblue,fontcolor=lightskyblue]
+        918 -> 311[label="",arrowhead=onormaldot,color=plum,fontcolor=plum]
+        918 -> 311[label="3",arrowhead=onormal,color=goldenrod1,fontcolor=goldenrod1]
+        920 -> 950
+        919 -> 921
+        921 -> 115[label="2",arrowhead=onormal,color=goldenrod1,fontcolor=goldenrod1]
+        921 -> 115[label="3",arrowhead=onormaldotdot,color=lightskyblue,fontcolor=lightskyblue]
+        922 -> 314[label="3",arrowhead=onormal,color=plum,fontcolor=plum]
+        922 -> 314[label="",arrowhead=onormaldotdotdot,color=goldenrod1,fontcolor=goldenrod1]
+        922 -> 314[label="1",arrowhead=onormal,color=lightskyblue,fontcolor=lightskyblue]
+        926 -> 110
+        930 -> 967
+        928 -> 310[label="5",arrowhead=onormaldotdot,color=goldenrod1,fontcolor=goldenrod1]
+        928 -> 310[label="7",arrowhead=onormal,color=lightskyblue,fontcolor=lightskyblue]
+        932 -> 958
+        934 -> 417[label="2",arrowhead=onormal,color=plum,fontcolor=plum]
+        934 -> 417[label="3",arrowhead=onormal,color=lightskyblue,fontcolor=lightskyblue]
+        934 -> 935
+        931 -> 115[label="1",arrowhead=onormal,color=goldenrod1,fontcolor=goldenrod1]
+        931 -> 115[label="3",arrowhead=onormaldotdot,color=lightskyblue,fontcolor=lightskyblue]
+        933 -> 968
+        936 -> 943
+        935 -> 417[label="3",arrowhead=onormal,color=plum,fontcolor=plum]
+        935 -> 417[label="4",arrowhead=onormal,color=lightskyblue,fontcolor=lightskyblue]
+        935 -> 936
+        938 -> 235[label="3",arrowhead=onormal,color=plum,fontcolor=plum]
+        938 -> 235[label="3",arrowhead=onormal,color=lightskyblue,fontcolor=lightskyblue]
+        938 -> 939
+        939 -> 235[label="6",arrowhead=onormal,color=plum,fontcolor=plum]
+        939 -> 235[label="3",arrowhead=onormal,color=lightskyblue,fontcolor=lightskyblue]
+        939 -> 969
+        940 -> 947
+        942 -> 303[label="5",arrowhead=onormaldot,color=plum,fontcolor=plum]
+        942 -> 303[label="5",arrowhead=onormal,color=lightskyblue,fontcolor=lightskyblue]
+        942 -> 958
+        946 -> 322[label="1",arrowhead=onormal,color=plum,fontcolor=plum]
+        946 -> 322[label="2",arrowhead=onormal,color=goldenrod1,fontcolor=goldenrod1]
+        945 -> 313[label="1",arrowhead=onormal,color=plum,fontcolor=plum]
+        945 -> 313[label="1",arrowhead=onormal,color=goldenrod1,fontcolor=goldenrod1]
+        947 -> 238[label="3",arrowhead=onormal,color=goldenrod1,fontcolor=goldenrod1]
+        947 -> 950
+        948 -> 949
+        949 -> 958
+        954 -> 424[label="2",arrowhead=onormal,color=plum,fontcolor=plum]
+        954 -> 424[label="",arrowhead=onormaldot,color=goldenrod1,fontcolor=goldenrod1]
+        954 -> 424[label="5",arrowhead=onormal,color=lightskyblue,fontcolor=lightskyblue]
+        955 -> 438[label="4",arrowhead=onormal,color=plum,fontcolor=plum]
+        955 -> 438[label="4",arrowhead=onormal,color=lightskyblue,fontcolor=lightskyblue]
+        951 -> 968
+        956 -> 323[label="",arrowhead=onormaldot,color=plum,fontcolor=plum]
+        956 -> 323[label="2",arrowhead=onormal,color=goldenrod1,fontcolor=goldenrod1]
+        956 -> 323[label="2",arrowhead=onormal,color=lightskyblue,fontcolor=lightskyblue]
+        956 -> 957
+        957 -> 323[label="",arrowhead=onormaldot,color=plum,fontcolor=plum]
+        957 -> 323[label="5",arrowhead=onormal,color=goldenrod1,fontcolor=goldenrod1]
+        957 -> 323[label="4",arrowhead=onormal,color=lightskyblue,fontcolor=lightskyblue]
+        957 -> 958
+        958 -> 323[label="10",arrowhead=onormaldot,color=plum,fontcolor=plum]
+        958 -> 323[label="30",arrowhead=onormal,color=lightskyblue,fontcolor=lightskyblue]
+        Lose958[label=Lose,style=filled,fillcolor=crimson,shape=octagon]
+        958 -> Lose958
+        962 -> 430[label="4",arrowhead=onormal,color=plum,fontcolor=plum]
+        962 -> 430[label="4",arrowhead=onormal,color=lightskyblue,fontcolor=lightskyblue]
+        959 -> 968
+        963 -> 966
+        Lose968[label=Lose,style=filled,fillcolor=crimson,shape=octagon]
+        968 -> Lose968
+        Lose969[label=Lose,style=filled,fillcolor=crimson,shape=octagon]
+        969 -> Lose969
+        Lose965[label=Lose,style=filled,fillcolor=crimson,shape=octagon]
+        965 -> Lose965
+        966 -> 970
+        967 -> 968
+        Lose970[label=Lose,style=filled,fillcolor=crimson,shape=octagon]
+        970 -> Lose970
+        972 -> 418[label="3",arrowhead=onormal,color=plum,fontcolor=plum]
+        972 -> 418[label="4",arrowhead=onormal,color=lightskyblue,fontcolor=lightskyblue]
+        972 -> 1026
+        983 -> 129[label="10",arrowhead=onormaldotdot,color=plum,fontcolor=plum]
+        983 -> 129[label="10",arrowhead=onormal,color=lightskyblue,fontcolor=lightskyblue]
+        981 -> 110[label="6",arrowhead=onormal,color=plum,fontcolor=plum]
+        981 -> 110[label="7",arrowhead=onormal,color=goldenrod1,fontcolor=goldenrod1]
+        981 -> 966
+        982 -> 117[label="6",arrowhead=onormal,color=plum,fontcolor=plum]
+        982 -> 117[label="5",arrowhead=onormal,color=goldenrod1,fontcolor=goldenrod1]
+    }
+    subgraph {
+        node [shape=none,fontcolor=white]
+        "Tipping Point 250" -> 1001
+        "Tipping Point 500" -> 1002
+        "Tipping Point 2800" -> 1003
+        "Tipping Point 2000" -> 1005
+        "Tipping Point 1400" -> 1004
+        "Tipping Point 2000" -> 1007
+        "Tipping Point 2000" -> 1008
+        "Tipping Point 250" -> 1101
+        "Tipping Point 500" -> 1102
+        "Tipping Point 900" -> 1103
+        "Tipping Point 900" -> 1104
+        "Tipping Point 1400" -> 1105
+        "Tipping Point 2500" -> 1106
+        "Tipping Point 2800" -> 1107
+        "Tipping Point 250" -> 915
+        "Tipping Point 1400" -> 928
+        "Tipping Point 2800" -> 958
+        "Tipping Point 900" -> 962
+        "Tipping Point 2500" -> 965
+        "Tipping Point 2500" -> 967
+        "Tipping Point 3000" -> 970
+        "Tipping Point 500" -> 972
+    }
+}

@@ -129,8 +129,10 @@ checkDone model =
       , events = model.events
       , translations = model.translations
       }
-        |> ResourceGraph.resourceGraph
-        |> Console.writeFile "resources.dot"
+        --|> ResourceGraph.resourceGraph
+        --|> Console.writeFile "resources.dot"
+        |> ResourceGraph.eventGraph
+        |> Console.writeFile "event_resources.dot"
     )
   else
     (model, Cmd.none)
